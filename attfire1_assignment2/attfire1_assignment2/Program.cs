@@ -17,7 +17,7 @@ namespace attfire1_assignment2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
             InsertEnsembleRecord();
             InsertPersonRecord();
             Application.Run(new Form1());
