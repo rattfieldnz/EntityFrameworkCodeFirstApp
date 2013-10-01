@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace attfire1_assignment2
+{
+    public class Student
+    {
+        [Key]
+        public int StudentId { get; set; } 
+        public short Age { get; set; } 
+        public int PersonPersonId { get; set; } 
+        public int? InstrumentInstrumentId { get; set; } 
+        public int ParentParentId { get; set; } 
+
+        // Reverse navigation
+        public virtual ICollection<StudentLesson> StudentLesson { get; set; } 
+
+        // Foreign keys
+        [Required]
+        [ForeignKey("PersonPersonId")]
+        public virtual Person Person { get; set; }
+        
+        [ForeignKey("InstrumentInstrumentId")]
+        public virtual Instrument Instrument { get; set; }
+        [Required]
+        [ForeignKey("ParentParentId")]
+        public virtual Parent Parent { get; set; } 
+
+        public Student()
+        {
+            StudentLesson = new List<StudentLesson>();
+        }
+    }
+}

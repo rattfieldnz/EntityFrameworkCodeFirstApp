@@ -1,0 +1,3 @@
+http://www.zunisoft.com/2011/03/create-data-dictionary-on-fly-for-any.html
+
+http://codebetter.com/raymondlewallen/2005/03/04/generate-sql-server-data-dictionary-table/
