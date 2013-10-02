@@ -80,6 +80,10 @@ namespace attfire1_assignment2
                     NumberOfAuthCopies = 100, 
                     ScoreType = "Orchestral"
                 };
+
+                db.SheetMusic.Add(sheetMusic);
+                db.SaveChanges();
+                db.Database.Connection.Close();
             }
         }
     }
