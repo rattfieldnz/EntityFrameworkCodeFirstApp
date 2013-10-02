@@ -10,12 +10,19 @@ namespace attfire1_assignment2
 {
     public class SheetMusic
     {
+        [Required]
         [Key]
-        public int SheetMusicId { get; set; } 
-        public string Title { get; set; } 
-        public string ComposerName { get; set; } 
-        public string DifficultyLevel { get; set; } 
-        public short NumberOfAuthCopies { get; set; } 
+        public int SheetMusicId { get; set; }
+        [Required]
+        public string Title { get; set; }
+        [Required]
+        public string ComposerName { get; set; }
+        [Required]
+        [Range(0,8)]
+        public short DifficultyLevel { get; set; }
+        [Required]
+        public short NumberOfAuthCopies { get; set; }
+        [Required]
         public string ScoreType { get; set; } 
 
         // Reverse navigation

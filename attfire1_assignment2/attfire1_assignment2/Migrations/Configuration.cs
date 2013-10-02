@@ -9,7 +9,7 @@ namespace attfire1_assignment2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(attfire1_assignment2.MusicClassesContext context)

@@ -17,7 +17,7 @@ namespace attfire1_assignment2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
             InsertEnsembleRecord();
             InsertPersonRecord();
             Application.Run(new Form1());
@@ -66,5 +66,18 @@ namespace attfire1_assignment2
                 db.Database.Connection.Close();
             }
         }
+
+        /*private static void InsertSheetMusicRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                var sheetMusic = new SheetMusic()
+                {
+                    Title = "Bohemian Rhapsody - Orchestra Version", 
+                    ComposerName = "Freddy Mercury", 
+                    DifficultyLevel
+                };
+            }
+        }*/
     }
 }

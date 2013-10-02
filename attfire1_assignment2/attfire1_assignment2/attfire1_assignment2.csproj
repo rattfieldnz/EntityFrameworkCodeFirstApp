@@ -76,10 +76,6 @@
     <Compile Include="Instrument.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\201310010107061_InitialCreate.cs" />
-    <Compile Include="Migrations\201310010107061_InitialCreate.Designer.cs">
-      <DependentUpon>201310010107061_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicClassesContext.cs" />
     <Compile Include="Parent.cs" />
@@ -97,9 +93,6 @@
     <Compile Include="TutorPositionsHeld.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310010107061_InitialCreate.resx">
-      <DependentUpon>201310010107061_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
