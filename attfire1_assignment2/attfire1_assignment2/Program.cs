@@ -17,10 +17,11 @@ namespace attfire1_assignment2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MusicClassesContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
             InsertEnsembleRecord();
             InsertPersonRecord();
             InsertSheetMusicRecord();
+            InsertPersonSheetMusicRecord();
             Application.Run(new Form1());
         }
 
@@ -82,6 +83,30 @@ namespace attfire1_assignment2
                 };
 
                 db.SheetMusic.Add(sheetMusic);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
+
+        private static void InsertPersonSheetMusicRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                int personID = (from p in db.Person
+                               where p.FirstName == "Bob" && p.LastName == "Brown"
+                               select p.PersonId).First();
+
+                int sheetMusicID = (from sm in db.SheetMusic
+                                    where sm.Title == "Bohemian Rhapsody - Orchestra Version"
+                                    select sm.SheetMusicId).First();
+
+                var personSheetMusic = new PersonSheetMusic()
+                {
+                    PersonPersonId = personID,
+                    SheetMusicSheetMusicId = sheetMusicID
+                };
+
+                db.PersonSheetMusic.Add(personSheetMusic);
                 db.SaveChanges();
                 db.Database.Connection.Close();
             }
