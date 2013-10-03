@@ -76,9 +76,9 @@
     <Compile Include="Instrument.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\201310030844243_ParentClass.cs" />
-    <Compile Include="Migrations\201310030844243_ParentClass.Designer.cs">
-      <DependentUpon>201310030844243_ParentClass.cs</DependentUpon>
+    <Compile Include="Migrations\201310030850292_ParentAndStudentClass.cs" />
+    <Compile Include="Migrations\201310030850292_ParentAndStudentClass.Designer.cs">
+      <DependentUpon>201310030850292_ParentAndStudentClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicClassesContext.cs" />
@@ -98,8 +98,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310030844243_ParentClass.resx">
-      <DependentUpon>201310030844243_ParentClass.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310030850292_ParentAndStudentClass.resx">
+      <DependentUpon>201310030850292_ParentAndStudentClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

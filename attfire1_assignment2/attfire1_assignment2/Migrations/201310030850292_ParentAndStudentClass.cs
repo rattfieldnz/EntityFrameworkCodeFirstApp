@@ -3,7 +3,7 @@ namespace attfire1_assignment2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ParentClass : DbMigration
+    public partial class ParentAndStudentClass : DbMigration
     {
         public override void Up()
         {
@@ -16,8 +16,8 @@ namespace attfire1_assignment2.Migrations
                         ParentParentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ParentId)
-                .ForeignKey("dbo.People", t => t.PersonPersonId, cascadeDelete: true)
-                .ForeignKey("dbo.Parents", t => t.ParentParentId)
+                .ForeignKey("dbo.People", t => t.PersonPersonId, cascadeDelete: false)
+                .ForeignKey("dbo.Parents", t => t.ParentParentId, cascadeDelete: false)
                 .Index(t => t.PersonPersonId)
                 .Index(t => t.ParentParentId);
             
@@ -32,9 +32,9 @@ namespace attfire1_assignment2.Migrations
                         ParentParentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.StudentId)
-                .ForeignKey("dbo.People", t => t.PersonPersonId, cascadeDelete: true)
+                .ForeignKey("dbo.People", t => t.PersonPersonId, cascadeDelete: false)
                 .ForeignKey("dbo.Instruments", t => t.InstrumentInstrumentId)
-                .ForeignKey("dbo.Parents", t => t.ParentParentId, cascadeDelete: true)
+                .ForeignKey("dbo.Parents", t => t.ParentParentId, cascadeDelete: false)
                 .Index(t => t.PersonPersonId)
                 .Index(t => t.InstrumentInstrumentId)
                 .Index(t => t.ParentParentId);

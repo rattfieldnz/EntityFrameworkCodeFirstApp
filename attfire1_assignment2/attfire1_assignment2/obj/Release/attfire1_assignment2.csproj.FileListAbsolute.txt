@@ -21,4 +21,4 @@ D:\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\a
 D:\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.pdb
 D:\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Migrations.InitialCreate.resources
 D:\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.csprojResolveAssemblyReference.cache
-C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Migrations.ParentClass.resources
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Migrations.ParentAndStudentClass.resources
