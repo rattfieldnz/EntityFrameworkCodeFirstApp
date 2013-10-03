@@ -5,13 +5,13 @@ namespace attfire1_assignment2.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class SheetMusicTest_v1 : IMigrationMetadata
+    public sealed partial class ParentClass : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SheetMusicTest_v1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ParentClass));
         
         string IMigrationMetadata.Id
         {
-            get { return "201310021007180_SheetMusicTest_v1"; }
+            get { return "201310030844243_ParentClass"; }
         }
         
         string IMigrationMetadata.Source
