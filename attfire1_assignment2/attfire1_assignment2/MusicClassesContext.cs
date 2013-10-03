@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace attfire1_assignment2
 {
@@ -23,6 +24,27 @@ namespace attfire1_assignment2
         //public DbSet<StudentLesson> StudentLesson { get; set; } 
         //public DbSet<Tutor> Tutor { get; set; } 
         //public DbSet<TutorPositionsHeld> TutorPositionsHeld { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Student>()
+                .HasRequired(x => x.Parent)
+                .WithMany(x => x.Student)
+                .HasForeignKey(x => x.ParentParentId)
+                .WillCascadeOnDelete(false);
+
+            /*modelBuilder.Entity<Person>()
+                .HasKey(t => t.PersonId);
+            modelBuilder.Entity<Tutor>()
+                .HasRequired(x => x.Person)
+                .WithRequiredPrincipal()
+                .WillCascadeOnDelete(false);*/
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();   
+
+
+        }
     }
 
 }

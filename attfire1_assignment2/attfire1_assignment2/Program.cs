@@ -30,8 +30,8 @@ namespace attfire1_assignment2
             using (var db = new MusicClassesContext())
             {
                 IQueryable<Person> persons = from p in db.Person
-                             where p.PersonId != null
-                             select p;
+                                             where p.PersonId != null
+                                             select p;
                 var ensemble = new Ensemble
                 {
                     EnsembleName = "Beginners Ensemble",
@@ -51,7 +51,6 @@ namespace attfire1_assignment2
 
             using (var db = new MusicClassesContext())
             {
-            //List<Ensemble> ensembles = new List<Ensemble>();
                 var ensembleID = (from e in db.Ensemble
                                   where e.EnsembleName == "Beginners Ensemble"
                                   select e.EnsembleId).FirstOrDefault();

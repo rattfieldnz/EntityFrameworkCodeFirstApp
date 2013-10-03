@@ -25,10 +25,10 @@ namespace attfire1_assignment2
         public int? EnsembleEnsembleId { get; set; } 
 
         // Reverse navigation
-        //public virtual ICollection<Parent> Parent { get; set; } 
-        //public virtual ICollection<PersonSheetMusic> PersonSheetMusic { get; set; } 
-        //public virtual ICollection<Student> Student { get; set; } 
-        //public virtual ICollection<Tutor> Tutor { get; set; } 
+        public virtual ICollection<Parent> Parent { get; set; } 
+        public virtual ICollection<PersonSheetMusic> PersonSheetMusic { get; set; } 
+        public virtual ICollection<Student> Student { get; set; } 
+        public virtual ICollection<Tutor> Tutor { get; set; } 
 
         // Foreign keys
         [ForeignKey("EnsembleEnsembleId")]

@@ -10,6 +10,7 @@ namespace attfire1_assignment2
 {
     public class Tutor
     {
+        [Required]
         [Key]
         public int TutorId { get; set; } 
         public int PersonPersonId { get; set; } 
