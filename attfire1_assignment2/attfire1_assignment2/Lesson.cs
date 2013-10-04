@@ -10,14 +10,22 @@ namespace attfire1_assignment2
 {
     public class Lesson
     {
+        [Required]
         [Key]
-        public int LessonId { get; set; } 
-        public string LessonName { get; set; } 
-        public string Location { get; set; } 
+        public int LessonId { get; set; }
+        [Required]
+        public string LessonName { get; set; }
+        [Required]
+        public string Location { get; set; }
+        [Required]
         public string Subject { get; set; }
+        [Required]
         public decimal StudentFee { get; set; }
+        [Required]
         public decimal OpenFee { get; set; }
-        public short MaxStudents { get; set; } 
+        [Required]
+        public short MaxStudents { get; set; }
+        [Required]
         public int TutorTutorId { get; set; } 
 
         // Reverse navigation
