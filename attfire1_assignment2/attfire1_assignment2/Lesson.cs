@@ -14,7 +14,9 @@ namespace attfire1_assignment2
         public int LessonId { get; set; } 
         public string LessonName { get; set; } 
         public string Location { get; set; } 
-        public string Subject { get; set; } 
+        public string Subject { get; set; }
+        public decimal StudentFee { get; set; }
+        public decimal OpenFee { get; set; }
         public short MaxStudents { get; set; } 
         public int TutorTutorId { get; set; } 
 
