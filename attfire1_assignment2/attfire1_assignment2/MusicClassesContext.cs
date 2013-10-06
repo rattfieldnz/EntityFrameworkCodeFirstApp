@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
+using System.Text;
 
 namespace attfire1_assignment2
 {
@@ -11,7 +14,7 @@ namespace attfire1_assignment2
     {
         public DbSet<Ensemble> Ensemble { get; set; } 
         //public DbSet<Instrument> Instrument { get; set; } 
-        //public DbSet<Lesson> Lesson { get; set; } 
+        public DbSet<Lesson> Lesson { get; set; } 
         //public DbSet<Location> Location { get; set; } 
         public DbSet<Parent> Parent { get; set; } 
         //public DbSet<Performance> Performance { get; set; } 
@@ -44,6 +47,41 @@ namespace attfire1_assignment2
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();   
 
 
+        }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                var innerEx = e.InnerException;
+
+                while (innerEx.InnerException != null)
+                    innerEx = innerEx.InnerException;
+
+                throw new Exception(innerEx.Message);
+            }
+            catch (DbEntityValidationException e)
+            {
+                var sb = new StringBuilder();
+
+                foreach (var entry in e.EntityValidationErrors)
+                {
+                    foreach (var error in entry.ValidationErrors)
+                    {
+                        sb.AppendLine(string.Format("{0}-{1}-{2}",
+                            entry.Entry.Entity,
+                            error.PropertyName,
+                            error.ErrorMessage
+                            )
+                        );
+                    }
+                }
+                throw new Exception(sb.ToString());
+            }
         }
     }
 

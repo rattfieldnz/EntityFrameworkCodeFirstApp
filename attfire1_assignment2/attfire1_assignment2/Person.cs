@@ -36,10 +36,10 @@ namespace attfire1_assignment2
 
         public Person()
         {
-            //Parent = new List<Parent>();
-            //PersonSheetMusic = new List<PersonSheetMusic>();
-            //Student = new List<Student>();
-            //Tutor = new List<Tutor>();
+            Parent = new List<Parent>();
+            PersonSheetMusic = new List<PersonSheetMusic>();
+            Student = new List<Student>();
+            Tutor = new List<Tutor>();
         }
     }
 }

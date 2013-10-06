@@ -1,0 +1,12 @@
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Debug\attfire1_assignment2.exe.config
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Debug\attfire1_assignment2.exe
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Debug\attfire1_assignment2.pdb
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Debug\EntityFramework.dll
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Debug\EntityFramework.xml
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.csprojResolveAssemblyReference.cache
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.Form1.resources
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.Migrations.Lesson_v1.resources
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.Properties.Resources.resources
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.csproj.GenerateResource.Cache
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.exe
+C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Debug\attfire1_assignment2.pdb

@@ -23,6 +23,7 @@ namespace attfire1_assignment2
             InsertSheetMusicRecord();
             InsertPersonSheetMusicRecord();
             InsertTutorRecord();
+            InsertLessonRecord();
             Application.Run(new Form1());
         }
 
@@ -30,6 +31,7 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
+                db.Database.Connection.Close();
                 IQueryable<Person> persons = from p in db.Person
                                              where p.PersonId != null
                                              select p;
@@ -134,7 +136,10 @@ namespace attfire1_assignment2
 
                 var tutor = new Tutor()
                 {
-                    PersonPersonId = personID
+                    PersonPersonId = personID,
+                    Person = (from p in db.Person
+                                where p.PersonId == personID
+                                select p).First()
                 };
 
                 db.Tutor.Add(tutor);
@@ -157,8 +162,20 @@ namespace attfire1_assignment2
                 int tutorID = (from t in db.Tutor
                                where t.PersonPersonId == ((from p in db.Person
                                                            where p.FirstName == "John" && p.LastName == "Doe"
-                                                           select p.PersonId)).First()
-                               select t.TutorId).First();
+                                                           select p.PersonId)).FirstOrDefault()
+                               select t.TutorId).FirstOrDefault();
+
+                int personID = (from p in db.Person
+                                where p.FirstName == "John" && p.LastName == "Doe"
+                                select p.PersonId).FirstOrDefault();
+
+                var tutor = new Tutor()
+                {
+                    PersonPersonId = personID,
+                    Person = (from p in db.Person
+                              where p.PersonId == personID
+                              select p).First()
+                };
 
                 var lesson = new Lesson()
                 {
@@ -168,7 +185,8 @@ namespace attfire1_assignment2
                     StudentFee = studentFee,
                     OpenFee = openFee,
                     MaxStudents = maxStudents,
-                    TutorTutorId = tutorID
+                    TutorTutorId = tutorID, 
+                    Tutor = tutor
                 };
 
                 db.Lesson.Add(lesson);
