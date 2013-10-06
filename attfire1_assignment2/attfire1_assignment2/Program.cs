@@ -143,20 +143,38 @@ namespace attfire1_assignment2
 
             }
         }
-        /*private static void InsertLessonRecord()
+        private static void InsertLessonRecord()
         {
             using (var db = new MusicClassesContext())
             {
-                string lessonName = "Instrument Lesson";
-                string location = "Bob's Hall";
-                string subject = "Instrumental";
-                decimal studentFee = 40;
-                decimal openFee = 100;
+                string lessonName = "Percussion with John Doe";
+                string location = "Symfony Orchestra Hall";
+                string subject = "Percussion";
+                decimal studentFee = 50.00m;
+                decimal openFee = 280.00m;
                 short maxStudents = 25;
 
-                int tutorID = from t in db.Tutor 
-                              where t.
+                int tutorID = (from t in db.Tutor
+                               where t.PersonPersonId == ((from p in db.Person
+                                                           where p.FirstName == "John" && p.LastName == "Doe"
+                                                           select p.PersonId)).First()
+                               select t.TutorId).First();
+
+                var lesson = new Lesson()
+                {
+                    LessonName = lessonName,
+                    Location = location,
+                    Subject = subject,
+                    StudentFee = studentFee,
+                    OpenFee = openFee,
+                    MaxStudents = maxStudents,
+                    TutorTutorId = tutorID
+                };
+
+                db.Lesson.Add(lesson);
+                db.SaveChanges();
+                db.Database.Connection.Close();
             }
-        }*/
+        }
     }
 }
