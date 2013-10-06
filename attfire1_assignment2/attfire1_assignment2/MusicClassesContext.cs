@@ -15,7 +15,7 @@ namespace attfire1_assignment2
         public DbSet<Ensemble> Ensemble { get; set; } 
         //public DbSet<Instrument> Instrument { get; set; } 
         public DbSet<Lesson> Lesson { get; set; } 
-        //public DbSet<Location> Location { get; set; } 
+        public DbSet<Location> Location { get; set; } 
         public DbSet<Parent> Parent { get; set; } 
         //public DbSet<Performance> Performance { get; set; } 
         //public DbSet<PerformanceSheetMusic> PerformanceSheetMusic { get; set; } 

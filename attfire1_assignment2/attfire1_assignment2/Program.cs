@@ -24,6 +24,7 @@ namespace attfire1_assignment2
             InsertPersonSheetMusicRecord();
             InsertTutorRecord();
             InsertLessonRecord();
+            InsertLocationRecord();
             Application.Run(new Form1());
         }
 
