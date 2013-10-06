@@ -22,7 +22,7 @@ namespace attfire1_assignment2
         public DbSet<SheetMusic> SheetMusic { get; set; } 
         public DbSet<Student> Student { get; set; } 
         //public DbSet<StudentLesson> StudentLesson { get; set; } 
-        //public DbSet<Tutor> Tutor { get; set; } 
+        public DbSet<Tutor> Tutor { get; set; } 
         //public DbSet<TutorPositionsHeld> TutorPositionsHeld { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

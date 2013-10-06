@@ -22,6 +22,7 @@ namespace attfire1_assignment2
             InsertPersonRecord();
             InsertSheetMusicRecord();
             InsertPersonSheetMusicRecord();
+            InsertTutorRecord();
             Application.Run(new Form1());
         }
 
@@ -62,7 +63,19 @@ namespace attfire1_assignment2
                 Postcode = 9012, 
                 EnsembleEnsembleId = ensembleID
             };
+
+            var person2 = new Person
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                StreetAddress = "25 Mystery Street",
+                Suburb = "Enigma",
+                Postcode = 9012,
+                EnsembleEnsembleId = ensembleID
+            };
+
                 db.Person.Add(person);
+                db.Person.Add(person2);
                 db.SaveChanges();
                 db.Database.Connection.Close();
             }
@@ -110,5 +123,40 @@ namespace attfire1_assignment2
                 db.Database.Connection.Close();
             }
         }
+
+        private static void InsertTutorRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                int personID = (from p in db.Person
+                                where p.FirstName == "John" && p.LastName == "Doe"
+                                select p.PersonId).First();
+
+                var tutor = new Tutor()
+                {
+                    PersonPersonId = personID
+                };
+
+                db.Tutor.Add(tutor);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+
+            }
+        }
+        /*private static void InsertLessonRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string lessonName = "Instrument Lesson";
+                string location = "Bob's Hall";
+                string subject = "Instrumental";
+                decimal studentFee = 40;
+                decimal openFee = 100;
+                short maxStudents = 25;
+
+                int tutorID = from t in db.Tutor 
+                              where t.
+            }
+        }*/
     }
 }
