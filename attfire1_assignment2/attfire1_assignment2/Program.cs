@@ -31,7 +31,6 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
-                db.Database.Connection.Close();
                 IQueryable<Person> persons = from p in db.Person
                                              where p.PersonId != null
                                              select p;
@@ -169,13 +168,9 @@ namespace attfire1_assignment2
                                 where p.FirstName == "John" && p.LastName == "Doe"
                                 select p.PersonId).FirstOrDefault();
 
-                var tutor = new Tutor()
-                {
-                    PersonPersonId = personID,
-                    Person = (from p in db.Person
-                              where p.PersonId == personID
-                              select p).First()
-                };
+                var tutor = (from t in db.Tutor
+                             where t.TutorId == tutorID
+                             select t).FirstOrDefault();
 
                 var lesson = new Lesson()
                 {
