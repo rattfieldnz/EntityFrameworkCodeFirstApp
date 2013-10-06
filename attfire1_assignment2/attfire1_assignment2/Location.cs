@@ -10,8 +10,10 @@ namespace attfire1_assignment2
 {
     public class Location
     {
+        [Required]
         [Key]
         public int LocationId { get; set; } 
+        [Required]
         public string LocationName { get; set; } 
 
         // Reverse navigation

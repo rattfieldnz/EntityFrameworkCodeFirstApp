@@ -189,5 +189,22 @@ namespace attfire1_assignment2
                 db.Database.Connection.Close();
             }
         }
+
+        private static void InsertLocationRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string locationName = "Symfony Orchestra Hall";
+
+                var location = new Location()
+                {
+                    LocationName = locationName
+                };
+
+                db.Location.Add(location);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
     }
 }
