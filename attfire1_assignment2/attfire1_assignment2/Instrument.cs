@@ -20,10 +20,14 @@ namespace attfire1_assignment2
         [Required]
         public string Condition { get; set; }
         [Required]
-        public string RepairStatus { get; set; } 
+        public string RepairStatus { get; set; }
+        [Required]
+        public int ConditionConditionId { get; set; }
 
-        // Reverse navigation
-        public virtual ICollection<Student> Student { get; set; } 
+        // Foreign keys
+        [Required]
+        [ForeignKey("ConditionConditionId")]
+        public virtual Condition Condition { get; set; }
 
         public Instrument()
         {

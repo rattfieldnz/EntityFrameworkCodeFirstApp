@@ -207,5 +207,16 @@ namespace attfire1_assignment2
                 db.Database.Connection.Close();
             }
         }
+
+        private static void InsertInstrumentRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string instrumentName = "Violin";
+                decimal hireFee = 40.00m;
+                string condition = "Useable";
+                string repairStatus = "Repaired";
+            }
+        }
     }
 }
