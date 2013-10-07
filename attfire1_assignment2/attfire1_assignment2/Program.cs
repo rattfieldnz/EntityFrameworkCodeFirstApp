@@ -219,8 +219,11 @@ namespace attfire1_assignment2
                 {
                     ConditionName = conditionName,
                     ConditionDescription = conditionDescription
-
                 };
+
+                db.Condition.Add(condition);
+                db.SaveChanges();
+                db.Database.Connection.Close();
             }
         }
 
