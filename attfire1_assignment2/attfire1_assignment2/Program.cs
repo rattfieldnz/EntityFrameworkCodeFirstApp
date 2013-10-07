@@ -228,15 +228,32 @@ namespace attfire1_assignment2
             }
         }
 
-        /*private static void InsertInstrumentRecord()
+        private static void InsertInstrumentRecord()
         {
             using (var db = new MusicClassesContext())
             {
                 string instrumentName = "Violin";
                 decimal hireFee = 40.00m;
-                string condition = "Useable";
                 string repairStatus = "Repaired";
+
+                int conditionID = (from c in db.Condition
+                                 where c.ConditionName == "Good"
+                                 select c.ConditionId).First();
+
+                var instrument = new Instrument()
+                {
+                    InstrumentName = instrumentName, 
+                    HireFee = hireFee,
+                    RepairStatus = repairStatus, 
+                    InstrumentCondition = (from c in db.Condition
+                                          where c.ConditionId == conditionID 
+                                          select c).First()
+                };
+
+                db.Instrument.Add(instrument);
+                db.SaveChanges();
+                db.Database.Connection.Close();
             }
-        }*/
+        }
     }
 }
