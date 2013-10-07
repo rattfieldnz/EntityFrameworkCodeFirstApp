@@ -10,11 +10,16 @@ namespace attfire1_assignment2
 {
     public class Instrument
     {
+        [Required]
         [Key]
-        public int InstrumentId { get; set; } 
-        public string InstrumentName { get; set; } 
-        public decimal HireFee { get; set; } 
-        public string Condition { get; set; } 
+        public int InstrumentId { get; set; }
+        [Required]
+        public string InstrumentName { get; set; }
+        [Required]
+        public decimal HireFee { get; set; }
+        [Required]
+        public string Condition { get; set; }
+        [Required]
         public string RepairStatus { get; set; } 
 
         // Reverse navigation
