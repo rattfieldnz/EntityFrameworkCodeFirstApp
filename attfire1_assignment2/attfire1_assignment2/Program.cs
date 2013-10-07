@@ -19,6 +19,7 @@ namespace attfire1_assignment2
             Application.SetCompatibleTextRenderingDefault(false);
             Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
             InsertConditionRecord();
+            InsertInstrumentRecord();
             InsertEnsembleRecord();
             InsertPersonRecord();
             InsertSheetMusicRecord();
@@ -221,7 +222,6 @@ namespace attfire1_assignment2
                     ConditionName = conditionName,
                     ConditionDescription = conditionDescription
                 };
-
                 db.Condition.Add(condition);
                 db.SaveChanges();
                 db.Database.Connection.Close();
