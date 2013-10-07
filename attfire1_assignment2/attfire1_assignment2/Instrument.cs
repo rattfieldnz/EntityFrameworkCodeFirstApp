@@ -22,11 +22,11 @@ namespace attfire1_assignment2
         [Required]
         public string RepairStatus { get; set; }
         [Required]
-        public int ConditionConditionId { get; set; }
+        public int ConditionId { get; set; }
 
         // Foreign keys
         [Required]
-        [ForeignKey("ConditionConditionId")]
+        [ForeignKey("ConditionId")]
         public virtual Condition Condition { get; set; }
 
         public Instrument()

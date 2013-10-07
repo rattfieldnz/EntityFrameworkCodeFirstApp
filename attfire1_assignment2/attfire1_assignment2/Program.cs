@@ -208,7 +208,23 @@ namespace attfire1_assignment2
             }
         }
 
-        private static void InsertInstrumentRecord()
+        private static void InsertConditionRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string conditionName = "Good";
+                string conditionDescription = "Instrument is ok for use";
+
+                var condition = new Condition()
+                {
+                    ConditionName = conditionName,
+                    ConditionDescription = conditionDescription
+
+                };
+            }
+        }
+
+        /*private static void InsertInstrumentRecord()
         {
             using (var db = new MusicClassesContext())
             {
@@ -217,6 +233,6 @@ namespace attfire1_assignment2
                 string condition = "Useable";
                 string repairStatus = "Repaired";
             }
-        }
+        }*/
     }
 }

@@ -17,13 +17,5 @@ namespace attfire1_assignment2
         public string ConditionName { get; set; }
         [Required]
         public string ConditionDescription { get; set; }
-
-        //Reverse navigation
-        public virtual ICollection<Instrument> Instrument { get; set; } 
-
-        public Condition()
-        {
-            Instrument = new List<Instrument>();
-        }
     }
 }
