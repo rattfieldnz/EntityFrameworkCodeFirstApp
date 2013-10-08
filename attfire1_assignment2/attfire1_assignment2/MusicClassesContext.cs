@@ -23,7 +23,7 @@ namespace attfire1_assignment2
         //public DbSet<PerformanceSheetMusic> PerformanceSheetMusic { get; set; } 
         public DbSet<Person> Person { get; set; } 
         public DbSet<PersonSheetMusic> PersonSheetMusic { get; set; } 
-        //public DbSet<PositionsHeld> PositionsHeld { get; set; } 
+        public DbSet<PositionsHeld> PositionsHeld { get; set; } 
         public DbSet<SheetMusic> SheetMusic { get; set; } 
         public DbSet<Student> Student { get; set; } 
         //public DbSet<StudentLesson> StudentLesson { get; set; } 

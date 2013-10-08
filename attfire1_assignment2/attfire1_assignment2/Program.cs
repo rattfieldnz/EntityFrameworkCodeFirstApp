@@ -280,5 +280,22 @@ namespace attfire1_assignment2
                 db.Database.Connection.Close();
             }
         }
+
+        private static void InsertPositionsHeldRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string positionName = "Violin Tutor";
+
+                var positionHeld = new PositionsHeld()
+                {
+                    PositionName = positionName
+                };
+
+                db.PositionsHeld.Add(positionHeld);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
     }
 }
