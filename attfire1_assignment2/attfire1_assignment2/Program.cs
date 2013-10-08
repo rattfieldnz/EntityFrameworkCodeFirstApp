@@ -139,8 +139,8 @@ namespace attfire1_assignment2
                                where t.PersonPersonId ==
                                (from p in db.Person
                                 where p.FirstName == "John" && p.LastName == "Doe"
-                                select p.PersonId).First()
-                               select t.TutorId).First();
+                                select p.PersonId).FirstOrDefault()
+                               select t.TutorId).FirstOrDefault();
 
                 int positionId = (from p in db.PositionsHeld
                                  where p.PositionName == "Violin Tutor"
@@ -149,7 +149,15 @@ namespace attfire1_assignment2
                 var tutorPositionsHeld = new TutorPositionsHeld()
                 {
                     PositionsHeldPositionId = positionId, 
-                    TutorTutorId = tutorId
+                    TutorTutorId = tutorId,
+
+                    PositionsHeld = (from p in db.PositionsHeld
+                                    where p.PositionId == positionId 
+                                    select p).First(), 
+
+                    Tutor = (from t in db.Tutor
+                            where t.TutorId == tutorId 
+                            select t).First()
                 };
 
                 db.TutorPositionsHeld.Add(tutorPositionsHeld);
