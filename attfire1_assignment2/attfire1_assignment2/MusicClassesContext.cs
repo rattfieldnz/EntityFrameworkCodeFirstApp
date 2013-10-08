@@ -12,7 +12,8 @@ namespace attfire1_assignment2
 {
     class MusicClassesContext : DbContext
     {
-        public DbSet<Ensemble> Ensemble { get; set; } 
+        public DbSet<Ensemble> Ensemble { get; set; }
+        public DbSet<RepairStatus> RepairStatus { get; set; }
         public DbSet<Instrument> Instrument { get; set; }
         public DbSet<Condition> Condition { get; set; }
         public DbSet<Lesson> Lesson { get; set; } 

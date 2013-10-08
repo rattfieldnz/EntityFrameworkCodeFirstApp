@@ -18,7 +18,7 @@ namespace attfire1_assignment2
         [Required]
         public decimal HireFee { get; set; }
         [Required]
-        public string RepairStatus { get; set; }
+        public int RepairStatusId { get; set; }
         [Required]
         public int ConditionId { get; set; }
 
@@ -26,6 +26,12 @@ namespace attfire1_assignment2
         [Required]
         [ForeignKey("ConditionId")]
         public virtual Condition InstrumentCondition { get; set; }
+
+        [Required]
+        [ForeignKey("RepairStatusId")]
+        public virtual RepairStatus RepairStatus { get; set; }
+
+
 
         public Instrument()
         {

@@ -19,6 +19,7 @@ namespace attfire1_assignment2
             Application.SetCompatibleTextRenderingDefault(false);
             Database.SetInitializer(new DropCreateDatabaseAlways<MusicClassesContext>());
             InsertConditionRecord();
+            InsertRepairStatusRecord();
             InsertInstrumentRecord();
             InsertEnsembleRecord();
             InsertPersonRecord();
@@ -228,13 +229,34 @@ namespace attfire1_assignment2
             }
         }
 
+        private static void InsertRepairStatusRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string statusName = "Repaired";
+                string statusDescription = "Instrument has been repaired and is good for use";
+
+                var repairStatus = new RepairStatus()
+                {
+                    StatusName = statusName,
+                    StatusDescription = statusDescription
+                };
+
+                db.RepairStatus.Add(repairStatus);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
+
         private static void InsertInstrumentRecord()
         {
             using (var db = new MusicClassesContext())
             {
                 string instrumentName = "Violin";
                 decimal hireFee = 40.00m;
-                string repairStatus = "Repaired";
+                int repairStatusId = (from r in db.RepairStatus
+                                      where r.StatusName == "Repaired"
+                                      select r.RepairStatusId).First();
 
                 int conditionID = (from c in db.Condition
                                  where c.ConditionName == "Good"
@@ -244,10 +266,13 @@ namespace attfire1_assignment2
                 {
                     InstrumentName = instrumentName, 
                     HireFee = hireFee,
-                    RepairStatus = repairStatus, 
+                    RepairStatusId = repairStatusId,
                     InstrumentCondition = (from c in db.Condition
                                           where c.ConditionId == conditionID 
-                                          select c).First()
+                                          select c).First(), 
+                    RepairStatus = (from r in db.RepairStatus 
+                                   where r.RepairStatusId == repairStatusId 
+                                   select r).First()
                 };
 
                 db.Instrument.Add(instrument);
