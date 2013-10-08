@@ -130,6 +130,33 @@ namespace attfire1_assignment2
             }
         }
 
+        private static void InsertTutorPositionsHeldRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                int tutorId = (from t in db.Tutor
+                               where t.PersonPersonId ==
+                               (from p in db.Person
+                                where p.FirstName == "John" && p.LastName == "Doe"
+                                select p.PersonId).First()
+                               select t.TutorId).First();
+
+                int positionId = (from p in db.PositionsHeld
+                                 where p.PositionName == "Violin Tutor"
+                                 select p.PositionId).First();
+
+                var tutorPositionsHeld = new TutorPositionsHeld()
+                {
+                    PositionsHeldPositionId = positionId, 
+                    TutorTutorId = tutorId
+                };
+
+                db.TutorPositionsHeld.Add(tutorPositionsHeld);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
+
         private static void InsertTutorRecord()
         {
             using (var db = new MusicClassesContext())
