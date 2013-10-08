@@ -25,6 +25,7 @@ namespace attfire1_assignment2
             InsertPersonRecord();
             InsertSheetMusicRecord();
             InsertPersonSheetMusicRecord();
+            InsertPositionsHeldRecord();
             InsertTutorRecord();
             InsertLessonRecord();
             InsertLocationRecord();
