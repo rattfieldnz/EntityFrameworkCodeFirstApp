@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainTabGroup = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.mainBannerLogo = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.mainBannerLogo = new System.Windows.Forms.PictureBox();
             this.mainTabGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBannerLogo)).BeginInit();
             this.SuspendLayout();
@@ -76,14 +77,6 @@
             this.tabPage2.Text = "Tutor Records";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // mainBannerLogo
-            // 
-            this.mainBannerLogo.Location = new System.Drawing.Point(0, 0);
-            this.mainBannerLogo.Name = "mainBannerLogo";
-            this.mainBannerLogo.Size = new System.Drawing.Size(1000, 138);
-            this.mainBannerLogo.TabIndex = 1;
-            this.mainBannerLogo.TabStop = false;
-            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
@@ -123,6 +116,15 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Ensemble Records";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // mainBannerLogo
+            // 
+            this.mainBannerLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mainBannerLogo.BackgroundImage")));
+            this.mainBannerLogo.Location = new System.Drawing.Point(0, 0);
+            this.mainBannerLogo.Name = "mainBannerLogo";
+            this.mainBannerLogo.Size = new System.Drawing.Size(1000, 138);
+            this.mainBannerLogo.TabIndex = 1;
+            this.mainBannerLogo.TabStop = false;
             // 
             // Form1
             // 
