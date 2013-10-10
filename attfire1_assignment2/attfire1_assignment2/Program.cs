@@ -30,6 +30,7 @@ namespace attfire1_assignment2
             InsertTutorPositionsHeldRecord();
             InsertLessonRecord();
             InsertLocationRecord();
+            InsertPerformanceRecord();
             Application.Run(new Form1());
         }
 
