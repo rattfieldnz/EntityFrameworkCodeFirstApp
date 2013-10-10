@@ -18,9 +18,9 @@ namespace attfire1_assignment2
         [Required]
         public DateTime PerformanceDate { get; set; }
         [Required]
-        public DateTime StartTime { get; set; }
+        public TimeSpan StartTime { get; set; }
         [Required]
-        public DateTime FinishTime { get; set; }
+        public TimeSpan FinishTime { get; set; }
         [Required]
         public int? LocationLocationId { get; set; } 
 

@@ -334,5 +334,38 @@ namespace attfire1_assignment2
                 db.Database.Connection.Close();
             }
         }
+
+        private static void InsertPerformanceRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                string performanceName = "Orchestra of Wonder - One Night Only";
+                DateTime performanceDate = new DateTime(2013, 11, 23);
+                TimeSpan startTime = new DateTime(2013, 11, 23, 18, 0, 0).TimeOfDay;
+                TimeSpan finishTime = new DateTime(2013, 11, 23, 19, 30, 0).TimeOfDay;
+
+                int locationId = (from l in db.Location
+                                  where l.LocationName == "Symfony Orchestra Hall"
+                                  select l.LocationId).First();
+
+                var performance = new Performance() 
+                {
+                    PerformanceName = performanceName, 
+                    PerformanceDate = performanceDate, 
+                    StartTime = startTime, 
+                    FinishTime = finishTime, 
+                    LocationLocationId = locationId, 
+
+                    Location = (from l in db.Location 
+                               where l.LocationId == locationId 
+                               select l).First()
+                };
+
+                db.Performance.Add(performance);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+
+        }
     }
 }
