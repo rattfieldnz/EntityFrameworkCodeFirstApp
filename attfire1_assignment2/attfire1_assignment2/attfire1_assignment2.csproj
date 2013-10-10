@@ -154,6 +154,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\music-note_icon.ico" />
+    <Content Include="images\music-note_icon.png" />
     <Content Include="images\smmc-banner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

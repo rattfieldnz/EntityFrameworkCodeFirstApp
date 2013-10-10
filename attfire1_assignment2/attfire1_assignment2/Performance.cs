@@ -11,15 +11,24 @@ namespace attfire1_assignment2
     public class Performance
     {
         [Key]
-        public int PerformanceId { get; set; } 
+        [Required]
+        public int PerformanceId { get; set; }
+        [Required]
         public string PerformanceName { get; set; } 
-        public DateTime DateAndTime { get; set; } 
+        [Required]
+        public DateTime PerformanceDate { get; set; }
+        [Required]
+        public DateTime StartTime { get; set; }
+        [Required]
+        public DateTime FinishTime { get; set; }
+        [Required]
         public int? LocationLocationId { get; set; } 
 
         // Reverse navigation
         public virtual ICollection<PerformanceSheetMusic> PerformanceSheetMusic { get; set; } 
 
         // Foreign keys
+        [Required]
         [ForeignKey("LocationLocationId")]
         public virtual Location Location { get; set; } 
 
