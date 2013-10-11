@@ -55,32 +55,86 @@ namespace attfire1_assignment2
             }
         }
 
+        private static void InsertAddressRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                
+                string streetAddress = "101 Tramway Road";
+                string suburb = "Chesapeake Bay";
+                string townOrCity = "Dunedin";
+                int postcode = 9012;
+                string landlinePhone = "034567890";
+
+                var address = new Address()
+                {
+                    StreetAddress = streetAddress, 
+                    Suburb = suburb, 
+                    TownOrCity = townOrCity, 
+                    PostCode = postcode, 
+                    LandlinePhone = landlinePhone
+                };
+
+                string streetAddress2 = "25 Mystery Street";
+                string suburb2 = "Enigma";
+                string townOrCity2 = "Dunedin";
+                int postcode2 = 9012;
+                string landlinePhone2 = "034789012";
+
+                var address2 = new Address()
+                {
+                    StreetAddress = streetAddress2,
+                    Suburb = suburb2,
+                    TownOrCity = townOrCity2,
+                    PostCode = postcode2,
+                    LandlinePhone = landlinePhone2
+                };
+
+                db.Address.Add(address);
+                db.Address.Add(address2);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
+
         private static void InsertPersonRecord()
         {
-
             using (var db = new MusicClassesContext())
             {
                 var ensembleID = (from e in db.Ensemble
                                   where e.EnsembleName == "Beginners Ensemble"
                                   select e.EnsembleId).FirstOrDefault();
-            var person = new Person {
-                FirstName = "Bob", 
-                LastName = "Brown", 
-                StreetAddress = "101 Tramway Road", 
-                Suburb = "Chesapeake Bay", 
-                Postcode = 9012, 
-                EnsembleEnsembleId = ensembleID
-            };
 
-            var person2 = new Person
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                StreetAddress = "25 Mystery Street",
-                Suburb = "Enigma",
-                Postcode = 9012,
-                EnsembleEnsembleId = ensembleID
-            };
+                var addressId = (from a in db.Address
+                                where a.StreetAddress == "101 Tramway Road"
+                                && a.Suburb == "Chesapeake Bay"
+                                && a.TownOrCity == "Dunedin"
+                                && a.PostCode == 9012
+                                && a.LandlinePhone == "034567890"
+                                select a.AddressId).First();
+
+                var addressId2 = (from a in db.Address
+                                  where a.StreetAddress == "25 Mystery Street"
+                                 && a.Suburb == "Enigma"
+                                 && a.TownOrCity == "Dunedin"
+                                 && a.PostCode == 9012
+                                 && a.LandlinePhone == "034789012"
+                                 select a.AddressId).First();
+
+                var person = new Person {
+                    FirstName = "Bob", 
+                    LastName = "Brown", 
+                    AddressAddressId = addressId,
+                    EnsembleEnsembleId = ensembleID
+                };
+
+                var person2 = new Person
+                {
+                    FirstName = "John",
+                    LastName = "Doe",
+                    AddressAddressId = addressId2,
+                    EnsembleEnsembleId = ensembleID
+                };
 
                 db.Person.Add(person);
                 db.Person.Add(person2);
