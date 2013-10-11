@@ -16,13 +16,10 @@ namespace attfire1_assignment2
         [Required]
         public string FirstName { get; set; } 
         [Required]
-        public string LastName { get; set; } 
+        public string LastName { get; set; }  
+        public int EnsembleEnsembleId { get; set; }
         [Required]
-        public string StreetAddress { get; set; } 
-        public string Suburb { get; set; } 
-        [Required]
-        public short Postcode { get; set; } 
-        public int? EnsembleEnsembleId { get; set; } 
+        public int AddressAddressId { get; set; }
 
         // Reverse navigation
         public virtual ICollection<Parent> Parent { get; set; } 
@@ -32,7 +29,9 @@ namespace attfire1_assignment2
 
         // Foreign keys
         [ForeignKey("EnsembleEnsembleId")]
-        public virtual Ensemble Ensemble { get; set; } 
+        public virtual Ensemble Ensemble { get; set; }
+        [ForeignKey("AddressAddressId")]
+        public virtual Address Address { get; set; }
 
         public Person()
         {
