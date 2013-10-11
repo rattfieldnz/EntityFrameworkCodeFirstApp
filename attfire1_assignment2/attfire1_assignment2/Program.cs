@@ -368,5 +368,28 @@ namespace attfire1_assignment2
             }
 
         }
+
+        private static void InsertPerformanceSheetMusicRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                int performanceId = (from p in db.Performance
+                                    where p.PerformanceName == "Orchestra of Wonder - One Night Only"
+                                    select p.PerformanceId).First();
+                int sheetMusicId = (from s in db.SheetMusic
+                                    where s.Title == "Bohemian Rhapsody - Orchestra Version"
+                                    select s.SheetMusicId).First();
+
+                var performanceSheetMusic = new PerformanceSheetMusic()
+                {
+                    PerformancePerformanceId = performanceId, 
+                    SheetMusicSheetMusicId = sheetMusicId
+                };
+
+                db.PerformanceSheetMusic.Add(performanceSheetMusic);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
     }
 }
