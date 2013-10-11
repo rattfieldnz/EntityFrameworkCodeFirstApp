@@ -23,5 +23,8 @@ namespace attfire1_assignment2
         [Required]
         [MaxLength(9), MinLength(9)]
         public string LandlinePhone { get; set; }
+
+        // Reverse navigation
+        public virtual ICollection<Person> Person { get; set; } 
     }
 }
