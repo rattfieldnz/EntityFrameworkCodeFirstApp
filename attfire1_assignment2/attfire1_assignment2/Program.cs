@@ -129,7 +129,25 @@ namespace attfire1_assignment2
                     EnsembleEnsembleId = ensembleID
                 };
 
+                //parent (father) of Bob Brown
                 var person2 = new Person
+                {
+                    FirstName = "Bob",
+                    LastName = "Brown Sr",
+                    AddressAddressId = addressId,
+                    EnsembleEnsembleId = ensembleID
+                };
+
+                //parent (mother) of Bob Brown
+                var person3 = new Person
+                {
+                    FirstName = "Christina",
+                    LastName = "Brown",
+                    AddressAddressId = addressId,
+                    EnsembleEnsembleId = ensembleID
+                };
+
+                var person4 = new Person
                 {
                     FirstName = "John",
                     LastName = "Doe",
@@ -139,6 +157,8 @@ namespace attfire1_assignment2
 
                 db.Person.Add(person);
                 db.Person.Add(person2);
+                db.Person.Add(person3);
+                db.Person.Add(person4);
                 db.SaveChanges();
                 db.Database.Connection.Close();
             }
@@ -444,6 +464,13 @@ namespace attfire1_assignment2
                 db.PerformanceSheetMusic.Add(performanceSheetMusic);
                 db.SaveChanges();
                 db.Database.Connection.Close();
+            }
+        }
+
+        private static void InsertParentRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
             }
         }
     }
