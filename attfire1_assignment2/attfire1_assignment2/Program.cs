@@ -32,6 +32,8 @@ namespace attfire1_assignment2
             InsertLessonRecord();
             InsertLocationRecord();
             InsertPerformanceRecord();
+            //InsertParentRecord();
+
             Application.Run(new Form1());
         }
 
@@ -125,6 +127,8 @@ namespace attfire1_assignment2
                 var person = new Person {
                     FirstName = "Bob", 
                     LastName = "Brown", 
+                    EmailAddress = "bob_brown@gmail.com",
+                    MobileNumber = "0271234567",
                     AddressAddressId = addressId,
                     EnsembleEnsembleId = ensembleID
                 };
@@ -134,6 +138,8 @@ namespace attfire1_assignment2
                 {
                     FirstName = "Bob",
                     LastName = "Brown Sr",
+                    EmailAddress = "bob_brown_sr@gmail.com",
+                    MobileNumber = "0271234578",
                     AddressAddressId = addressId,
                     EnsembleEnsembleId = ensembleID
                 };
@@ -143,6 +149,8 @@ namespace attfire1_assignment2
                 {
                     FirstName = "Christina",
                     LastName = "Brown",
+                    EmailAddress = "christina_brown@gmail.com", 
+                    MobileNumber = "0271029384",
                     AddressAddressId = addressId,
                     EnsembleEnsembleId = ensembleID
                 };
@@ -151,6 +159,8 @@ namespace attfire1_assignment2
                 {
                     FirstName = "John",
                     LastName = "Doe",
+                    EmailAddress = "johndoe@gmail.com", 
+                    MobileNumber = "0275647382",
                     AddressAddressId = addressId2,
                     EnsembleEnsembleId = ensembleID
                 };
@@ -467,37 +477,39 @@ namespace attfire1_assignment2
             }
         }
 
-        private static void InsertParentRecord()
-        {
-            using (var db = new MusicClassesContext())
-            {
-                var personId = (from p in db.Person
-                                where p.FirstName == "Bob"
-                                && p.LastName == "Brown Sr"
-                                select p.PersonId).First();
+        //private static void InsertParentRecord()
+        //{
+        //    using (var db = new MusicClassesContext())
+        //    {
+        //        var personId = (from p in db.Person
+        //                        where p.FirstName == "Bob"
+        //                        && p.LastName == "Brown Sr"
+        //                        select p.PersonId).First();
 
-                var parentId = (from p in db.Person
-                                where p.FirstName == "Christine"
-                                && p.LastName == "Brown"
-                                select p.PersonId).First();
+        //        var parentId = (from p in db.Person
+        //                        where p.FirstName == "Christina"
+        //                        && p.LastName == "Brown"
+        //                        select p.PersonId).First();
 
-                var parent1 = new Parent()
-                {
-                    PersonPersonId = personId, 
-                    ParentParentId = parentId
-                };
+        //        var parent1 = new Parent()
+        //        {
+        //            PersonPersonId = personId,
+        //            SpouseParentId = parentId,
 
-                var parent2 = new Parent()
-                {
-                    PersonPersonId = parentId, 
-                    ParentParentId = personId
-                };
+        //            Person = (from p in db.Person
+        //                      where p.PersonId == personId
+        //                      select p).First(),
+        //            Parent1 = new Parent()
+        //            {
 
-                db.Parent.Add(parent1);
-                db.Parent.Add(parent2);
-                db.SaveChanges();
-                db.Database.Connection.Close();
-            }
-        }
+        //            }
+
+        //        };
+
+        //        db.Parent.Add(parent1);
+        //        db.SaveChanges();
+        //        db.Database.Connection.Close();
+        //    }
+        //}
     }
 }

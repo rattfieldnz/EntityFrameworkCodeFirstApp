@@ -16,7 +16,9 @@ namespace attfire1_assignment2
         [Required]
         public string FirstName { get; set; } 
         [Required]
-        public string LastName { get; set; }  
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
+        public string MobileNumber { get; set; }
         public int EnsembleEnsembleId { get; set; }
         [Required]
         public int AddressAddressId { get; set; }

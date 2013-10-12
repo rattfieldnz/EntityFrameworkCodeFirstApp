@@ -26,10 +26,11 @@ namespace attfire1_assignment2.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\db3assignment2database.sdf")]
-        public string db3assignment2databaseConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=attfire1_assignment2.MusicClassesContext" +
+            ";Integrated Security=True")]
+        public string attfire1_assignment2_MusicClassesContextConnectionString {
             get {
-                return ((string)(this["db3assignment2databaseConnectionString"]));
+                return ((string)(this["attfire1_assignment2_MusicClassesContextConnectionString"]));
             }
         }
     }

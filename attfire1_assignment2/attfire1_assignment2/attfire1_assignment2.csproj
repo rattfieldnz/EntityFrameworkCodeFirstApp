@@ -92,12 +92,42 @@
     <Compile Include="PositionsHeld.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="RepairStatus.cs" />
     <Compile Include="SheetMusic.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentLesson.cs" />
     <Compile Include="Tutor.cs" />
     <Compile Include="TutorPositionsHeld.cs" />
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,11 +148,61 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet1.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet1.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet2.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet2.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet3.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet3.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

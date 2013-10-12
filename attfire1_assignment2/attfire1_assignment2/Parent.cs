@@ -13,7 +13,7 @@ namespace attfire1_assignment2
         [Key]
         public int ParentId { get; set; } 
         public int PersonPersonId { get; set; } 
-        public int ParentParentId { get; set; } 
+        public int? SpouseParentId { get; set; } 
 
         // Reverse navigation
         public virtual ICollection<Parent> Parent2 { get; set; } 
@@ -24,7 +24,7 @@ namespace attfire1_assignment2
         [ForeignKey("PersonPersonId")]
         public virtual Person Person { get; set; }
         [Required]
-        [ForeignKey("ParentParentId")]
+        [ForeignKey("SpouseParentId")]
         public virtual Parent Parent1 { get; set; } 
 
         public Parent()
