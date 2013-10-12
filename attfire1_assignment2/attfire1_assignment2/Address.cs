@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace attfire1_assignment2
 {
-    class Address
+    public class Address
     {
         [Required]
         [Key]
         public int AddressId { get; set; }
         [Required]
-        public string StreetName { get; set; }
+        public string StreetAddress { get; set; }
         public string Suburb { get; set; }
         [Required]
         public string TownOrCity { get; set; }

@@ -20,7 +20,7 @@ namespace attfire1_assignment2
         public DbSet<Location> Location { get; set; } 
         //public DbSet<Parent> Parent { get; set; } 
         public DbSet<Performance> Performance { get; set; } 
-        //public DbSet<PerformanceSheetMusic> PerformanceSheetMusic { get; set; } 
+        public DbSet<PerformanceSheetMusic> PerformanceSheetMusic { get; set; } 
         public DbSet<Address> Address { get; set; }
         public DbSet<Person> Person { get; set; } 
         public DbSet<PersonSheetMusic> PersonSheetMusic { get; set; } 

@@ -22,6 +22,7 @@ namespace attfire1_assignment2
             InsertRepairStatusRecord();
             InsertInstrumentRecord();
             InsertEnsembleRecord();
+            InsertAddressRecord();
             InsertPersonRecord();
             InsertSheetMusicRecord();
             InsertPersonSheetMusicRecord();

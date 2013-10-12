@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="Ensemble.cs" />
     <Compile Include="Form1.cs">
