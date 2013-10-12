@@ -253,6 +253,7 @@ namespace attfire1_assignment2
             // 
             this.ensembleDropdownBox.DataSource = this.ensemblesBindingSource;
             this.ensembleDropdownBox.DisplayMember = "EnsembleName";
+            this.ensembleDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ensembleDropdownBox.FormattingEnabled = true;
             this.ensembleDropdownBox.Location = new System.Drawing.Point(155, 440);
             this.ensembleDropdownBox.Name = "ensembleDropdownBox";
@@ -272,6 +273,7 @@ namespace attfire1_assignment2
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "1 (One)",
@@ -311,6 +313,7 @@ namespace attfire1_assignment2
             // 
             this.instrumentDropdownBox.DataSource = this.instrumentsBindingSource;
             this.instrumentDropdownBox.DisplayMember = "InstrumentName";
+            this.instrumentDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.instrumentDropdownBox.FormattingEnabled = true;
             this.instrumentDropdownBox.Location = new System.Drawing.Point(155, 300);
             this.instrumentDropdownBox.Name = "instrumentDropdownBox";
@@ -332,6 +335,7 @@ namespace attfire1_assignment2
             // 
             this.lessonDropdownBox.DataSource = this.lessonsBindingSource;
             this.lessonDropdownBox.DisplayMember = "LessonName";
+            this.lessonDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lessonDropdownBox.FormattingEnabled = true;
             this.lessonDropdownBox.Location = new System.Drawing.Point(155, 273);
             this.lessonDropdownBox.Name = "lessonDropdownBox";
@@ -684,6 +688,7 @@ namespace attfire1_assignment2
             // 
             // editStudentDropdown
             // 
+            this.editStudentDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editStudentDropdown.FormattingEnabled = true;
             this.editStudentDropdown.Items.AddRange(new object[] {
             "Edit/Update",
