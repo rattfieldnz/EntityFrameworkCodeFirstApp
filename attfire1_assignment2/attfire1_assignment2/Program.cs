@@ -471,6 +471,32 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
+                var personId = (from p in db.Person
+                                where p.FirstName == "Bob"
+                                && p.LastName == "Brown Sr"
+                                select p.PersonId).First();
+
+                var parentId = (from p in db.Person
+                                where p.FirstName == "Christine"
+                                && p.LastName == "Brown"
+                                select p.PersonId).First();
+
+                var parent1 = new Parent()
+                {
+                    PersonPersonId = personId, 
+                    ParentParentId = parentId
+                };
+
+                var parent2 = new Parent()
+                {
+                    PersonPersonId = parentId, 
+                    ParentParentId = personId
+                };
+
+                db.Parent.Add(parent1);
+                db.Parent.Add(parent2);
+                db.SaveChanges();
+                db.Database.Connection.Close();
             }
         }
     }
