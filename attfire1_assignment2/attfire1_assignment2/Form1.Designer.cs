@@ -98,10 +98,12 @@ namespace attfire1_assignment2
             this.displayStudentRecords = new System.Windows.Forms.Panel();
             this.showStudentRecordsLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.studentRecordsListbox = new System.Windows.Forms.ListBox();
             this.editStudentDropdown = new System.Windows.Forms.ComboBox();
             this.editStudentLabel = new System.Windows.Forms.Label();
             this.editStudentBtn = new System.Windows.Forms.Button();
+            this.showStudentsByLabel = new System.Windows.Forms.Label();
+            this.showStudentsByDropdown = new System.Windows.Forms.ComboBox();
             this.mainTabGroup.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.addUpdateStudent.SuspendLayout();
@@ -125,6 +127,7 @@ namespace attfire1_assignment2
             this.mainTabGroup.Controls.Add(this.tabPage4);
             this.mainTabGroup.Controls.Add(this.tabPage5);
             this.mainTabGroup.Controls.Add(this.tabPage6);
+            this.mainTabGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTabGroup.ItemSize = new System.Drawing.Size(166, 30);
             this.mainTabGroup.Location = new System.Drawing.Point(0, 137);
             this.mainTabGroup.Name = "mainTabGroup";
@@ -191,9 +194,10 @@ namespace attfire1_assignment2
             // 
             // submitUpdateBtn
             // 
-            this.submitUpdateBtn.Location = new System.Drawing.Point(267, 509);
+            this.submitUpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitUpdateBtn.Location = new System.Drawing.Point(261, 493);
             this.submitUpdateBtn.Name = "submitUpdateBtn";
-            this.submitUpdateBtn.Size = new System.Drawing.Size(94, 37);
+            this.submitUpdateBtn.Size = new System.Drawing.Size(100, 53);
             this.submitUpdateBtn.TabIndex = 35;
             this.submitUpdateBtn.Text = "Submit / Update";
             this.submitUpdateBtn.UseVisualStyleBackColor = true;
@@ -202,7 +206,7 @@ namespace attfire1_assignment2
             // 
             this.totalFeesOwedField.Location = new System.Drawing.Point(155, 520);
             this.totalFeesOwedField.Name = "totalFeesOwedField";
-            this.totalFeesOwedField.Size = new System.Drawing.Size(100, 20);
+            this.totalFeesOwedField.Size = new System.Drawing.Size(100, 23);
             this.totalFeesOwedField.TabIndex = 34;
             // 
             // totalFeesOwedLabel
@@ -219,7 +223,7 @@ namespace attfire1_assignment2
             // 
             this.instrumentFeesOwedField.Location = new System.Drawing.Point(155, 493);
             this.instrumentFeesOwedField.Name = "instrumentFeesOwedField";
-            this.instrumentFeesOwedField.Size = new System.Drawing.Size(100, 20);
+            this.instrumentFeesOwedField.Size = new System.Drawing.Size(100, 23);
             this.instrumentFeesOwedField.TabIndex = 32;
             // 
             // instrumentFeesOwedLabel
@@ -236,7 +240,7 @@ namespace attfire1_assignment2
             // 
             this.lessonFeesOwedField.Location = new System.Drawing.Point(155, 467);
             this.lessonFeesOwedField.Name = "lessonFeesOwedField";
-            this.lessonFeesOwedField.Size = new System.Drawing.Size(100, 20);
+            this.lessonFeesOwedField.Size = new System.Drawing.Size(100, 23);
             this.lessonFeesOwedField.TabIndex = 30;
             // 
             // lessonFeesOwedLabel
@@ -254,10 +258,11 @@ namespace attfire1_assignment2
             this.ensembleDropdownBox.DataSource = this.ensemblesBindingSource;
             this.ensembleDropdownBox.DisplayMember = "EnsembleName";
             this.ensembleDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ensembleDropdownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ensembleDropdownBox.FormattingEnabled = true;
             this.ensembleDropdownBox.Location = new System.Drawing.Point(155, 440);
             this.ensembleDropdownBox.Name = "ensembleDropdownBox";
-            this.ensembleDropdownBox.Size = new System.Drawing.Size(206, 21);
+            this.ensembleDropdownBox.Size = new System.Drawing.Size(206, 24);
             this.ensembleDropdownBox.TabIndex = 28;
             this.ensembleDropdownBox.ValueMember = "EnsembleName";
             // 
@@ -274,6 +279,7 @@ namespace attfire1_assignment2
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "1 (One)",
@@ -286,7 +292,7 @@ namespace attfire1_assignment2
             "8 (Eight)"});
             this.comboBox1.Location = new System.Drawing.Point(155, 413);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 26;
             // 
             // levelLabel
@@ -303,7 +309,7 @@ namespace attfire1_assignment2
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 329);
+            this.label1.Location = new System.Drawing.Point(5, 329);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 17);
             this.label1.TabIndex = 23;
@@ -314,10 +320,11 @@ namespace attfire1_assignment2
             this.instrumentDropdownBox.DataSource = this.instrumentsBindingSource;
             this.instrumentDropdownBox.DisplayMember = "InstrumentName";
             this.instrumentDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.instrumentDropdownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instrumentDropdownBox.FormattingEnabled = true;
-            this.instrumentDropdownBox.Location = new System.Drawing.Point(155, 300);
+            this.instrumentDropdownBox.Location = new System.Drawing.Point(132, 300);
             this.instrumentDropdownBox.Name = "instrumentDropdownBox";
-            this.instrumentDropdownBox.Size = new System.Drawing.Size(206, 21);
+            this.instrumentDropdownBox.Size = new System.Drawing.Size(206, 24);
             this.instrumentDropdownBox.TabIndex = 22;
             this.instrumentDropdownBox.ValueMember = "InstrumentName";
             // 
@@ -325,7 +332,7 @@ namespace attfire1_assignment2
             // 
             this.instrumentLabel.AutoSize = true;
             this.instrumentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instrumentLabel.Location = new System.Drawing.Point(26, 302);
+            this.instrumentLabel.Location = new System.Drawing.Point(7, 302);
             this.instrumentLabel.Name = "instrumentLabel";
             this.instrumentLabel.Size = new System.Drawing.Size(120, 17);
             this.instrumentLabel.TabIndex = 21;
@@ -336,10 +343,11 @@ namespace attfire1_assignment2
             this.lessonDropdownBox.DataSource = this.lessonsBindingSource;
             this.lessonDropdownBox.DisplayMember = "LessonName";
             this.lessonDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lessonDropdownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lessonDropdownBox.FormattingEnabled = true;
-            this.lessonDropdownBox.Location = new System.Drawing.Point(155, 273);
+            this.lessonDropdownBox.Location = new System.Drawing.Point(132, 273);
             this.lessonDropdownBox.Name = "lessonDropdownBox";
-            this.lessonDropdownBox.Size = new System.Drawing.Size(206, 21);
+            this.lessonDropdownBox.Size = new System.Drawing.Size(206, 24);
             this.lessonDropdownBox.TabIndex = 20;
             this.lessonDropdownBox.ValueMember = "LessonName";
             // 
@@ -347,7 +355,7 @@ namespace attfire1_assignment2
             // 
             this.lessonLabel.AutoSize = true;
             this.lessonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lessonLabel.Location = new System.Drawing.Point(26, 275);
+            this.lessonLabel.Location = new System.Drawing.Point(7, 275);
             this.lessonLabel.Name = "lessonLabel";
             this.lessonLabel.Size = new System.Drawing.Size(122, 17);
             this.lessonLabel.TabIndex = 19;
@@ -355,16 +363,16 @@ namespace attfire1_assignment2
             // 
             // mobilePhoneField
             // 
-            this.mobilePhoneField.Location = new System.Drawing.Point(155, 247);
+            this.mobilePhoneField.Location = new System.Drawing.Point(132, 247);
             this.mobilePhoneField.Name = "mobilePhoneField";
-            this.mobilePhoneField.Size = new System.Drawing.Size(176, 20);
+            this.mobilePhoneField.Size = new System.Drawing.Size(176, 23);
             this.mobilePhoneField.TabIndex = 18;
             // 
             // mobilePhoneLabel
             // 
             this.mobilePhoneLabel.AutoSize = true;
             this.mobilePhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mobilePhoneLabel.Location = new System.Drawing.Point(54, 248);
+            this.mobilePhoneLabel.Location = new System.Drawing.Point(35, 248);
             this.mobilePhoneLabel.Name = "mobilePhoneLabel";
             this.mobilePhoneLabel.Size = new System.Drawing.Size(94, 17);
             this.mobilePhoneLabel.TabIndex = 17;
@@ -372,16 +380,16 @@ namespace attfire1_assignment2
             // 
             // landlinePhoneField
             // 
-            this.landlinePhoneField.Location = new System.Drawing.Point(155, 221);
+            this.landlinePhoneField.Location = new System.Drawing.Point(132, 221);
             this.landlinePhoneField.Name = "landlinePhoneField";
-            this.landlinePhoneField.Size = new System.Drawing.Size(177, 20);
+            this.landlinePhoneField.Size = new System.Drawing.Size(177, 23);
             this.landlinePhoneField.TabIndex = 16;
             // 
             // landlinePhoneLabel
             // 
             this.landlinePhoneLabel.AutoSize = true;
             this.landlinePhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.landlinePhoneLabel.Location = new System.Drawing.Point(41, 223);
+            this.landlinePhoneLabel.Location = new System.Drawing.Point(22, 223);
             this.landlinePhoneLabel.Name = "landlinePhoneLabel";
             this.landlinePhoneLabel.Size = new System.Drawing.Size(107, 17);
             this.landlinePhoneLabel.TabIndex = 15;
@@ -389,16 +397,16 @@ namespace attfire1_assignment2
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 195);
+            this.textBox1.Location = new System.Drawing.Point(132, 195);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 20);
+            this.textBox1.Size = new System.Drawing.Size(178, 23);
             this.textBox1.TabIndex = 14;
             // 
             // townOrCityLabel
             // 
             this.townOrCityLabel.AutoSize = true;
             this.townOrCityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.townOrCityLabel.Location = new System.Drawing.Point(62, 196);
+            this.townOrCityLabel.Location = new System.Drawing.Point(43, 196);
             this.townOrCityLabel.Name = "townOrCityLabel";
             this.townOrCityLabel.Size = new System.Drawing.Size(86, 17);
             this.townOrCityLabel.TabIndex = 13;
@@ -406,16 +414,16 @@ namespace attfire1_assignment2
             // 
             // postCodeField
             // 
-            this.postCodeField.Location = new System.Drawing.Point(155, 169);
+            this.postCodeField.Location = new System.Drawing.Point(132, 169);
             this.postCodeField.Name = "postCodeField";
-            this.postCodeField.Size = new System.Drawing.Size(74, 20);
+            this.postCodeField.Size = new System.Drawing.Size(74, 23);
             this.postCodeField.TabIndex = 12;
             // 
             // postCodeLabel
             // 
             this.postCodeLabel.AutoSize = true;
             this.postCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postCodeLabel.Location = new System.Drawing.Point(75, 170);
+            this.postCodeLabel.Location = new System.Drawing.Point(56, 170);
             this.postCodeLabel.Name = "postCodeLabel";
             this.postCodeLabel.Size = new System.Drawing.Size(73, 17);
             this.postCodeLabel.TabIndex = 11;
@@ -423,16 +431,16 @@ namespace attfire1_assignment2
             // 
             // suburbField
             // 
-            this.suburbField.Location = new System.Drawing.Point(155, 143);
+            this.suburbField.Location = new System.Drawing.Point(132, 143);
             this.suburbField.Name = "suburbField";
-            this.suburbField.Size = new System.Drawing.Size(177, 20);
+            this.suburbField.Size = new System.Drawing.Size(177, 23);
             this.suburbField.TabIndex = 10;
             // 
             // suburbLabel
             // 
             this.suburbLabel.AutoSize = true;
             this.suburbLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suburbLabel.Location = new System.Drawing.Point(94, 145);
+            this.suburbLabel.Location = new System.Drawing.Point(75, 145);
             this.suburbLabel.Name = "suburbLabel";
             this.suburbLabel.Size = new System.Drawing.Size(54, 17);
             this.suburbLabel.TabIndex = 9;
@@ -440,16 +448,16 @@ namespace attfire1_assignment2
             // 
             // streetAddressField
             // 
-            this.streetAddressField.Location = new System.Drawing.Point(155, 117);
+            this.streetAddressField.Location = new System.Drawing.Point(132, 117);
             this.streetAddressField.Name = "streetAddressField";
-            this.streetAddressField.Size = new System.Drawing.Size(177, 20);
+            this.streetAddressField.Size = new System.Drawing.Size(177, 23);
             this.streetAddressField.TabIndex = 8;
             // 
             // streetAddressLabel
             // 
             this.streetAddressLabel.AutoSize = true;
             this.streetAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.streetAddressLabel.Location = new System.Drawing.Point(46, 118);
+            this.streetAddressLabel.Location = new System.Drawing.Point(27, 118);
             this.streetAddressLabel.Name = "streetAddressLabel";
             this.streetAddressLabel.Size = new System.Drawing.Size(102, 17);
             this.streetAddressLabel.TabIndex = 7;
@@ -458,16 +466,16 @@ namespace attfire1_assignment2
             // 
             // ageField
             // 
-            this.ageField.Location = new System.Drawing.Point(155, 91);
+            this.ageField.Location = new System.Drawing.Point(132, 91);
             this.ageField.Name = "ageField";
-            this.ageField.Size = new System.Drawing.Size(57, 20);
+            this.ageField.Size = new System.Drawing.Size(57, 23);
             this.ageField.TabIndex = 6;
             // 
             // ageLabel
             // 
             this.ageLabel.AutoSize = true;
             this.ageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageLabel.Location = new System.Drawing.Point(115, 92);
+            this.ageLabel.Location = new System.Drawing.Point(96, 92);
             this.ageLabel.Name = "ageLabel";
             this.ageLabel.Size = new System.Drawing.Size(33, 17);
             this.ageLabel.TabIndex = 5;
@@ -475,16 +483,16 @@ namespace attfire1_assignment2
             // 
             // lastNameField
             // 
-            this.lastNameField.Location = new System.Drawing.Point(155, 66);
+            this.lastNameField.Location = new System.Drawing.Point(132, 66);
             this.lastNameField.Name = "lastNameField";
-            this.lastNameField.Size = new System.Drawing.Size(176, 20);
+            this.lastNameField.Size = new System.Drawing.Size(176, 23);
             this.lastNameField.TabIndex = 4;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.Location = new System.Drawing.Point(72, 67);
+            this.lastNameLabel.Location = new System.Drawing.Point(53, 67);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(76, 17);
             this.lastNameLabel.TabIndex = 3;
@@ -492,16 +500,16 @@ namespace attfire1_assignment2
             // 
             // firstNameField
             // 
-            this.firstNameField.Location = new System.Drawing.Point(155, 42);
+            this.firstNameField.Location = new System.Drawing.Point(132, 42);
             this.firstNameField.Name = "firstNameField";
-            this.firstNameField.Size = new System.Drawing.Size(176, 20);
+            this.firstNameField.Size = new System.Drawing.Size(176, 23);
             this.firstNameField.TabIndex = 2;
             // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.Location = new System.Drawing.Point(72, 43);
+            this.firstNameLabel.Location = new System.Drawing.Point(53, 43);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(76, 17);
             this.firstNameLabel.TabIndex = 1;
@@ -609,10 +617,11 @@ namespace attfire1_assignment2
             // 
             this.sheetMusicListBox.DataSource = this.sheetMusicsBindingSource;
             this.sheetMusicListBox.DisplayMember = "Title";
+            this.sheetMusicListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sheetMusicListBox.FormattingEnabled = true;
-            this.sheetMusicListBox.Location = new System.Drawing.Point(155, 327);
+            this.sheetMusicListBox.Location = new System.Drawing.Point(132, 327);
             this.sheetMusicListBox.Name = "sheetMusicListBox";
-            this.sheetMusicListBox.Size = new System.Drawing.Size(206, 82);
+            this.sheetMusicListBox.Size = new System.Drawing.Size(229, 82);
             this.sheetMusicListBox.TabIndex = 36;
             this.sheetMusicListBox.ValueMember = "Title";
             // 
@@ -647,10 +656,12 @@ namespace attfire1_assignment2
             // displayStudentRecords
             // 
             this.displayStudentRecords.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.displayStudentRecords.Controls.Add(this.showStudentsByDropdown);
+            this.displayStudentRecords.Controls.Add(this.showStudentsByLabel);
             this.displayStudentRecords.Controls.Add(this.editStudentBtn);
             this.displayStudentRecords.Controls.Add(this.editStudentLabel);
             this.displayStudentRecords.Controls.Add(this.editStudentDropdown);
-            this.displayStudentRecords.Controls.Add(this.listBox1);
+            this.displayStudentRecords.Controls.Add(this.studentRecordsListbox);
             this.displayStudentRecords.Controls.Add(this.button1);
             this.displayStudentRecords.Controls.Add(this.showStudentRecordsLabel);
             this.displayStudentRecords.Location = new System.Drawing.Point(395, 18);
@@ -678,24 +689,27 @@ namespace attfire1_assignment2
             this.button1.Text = "Display All Students";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // studentRecordsListbox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(5, 105);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(575, 342);
-            this.listBox1.TabIndex = 2;
+            this.studentRecordsListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentRecordsListbox.FormattingEnabled = true;
+            this.studentRecordsListbox.ItemHeight = 16;
+            this.studentRecordsListbox.Location = new System.Drawing.Point(5, 105);
+            this.studentRecordsListbox.Name = "studentRecordsListbox";
+            this.studentRecordsListbox.Size = new System.Drawing.Size(575, 340);
+            this.studentRecordsListbox.TabIndex = 2;
             // 
             // editStudentDropdown
             // 
             this.editStudentDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.editStudentDropdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editStudentDropdown.FormattingEnabled = true;
             this.editStudentDropdown.Items.AddRange(new object[] {
             "Edit/Update",
             "Delete"});
             this.editStudentDropdown.Location = new System.Drawing.Point(5, 464);
             this.editStudentDropdown.Name = "editStudentDropdown";
-            this.editStudentDropdown.Size = new System.Drawing.Size(121, 21);
+            this.editStudentDropdown.Size = new System.Drawing.Size(121, 24);
             this.editStudentDropdown.TabIndex = 3;
             // 
             // editStudentLabel
@@ -716,6 +730,25 @@ namespace attfire1_assignment2
             this.editStudentBtn.TabIndex = 5;
             this.editStudentBtn.Text = "Go";
             this.editStudentBtn.UseVisualStyleBackColor = true;
+            // 
+            // showStudentsByLabel
+            // 
+            this.showStudentsByLabel.AutoSize = true;
+            this.showStudentsByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showStudentsByLabel.Location = new System.Drawing.Point(303, 9);
+            this.showStudentsByLabel.Name = "showStudentsByLabel";
+            this.showStudentsByLabel.Size = new System.Drawing.Size(122, 17);
+            this.showStudentsByLabel.TabIndex = 6;
+            this.showStudentsByLabel.Text = "Show Students By";
+            // 
+            // showStudentsByDropdown
+            // 
+            this.showStudentsByDropdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showStudentsByDropdown.FormattingEnabled = true;
+            this.showStudentsByDropdown.Location = new System.Drawing.Point(431, 7);
+            this.showStudentsByDropdown.Name = "showStudentsByDropdown";
+            this.showStudentsByDropdown.Size = new System.Drawing.Size(149, 24);
+            this.showStudentsByDropdown.TabIndex = 7;
             // 
             // Form1
             // 
@@ -811,11 +844,13 @@ namespace attfire1_assignment2
         private _attfire1_assignment2_MusicClassesContextDataSet4TableAdapters.EnsemblesTableAdapter ensemblesTableAdapter;
         private System.Windows.Forms.Panel displayStudentRecords;
         private System.Windows.Forms.Label showStudentRecordsLabel;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox studentRecordsListbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button editStudentBtn;
         private System.Windows.Forms.Label editStudentLabel;
         private System.Windows.Forms.ComboBox editStudentDropdown;
+        private System.Windows.Forms.ComboBox showStudentsByDropdown;
+        private System.Windows.Forms.Label showStudentsByLabel;
     }
 }
 

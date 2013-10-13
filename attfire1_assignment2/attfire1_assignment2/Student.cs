@@ -16,11 +16,11 @@ namespace attfire1_assignment2
         public int StudentId { get; set; } 
         [Required]
         public short Age { get; set; }
-        public int? InstrumentInstrumentId { get; set; }
         [Required]
         public decimal LessonFeesOwed { get; set; }
         [Required]
         public decimal InstrumentFeesOwed { get; set; }
+        public int? InstrumentInstrumentId { get; set; }
         [Required]
         public int PersonPersonId { get; set; } 
         [Required]
