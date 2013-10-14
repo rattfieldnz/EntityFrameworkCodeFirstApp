@@ -278,7 +278,7 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
-                string lessonName = "Percussion with John Doe";
+                string lessonName = "Percussion";
                 string location = "Symfony Orchestra Hall";
                 string subject = "Percussion";
                 decimal studentFee = 50.00m;

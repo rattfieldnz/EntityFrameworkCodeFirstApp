@@ -40,5 +40,10 @@ namespace attfire1_assignment2
 
             //editStudentDropdown.is
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
