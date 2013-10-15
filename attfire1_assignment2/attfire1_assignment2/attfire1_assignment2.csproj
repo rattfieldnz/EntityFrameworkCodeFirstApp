@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="Condition.cs" />
     <Compile Include="Ensemble.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -85,11 +84,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicClassesContext.cs" />
-    <Compile Include="Parent.cs" />
     <Compile Include="Performance.cs" />
     <Compile Include="PerformanceSheetMusic.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="PersonSheetMusic.cs" />
+    <Compile Include="StudentSheetMusic.cs" />
     <Compile Include="PositionsHeld.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,7 +96,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="RepairStatus.cs" />
     <Compile Include="SheetMusic.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentLesson.cs" />
@@ -128,6 +125,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet7.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -203,6 +215,39 @@
     </None>
     <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xss">
       <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet5.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet5.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet6.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet6.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet7.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSet7.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet7.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -24,11 +24,10 @@ namespace attfire1_assignment2
         public int? InstrumentInstrumentId { get; set; }
         [Required]
         public int PersonPersonId { get; set; } 
-        [Required]
-        public int ParentParentId { get; set; } 
 
         // Reverse navigation
-        public virtual ICollection<StudentLesson> StudentLesson { get; set; } 
+        public virtual ICollection<StudentLesson> StudentLesson { get; set; }
+        public virtual ICollection<StudentSheetMusic> StudentSheetMusic { get; set; }
 
         // Foreign keys
         [Required]
@@ -37,9 +36,6 @@ namespace attfire1_assignment2
         
         [ForeignKey("InstrumentInstrumentId")]
         public virtual Instrument Instrument { get; set; }
-        [Required]
-        [ForeignKey("ParentParentId")]
-        public virtual Parent Parent { get; set; }
 
         public Student()
         {

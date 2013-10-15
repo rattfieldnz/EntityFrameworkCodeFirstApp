@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace attfire1_assignment2
 {
-    public class PersonSheetMusic
+    public class StudentSheetMusic
     {
         [Key, Column(Order = 1)]
-        public int PersonPersonId { get; set; }
+        public int StudentStudentId { get; set; }
         [Key, Column(Order = 2)]
         public int SheetMusicSheetMusicId { get; set; } 
 
         // Foreign keys
-        [ForeignKey("PersonPersonId")]
-        public virtual Person Person { get; set; }
+        [ForeignKey("StudentStudentId")]
+        public virtual Student Student { get; set; }
         [ForeignKey("SheetMusicSheetMusicId")]
         public virtual SheetMusic SheetMusic { get; set; } 
     }

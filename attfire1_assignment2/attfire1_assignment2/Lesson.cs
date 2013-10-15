@@ -23,12 +23,17 @@ namespace attfire1_assignment2
         [MaxLength(35)]
         public string Subject { get; set; }
         [Required]
+        public string Instrument { get; set; }
+        [Required]
         public decimal StudentFee { get; set; }
         [Required]
         public decimal OpenFee { get; set; }
         [Required]
-        [Range(8,16)]
-        public short MaxStudents { get; set; }
+        public DateTime LessonDate { get; set; } //http://msdn.microsoft.com/en-us/library/az4se3k1.aspx
+        [Required]
+        public DateTime StartTime { get; set; }
+        [Required]
+        public DateTime FinishTime { get; set; }
         [Required]
         public int TutorTutorId { get; set; } 
 

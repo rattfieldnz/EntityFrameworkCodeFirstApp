@@ -19,8 +19,6 @@ namespace attfire1_assignment2
         [Required]
         [Range(1, 8)]
         public int EnsembleLevel { get; set; }
-        [MaxLength(250)]
-        public string EnsembleLevelDesc { get; set; }
 
         [Required]
         public virtual ICollection<Person> Person { get; set; }

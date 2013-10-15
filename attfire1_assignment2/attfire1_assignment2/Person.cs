@@ -28,8 +28,6 @@ namespace attfire1_assignment2
         public int AddressAddressId { get; set; }
 
         // Reverse navigation
-        public virtual ICollection<Parent> Parent { get; set; } 
-        public virtual ICollection<PersonSheetMusic> PersonSheetMusic { get; set; } 
         public virtual ICollection<Student> Student { get; set; } 
         public virtual ICollection<Tutor> Tutor { get; set; } 
 
@@ -41,8 +39,6 @@ namespace attfire1_assignment2
 
         public Person()
         {
-            Parent = new List<Parent>();
-            PersonSheetMusic = new List<PersonSheetMusic>();
             Student = new List<Student>();
             Tutor = new List<Tutor>();
         }

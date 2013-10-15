@@ -19,7 +19,6 @@ namespace attfire1_assignment2
                 {
                     EnsembleName = "Beginners Ensemble",
                     EnsembleLevel = 1,
-                    EnsembleLevelDesc = "An ensemble for beginners",
                     Person = persons.ToList()
                 };
 
@@ -165,25 +164,61 @@ namespace attfire1_assignment2
             }
         }
 
-        public void InsertPersonSheetMusicRecord()
+        public void InsertStudentRecord()
         {
             using (var db = new MusicClassesContext())
             {
-                int personID = (from p in db.Person
-                                where p.FirstName == "Bob" && p.LastName == "Brown"
-                                select p.PersonId).First();
+                short age = 12;
+                decimal lessonFeesOwed = 50.00m;
+                decimal instrumentFeesOwed = 50.00m;
+                int instrumentId = (from i in db.Instrument
+                                    where i.InstrumentName == "Violin"
+                                    select i.InstrumentId).First();
+                int personId = (from p in db.Person
+                               where p.FirstName == "Bob" && p.LastName == "Brown" 
+                               select p.PersonId).First();
+
+                var student = new Student()
+                {
+                    Age = age,
+                    LessonFeesOwed = lessonFeesOwed,
+                    InstrumentFeesOwed = instrumentFeesOwed,
+                    InstrumentInstrumentId = instrumentId,
+                    PersonPersonId = personId,
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentId == instrumentId
+                                  select i).First(),
+                    Person = (from p in db.Person
+                              where p.PersonId == personId
+                              select p).First()
+                };
+
+                db.Student.Add(student);
+                db.SaveChanges();
+                db.Database.Connection.Close();
+            }
+        }
+
+        public void InsertStudentSheetMusicRecord()
+        {
+            using (var db = new MusicClassesContext())
+            {
+                int studentID = (from p in db.Person
+                                 join s in db.Student
+                                 on p.PersonId equals s.PersonPersonId
+                                 select s.StudentId).First();
 
                 int sheetMusicID = (from sm in db.SheetMusic
                                     where sm.Title == "Bohemian Rhapsody"
                                     select sm.SheetMusicId).First();
 
-                var personSheetMusic = new PersonSheetMusic()
+                var studentSheetMusic = new StudentSheetMusic()
                 {
-                    PersonPersonId = personID,
+                    StudentStudentId = studentID,
                     SheetMusicSheetMusicId = sheetMusicID
                 };
 
-                db.PersonSheetMusic.Add(personSheetMusic);
+                db.StudentSheetMusic.Add(studentSheetMusic);
                 db.SaveChanges();
                 db.Database.Connection.Close();
             }
@@ -276,9 +311,14 @@ namespace attfire1_assignment2
                     LessonName = lessonName,
                     Location = location,
                     Subject = subject,
+                    Instrument = (from i in db.Instrument 
+                                 where i.InstrumentName == "Violin" 
+                                 select i.InstrumentName).First(),
                     StudentFee = studentFee,
                     OpenFee = openFee,
-                    MaxStudents = maxStudents,
+                    LessonDate = new DateTime (2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 00),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 00, 00),
                     TutorTutorId = tutorID,
                     Tutor = tutor
                 };
@@ -306,68 +346,19 @@ namespace attfire1_assignment2
             }
         }
 
-        public void InsertConditionRecord()
-        {
-            using (var db = new MusicClassesContext())
-            {
-                string conditionName = "Good";
-                string conditionDescription = "Instrument is ok for use";
-
-                var condition = new Condition()
-                {
-                    ConditionName = conditionName,
-                    ConditionDescription = conditionDescription
-                };
-                db.Condition.Add(condition);
-                db.SaveChanges();
-                db.Database.Connection.Close();
-            }
-        }
-
-        public void InsertRepairStatusRecord()
-        {
-            using (var db = new MusicClassesContext())
-            {
-                string statusName = "Repaired";
-                string statusDescription = "Instrument has been repaired and is good for use";
-
-                var repairStatus = new RepairStatus()
-                {
-                    StatusName = statusName,
-                    StatusDescription = statusDescription
-                };
-
-                db.RepairStatus.Add(repairStatus);
-                db.SaveChanges();
-                db.Database.Connection.Close();
-            }
-        }
-
         public void InsertInstrumentRecord()
         {
             using (var db = new MusicClassesContext())
             {
                 string instrumentName = "Violin";
-                decimal hireFee = 40.00m;
-                int repairStatusId = (from r in db.RepairStatus
-                                      where r.StatusName == "Repaired"
-                                      select r.RepairStatusId).First();
-
-                int conditionID = (from c in db.Condition
-                                   where c.ConditionName == "Good"
-                                   select c.ConditionId).First();
+                decimal hireFee = 50.00m;
 
                 var instrument = new Instrument()
                 {
                     InstrumentName = instrumentName,
                     HireFee = hireFee,
-                    RepairStatusId = repairStatusId,
-                    InstrumentCondition = (from c in db.Condition
-                                           where c.ConditionId == conditionID
-                                           select c).First(),
-                    RepairStatus = (from r in db.RepairStatus
-                                    where r.RepairStatusId == repairStatusId
-                                    select r).First()
+                    ConditionStatus = "Ok to use", 
+                    RepairStatus = "No need for repair"
                 };
 
                 db.Instrument.Add(instrument);
@@ -449,39 +440,6 @@ namespace attfire1_assignment2
             }
         }
 
-        //public static void InsertParentRecord()
-        //{
-        //    using (var db = new MusicClassesContext())
-        //    {
-        //        var personId = (from p in db.Person
-        //                        where p.FirstName == "Bob"
-        //                        && p.LastName == "Brown Sr"
-        //                        select p.PersonId).First();
-
-        //        var parentId = (from p in db.Person
-        //                        where p.FirstName == "Christina"
-        //                        && p.LastName == "Brown"
-        //                        select p.PersonId).First();
-
-        //        var parent1 = new Parent()
-        //        {
-        //            PersonPersonId = personId,
-        //            SpouseParentId = parentId,
-
-        //            Person = (from p in db.Person
-        //                      where p.PersonId == personId
-        //                      select p).First(),
-        //            Parent1 = new Parent()
-        //            {
-
-        //            }
-
-        //        };
-
-        //        db.Parent.Add(parent1);
-        //        db.SaveChanges();
-        //        db.Database.Connection.Close();
-        //    }
-        //}
+        
     }
 }

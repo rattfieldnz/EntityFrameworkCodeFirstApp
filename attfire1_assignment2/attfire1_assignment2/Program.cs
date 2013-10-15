@@ -21,21 +21,19 @@ namespace attfire1_assignment2
 
             InsertRecords insertTestRecords = new InsertRecords();
 
-            insertTestRecords.InsertConditionRecord();
-            insertTestRecords.InsertRepairStatusRecord();
             insertTestRecords.InsertInstrumentRecord();
             insertTestRecords.InsertEnsembleRecord();
             insertTestRecords.InsertAddressRecord();
             insertTestRecords.InsertPersonRecord();
             insertTestRecords.InsertSheetMusicRecord();
-            insertTestRecords.InsertPersonSheetMusicRecord();
+            insertTestRecords.InsertStudentRecord();
+            insertTestRecords.InsertStudentSheetMusicRecord();
             insertTestRecords.InsertPositionsHeldRecord();
             insertTestRecords.InsertTutorRecord();
             insertTestRecords.InsertTutorPositionsHeldRecord();
             insertTestRecords.InsertLessonRecord();
             insertTestRecords.InsertLocationRecord();
             insertTestRecords.InsertPerformanceRecord();
-            //InsertParentRecord();
 
             Application.Run(new Form1());
         }

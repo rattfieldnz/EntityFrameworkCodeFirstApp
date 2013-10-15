@@ -28,12 +28,12 @@ namespace attfire1_assignment2
 
         // Reverse navigation
         public virtual ICollection<PerformanceSheetMusic> PerformanceSheetMusic { get; set; } 
-        public virtual ICollection<PersonSheetMusic> PersonSheetMusic { get; set; } 
+        public virtual ICollection<StudentSheetMusic> PersonSheetMusic { get; set; } 
 
         public SheetMusic()
         {
             PerformanceSheetMusic = new List<PerformanceSheetMusic>();
-            PersonSheetMusic = new List<PersonSheetMusic>();
+            PersonSheetMusic = new List<StudentSheetMusic>();
         }
     }
 }
