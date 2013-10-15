@@ -75,6 +75,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertRecords.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="Location.cs" />

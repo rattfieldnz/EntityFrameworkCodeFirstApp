@@ -14,6 +14,7 @@ namespace attfire1_assignment2
         [Required]
         public int PerformanceId { get; set; }
         [Required]
+        [MaxLength(50)]
         public string PerformanceName { get; set; } 
         [Required]
         public DateTime PerformanceDate { get; set; }

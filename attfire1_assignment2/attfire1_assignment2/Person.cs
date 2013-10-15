@@ -14,10 +14,14 @@ namespace attfire1_assignment2
         [Key]
         public int PersonId { get; set; } 
         [Required]
+        [MaxLength(50)]
         public string FirstName { get; set; } 
         [Required]
+        [MaxLength(50)]
         public string LastName { get; set; }
+        [MaxLength(100)]
         public string EmailAddress { get; set; }
+        [MaxLength(10)]
         public string MobileNumber { get; set; }
         public int EnsembleEnsembleId { get; set; }
         [Required]

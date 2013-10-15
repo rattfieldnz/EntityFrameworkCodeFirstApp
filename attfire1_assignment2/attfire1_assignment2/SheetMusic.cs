@@ -14,6 +14,7 @@ namespace attfire1_assignment2
         [Key]
         public int SheetMusicId { get; set; }
         [Required]
+        [MaxLength(35)]
         public string Title { get; set; }
         [Required]
         public string ComposerName { get; set; }

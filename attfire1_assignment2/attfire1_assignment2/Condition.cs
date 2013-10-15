@@ -14,8 +14,10 @@ namespace attfire1_assignment2
         [Key]
         public int ConditionId { get; set; }
         [Required]
+        [MaxLength(50)]
         public string ConditionName { get; set; }
         [Required]
+        [MaxLength(250)]
         public string ConditionDescription { get; set; }
 
         //Reverse navigation

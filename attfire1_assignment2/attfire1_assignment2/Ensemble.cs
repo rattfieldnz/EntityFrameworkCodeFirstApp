@@ -14,9 +14,12 @@ namespace attfire1_assignment2
         [Key]
         public int EnsembleId { get; set; }
         [Required]
+        [MaxLength(50)]
         public string EnsembleName { get; set; }
         [Required]
+        [Range(1, 8)]
         public int EnsembleLevel { get; set; }
+        [MaxLength(250)]
         public string EnsembleLevelDesc { get; set; }
 
         [Required]

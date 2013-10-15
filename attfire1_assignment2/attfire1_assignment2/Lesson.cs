@@ -14,16 +14,20 @@ namespace attfire1_assignment2
         [Key]
         public int LessonId { get; set; }
         [Required]
+        [MaxLength(50)]
         public string LessonName { get; set; }
         [Required]
+        [MaxLength(50)]
         public string Location { get; set; }
         [Required]
+        [MaxLength(35)]
         public string Subject { get; set; }
         [Required]
         public decimal StudentFee { get; set; }
         [Required]
         public decimal OpenFee { get; set; }
         [Required]
+        [Range(8,16)]
         public short MaxStudents { get; set; }
         [Required]
         public int TutorTutorId { get; set; } 

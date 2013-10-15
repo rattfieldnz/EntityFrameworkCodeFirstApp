@@ -14,6 +14,7 @@ namespace attfire1_assignment2
         [Key]
         public int InstrumentId { get; set; }
         [Required]
+        [MaxLength(50)]
         public string InstrumentName { get; set; }
         [Required]
         public decimal HireFee { get; set; }

@@ -22,3 +22,15 @@ C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignmen
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.pdb
 D:\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Migrations.Lesson_v1.resources
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.csprojResolveAssemblyReference.cache
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\attfire1_assignment2.exe.config
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.exe
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.pdb
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\attfire1_assignment2.exe
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\attfire1_assignment2.pdb
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\EntityFramework.dll
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\EntityFramework.xml
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.csprojResolveAssemblyReference.cache
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Form1.resources
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Migrations.Lesson_v1.resources
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Properties.Resources.resources
+F:\Otago Polytech\2013\semester2\IN705 - Databases 3\Assignment 2\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.csproj.GenerateResource.Cache

@@ -14,8 +14,10 @@ namespace attfire1_assignment2
         [Key]
         public int RepairStatusId { get; set; }
         [Required]
+        [MaxLength(35)]
         public string StatusName { get; set; }
         [Required]
+        [MaxLength(200)]
         public string StatusDescription { get; set; }
 
         //Reverse navigation

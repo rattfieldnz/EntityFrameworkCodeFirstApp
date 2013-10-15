@@ -15,6 +15,7 @@ namespace attfire1_assignment2
         [Key]
         public int StudentId { get; set; } 
         [Required]
+        [Range(5, 100)]
         public short Age { get; set; }
         [Required]
         public decimal LessonFeesOwed { get; set; }

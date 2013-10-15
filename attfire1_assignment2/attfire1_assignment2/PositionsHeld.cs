@@ -14,6 +14,7 @@ namespace attfire1_assignment2
         [Key]
         public int PositionId { get; set; } 
         [Required]
+        [MaxLength(35)]
         public string PositionName { get; set; } 
 
         // Reverse navigation

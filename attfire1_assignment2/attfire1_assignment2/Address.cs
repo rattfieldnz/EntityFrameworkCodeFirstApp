@@ -14,11 +14,15 @@ namespace attfire1_assignment2
         [Key]
         public int AddressId { get; set; }
         [Required]
+        [MaxLength(100)]
         public string StreetAddress { get; set; }
+        [MaxLength(100)]
         public string Suburb { get; set; }
         [Required]
+        [MaxLength(35)]
         public string TownOrCity { get; set; }
         [Required]
+        [Range(9010, 9598)] // Range based on postcodes in the Dunedin City region
         public int PostCode { get; set; }
         [Required]
         [MaxLength(9), MinLength(9)]
