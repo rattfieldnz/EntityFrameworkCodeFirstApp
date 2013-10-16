@@ -285,9 +285,9 @@ namespace attfire1_assignment2 {
             
             private global::System.Data.DataColumn columnHireFee;
             
-            private global::System.Data.DataColumn columnRepairStatusId;
+            private global::System.Data.DataColumn columnRepairStatus;
             
-            private global::System.Data.DataColumn columnConditionId;
+            private global::System.Data.DataColumn columnConditionStatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -348,17 +348,17 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RepairStatusIdColumn {
+            public global::System.Data.DataColumn RepairStatusColumn {
                 get {
-                    return this.columnRepairStatusId;
+                    return this.columnRepairStatus;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ConditionIdColumn {
+            public global::System.Data.DataColumn ConditionStatusColumn {
                 get {
-                    return this.columnConditionId;
+                    return this.columnConditionStatus;
                 }
             }
             
@@ -399,14 +399,14 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InstrumentsRow AddInstrumentsRow(string InstrumentName, decimal HireFee, int RepairStatusId, int ConditionId) {
+            public InstrumentsRow AddInstrumentsRow(string InstrumentName, decimal HireFee, string RepairStatus, string ConditionStatus) {
                 InstrumentsRow rowInstrumentsRow = ((InstrumentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         InstrumentName,
                         HireFee,
-                        RepairStatusId,
-                        ConditionId};
+                        RepairStatus,
+                        ConditionStatus};
                 rowInstrumentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInstrumentsRow);
                 return rowInstrumentsRow;
@@ -439,8 +439,8 @@ namespace attfire1_assignment2 {
                 this.columnInstrumentId = base.Columns["InstrumentId"];
                 this.columnInstrumentName = base.Columns["InstrumentName"];
                 this.columnHireFee = base.Columns["HireFee"];
-                this.columnRepairStatusId = base.Columns["RepairStatusId"];
-                this.columnConditionId = base.Columns["ConditionId"];
+                this.columnRepairStatus = base.Columns["RepairStatus"];
+                this.columnConditionStatus = base.Columns["ConditionStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -452,10 +452,10 @@ namespace attfire1_assignment2 {
                 base.Columns.Add(this.columnInstrumentName);
                 this.columnHireFee = new global::System.Data.DataColumn("HireFee", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHireFee);
-                this.columnRepairStatusId = new global::System.Data.DataColumn("RepairStatusId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepairStatusId);
-                this.columnConditionId = new global::System.Data.DataColumn("ConditionId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConditionId);
+                this.columnRepairStatus = new global::System.Data.DataColumn("RepairStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRepairStatus);
+                this.columnConditionStatus = new global::System.Data.DataColumn("ConditionStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConditionStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnInstrumentId}, true));
                 this.columnInstrumentId.AutoIncrement = true;
@@ -465,10 +465,12 @@ namespace attfire1_assignment2 {
                 this.columnInstrumentId.ReadOnly = true;
                 this.columnInstrumentId.Unique = true;
                 this.columnInstrumentName.AllowDBNull = false;
-                this.columnInstrumentName.MaxLength = 2147483647;
+                this.columnInstrumentName.MaxLength = 50;
                 this.columnHireFee.AllowDBNull = false;
-                this.columnRepairStatusId.AllowDBNull = false;
-                this.columnConditionId.AllowDBNull = false;
+                this.columnRepairStatus.AllowDBNull = false;
+                this.columnRepairStatus.MaxLength = 2147483647;
+                this.columnConditionStatus.AllowDBNull = false;
+                this.columnConditionStatus.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -644,23 +646,23 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int RepairStatusId {
+            public string RepairStatus {
                 get {
-                    return ((int)(this[this.tableInstruments.RepairStatusIdColumn]));
+                    return ((string)(this[this.tableInstruments.RepairStatusColumn]));
                 }
                 set {
-                    this[this.tableInstruments.RepairStatusIdColumn] = value;
+                    this[this.tableInstruments.RepairStatusColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ConditionId {
+            public string ConditionStatus {
                 get {
-                    return ((int)(this[this.tableInstruments.ConditionIdColumn]));
+                    return ((string)(this[this.tableInstruments.ConditionStatusColumn]));
                 }
                 set {
-                    this[this.tableInstruments.ConditionIdColumn] = value;
+                    this[this.tableInstruments.ConditionStatusColumn] = value;
                 }
             }
         }
@@ -827,41 +829,39 @@ namespace attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet1
             tableMapping.ColumnMappings.Add("InstrumentId", "InstrumentId");
             tableMapping.ColumnMappings.Add("InstrumentName", "InstrumentName");
             tableMapping.ColumnMappings.Add("HireFee", "HireFee");
-            tableMapping.ColumnMappings.Add("RepairStatusId", "RepairStatusId");
-            tableMapping.ColumnMappings.Add("ConditionId", "ConditionId");
+            tableMapping.ColumnMappings.Add("RepairStatus", "RepairStatus");
+            tableMapping.ColumnMappings.Add("ConditionStatus", "ConditionStatus");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Instruments] WHERE (([InstrumentId] = @Original_InstrumentId) " +
-                "AND ([HireFee] = @Original_HireFee) AND ([RepairStatusId] = @Original_RepairStat" +
-                "usId) AND ([ConditionId] = @Original_ConditionId))";
+                "AND ([InstrumentName] = @Original_InstrumentName) AND ([HireFee] = @Original_Hir" +
+                "eFee))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InstrumentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InstrumentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HireFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HireFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairStatusId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatusId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ConditionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConditionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Instruments] ([InstrumentName], [HireFee], [RepairStatusId], [ConditionId]) VALUES (@InstrumentName, @HireFee, @RepairStatusId, @ConditionId);
-SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM Instruments WHERE (InstrumentId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Instruments] ([InstrumentName], [HireFee], [RepairStatus], [ConditionStatus]) VALUES (@InstrumentName, @HireFee, @RepairStatus, @ConditionStatus);
+SELECT InstrumentId, InstrumentName, HireFee, RepairStatus, ConditionStatus FROM Instruments WHERE (InstrumentId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HireFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HireFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairStatusId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatusId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConditionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConditionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConditionStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConditionStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Instruments] SET [InstrumentName] = @InstrumentName, [HireFee] = @HireFee, [RepairStatusId] = @RepairStatusId, [ConditionId] = @ConditionId WHERE (([InstrumentId] = @Original_InstrumentId) AND ([HireFee] = @Original_HireFee) AND ([RepairStatusId] = @Original_RepairStatusId) AND ([ConditionId] = @Original_ConditionId));
-SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM Instruments WHERE (InstrumentId = @InstrumentId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Instruments] SET [InstrumentName] = @InstrumentName, [HireFee] = @HireFee, [RepairStatus] = @RepairStatus, [ConditionStatus] = @ConditionStatus WHERE (([InstrumentId] = @Original_InstrumentId) AND ([InstrumentName] = @Original_InstrumentName) AND ([HireFee] = @Original_HireFee));
+SELECT InstrumentId, InstrumentName, HireFee, RepairStatus, ConditionStatus FROM Instruments WHERE (InstrumentId = @InstrumentId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HireFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HireFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairStatusId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatusId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConditionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConditionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConditionStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConditionStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InstrumentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_InstrumentName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HireFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HireFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairStatusId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatusId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ConditionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConditionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -878,8 +878,8 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM db" +
-                "o.Instruments";
+            this._commandCollection[0].CommandText = "SELECT InstrumentId, InstrumentName, HireFee, RepairStatus, ConditionStatus FROM " +
+                "dbo.Instruments";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -940,11 +940,15 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_InstrumentId, decimal Original_HireFee, int Original_RepairStatusId, int Original_ConditionId) {
+        public virtual int Delete(int Original_InstrumentId, string Original_InstrumentName, decimal Original_HireFee) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_InstrumentId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_HireFee));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_RepairStatusId));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_ConditionId));
+            if ((Original_InstrumentName == null)) {
+                throw new global::System.ArgumentNullException("Original_InstrumentName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_InstrumentName));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_HireFee));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -965,7 +969,7 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string InstrumentName, decimal HireFee, int RepairStatusId, int ConditionId) {
+        public virtual int Insert(string InstrumentName, decimal HireFee, string RepairStatus, string ConditionStatus) {
             if ((InstrumentName == null)) {
                 throw new global::System.ArgumentNullException("InstrumentName");
             }
@@ -973,8 +977,18 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(InstrumentName));
             }
             this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(HireFee));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(RepairStatusId));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ConditionId));
+            if ((RepairStatus == null)) {
+                throw new global::System.ArgumentNullException("RepairStatus");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(RepairStatus));
+            }
+            if ((ConditionStatus == null)) {
+                throw new global::System.ArgumentNullException("ConditionStatus");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ConditionStatus));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -995,7 +1009,7 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string InstrumentName, decimal HireFee, int RepairStatusId, int ConditionId, int Original_InstrumentId, decimal Original_HireFee, int Original_RepairStatusId, int Original_ConditionId, int InstrumentId) {
+        public virtual int Update(string InstrumentName, decimal HireFee, string RepairStatus, string ConditionStatus, int Original_InstrumentId, string Original_InstrumentName, decimal Original_HireFee, int InstrumentId) {
             if ((InstrumentName == null)) {
                 throw new global::System.ArgumentNullException("InstrumentName");
             }
@@ -1003,13 +1017,27 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(InstrumentName));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(HireFee));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(RepairStatusId));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ConditionId));
+            if ((RepairStatus == null)) {
+                throw new global::System.ArgumentNullException("RepairStatus");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(RepairStatus));
+            }
+            if ((ConditionStatus == null)) {
+                throw new global::System.ArgumentNullException("ConditionStatus");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ConditionStatus));
+            }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_InstrumentId));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Original_HireFee));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_RepairStatusId));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ConditionId));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(InstrumentId));
+            if ((Original_InstrumentName == null)) {
+                throw new global::System.ArgumentNullException("Original_InstrumentName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_InstrumentName));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_HireFee));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(InstrumentId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1030,8 +1058,8 @@ SELECT InstrumentId, InstrumentName, HireFee, RepairStatusId, ConditionId FROM I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string InstrumentName, decimal HireFee, int RepairStatusId, int ConditionId, int Original_InstrumentId, decimal Original_HireFee, int Original_RepairStatusId, int Original_ConditionId) {
-            return this.Update(InstrumentName, HireFee, RepairStatusId, ConditionId, Original_InstrumentId, Original_HireFee, Original_RepairStatusId, Original_ConditionId, Original_InstrumentId);
+        public virtual int Update(string InstrumentName, decimal HireFee, string RepairStatus, string ConditionStatus, int Original_InstrumentId, string Original_InstrumentName, decimal Original_HireFee) {
+            return this.Update(InstrumentName, HireFee, RepairStatus, ConditionStatus, Original_InstrumentId, Original_InstrumentName, Original_HireFee, Original_InstrumentId);
         }
     }
     

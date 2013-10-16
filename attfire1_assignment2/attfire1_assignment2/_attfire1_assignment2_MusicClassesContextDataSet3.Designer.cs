@@ -24,7 +24,7 @@ namespace attfire1_assignment2 {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class _attfire1_assignment2_MusicClassesContextDataSet3 : global::System.Data.DataSet {
         
-        private SheetMusicsDataTable tableSheetMusics;
+        private EnsemblesDataTable tableEnsembles;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace attfire1_assignment2 {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["SheetMusics"] != null)) {
-                    base.Tables.Add(new SheetMusicsDataTable(ds.Tables["SheetMusics"]));
+                if ((ds.Tables["Ensembles"] != null)) {
+                    base.Tables.Add(new EnsemblesDataTable(ds.Tables["Ensembles"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace attfire1_assignment2 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SheetMusicsDataTable SheetMusics {
+        public EnsemblesDataTable Ensembles {
             get {
-                return this.tableSheetMusics;
+                return this.tableEnsembles;
             }
         }
         
@@ -152,8 +152,8 @@ namespace attfire1_assignment2 {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["SheetMusics"] != null)) {
-                    base.Tables.Add(new SheetMusicsDataTable(ds.Tables["SheetMusics"]));
+                if ((ds.Tables["Ensembles"] != null)) {
+                    base.Tables.Add(new EnsemblesDataTable(ds.Tables["Ensembles"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace attfire1_assignment2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableSheetMusics = ((SheetMusicsDataTable)(base.Tables["SheetMusics"]));
+            this.tableEnsembles = ((EnsemblesDataTable)(base.Tables["Ensembles"]));
             if ((initTable == true)) {
-                if ((this.tableSheetMusics != null)) {
-                    this.tableSheetMusics.InitVars();
+                if ((this.tableEnsembles != null)) {
+                    this.tableEnsembles.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace attfire1_assignment2 {
             this.Namespace = "http://tempuri.org/_attfire1_assignment2_MusicClassesContextDataSet3.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableSheetMusics = new SheetMusicsDataTable();
-            base.Tables.Add(this.tableSheetMusics);
+            this.tableEnsembles = new EnsemblesDataTable();
+            base.Tables.Add(this.tableEnsembles);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeSheetMusics() {
+        private bool ShouldSerializeEnsembles() {
             return false;
         }
         
@@ -270,31 +270,25 @@ namespace attfire1_assignment2 {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void SheetMusicsRowChangeEventHandler(object sender, SheetMusicsRowChangeEvent e);
+        public delegate void EnsemblesRowChangeEventHandler(object sender, EnsemblesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SheetMusicsDataTable : global::System.Data.TypedTableBase<SheetMusicsRow> {
+        public partial class EnsemblesDataTable : global::System.Data.TypedTableBase<EnsemblesRow> {
             
-            private global::System.Data.DataColumn columnSheetMusicId;
+            private global::System.Data.DataColumn columnEnsembleId;
             
-            private global::System.Data.DataColumn columnTitle;
+            private global::System.Data.DataColumn columnEnsembleName;
             
-            private global::System.Data.DataColumn columnComposerName;
-            
-            private global::System.Data.DataColumn columnDifficultyLevel;
-            
-            private global::System.Data.DataColumn columnNumberOfAuthCopies;
-            
-            private global::System.Data.DataColumn columnScoreType;
+            private global::System.Data.DataColumn columnEnsembleLevel;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsDataTable() {
-                this.TableName = "SheetMusics";
+            public EnsemblesDataTable() {
+                this.TableName = "Ensembles";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +296,7 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SheetMusicsDataTable(global::System.Data.DataTable table) {
+            internal EnsemblesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,56 +313,32 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected SheetMusicsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected EnsemblesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SheetMusicIdColumn {
+            public global::System.Data.DataColumn EnsembleIdColumn {
                 get {
-                    return this.columnSheetMusicId;
+                    return this.columnEnsembleId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
+            public global::System.Data.DataColumn EnsembleNameColumn {
                 get {
-                    return this.columnTitle;
+                    return this.columnEnsembleName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ComposerNameColumn {
+            public global::System.Data.DataColumn EnsembleLevelColumn {
                 get {
-                    return this.columnComposerName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DifficultyLevelColumn {
-                get {
-                    return this.columnDifficultyLevel;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NumberOfAuthCopiesColumn {
-                get {
-                    return this.columnNumberOfAuthCopies;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ScoreTypeColumn {
-                get {
-                    return this.columnScoreType;
+                    return this.columnEnsembleLevel;
                 }
             }
             
@@ -383,57 +353,54 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsRow this[int index] {
+            public EnsemblesRow this[int index] {
                 get {
-                    return ((SheetMusicsRow)(this.Rows[index]));
+                    return ((EnsemblesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SheetMusicsRowChangeEventHandler SheetMusicsRowChanging;
+            public event EnsemblesRowChangeEventHandler EnsemblesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SheetMusicsRowChangeEventHandler SheetMusicsRowChanged;
+            public event EnsemblesRowChangeEventHandler EnsemblesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SheetMusicsRowChangeEventHandler SheetMusicsRowDeleting;
+            public event EnsemblesRowChangeEventHandler EnsemblesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SheetMusicsRowChangeEventHandler SheetMusicsRowDeleted;
+            public event EnsemblesRowChangeEventHandler EnsemblesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddSheetMusicsRow(SheetMusicsRow row) {
+            public void AddEnsemblesRow(EnsemblesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsRow AddSheetMusicsRow(string Title, string ComposerName, short DifficultyLevel, short NumberOfAuthCopies, string ScoreType) {
-                SheetMusicsRow rowSheetMusicsRow = ((SheetMusicsRow)(this.NewRow()));
+            public EnsemblesRow AddEnsemblesRow(string EnsembleName, int EnsembleLevel) {
+                EnsemblesRow rowEnsemblesRow = ((EnsemblesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Title,
-                        ComposerName,
-                        DifficultyLevel,
-                        NumberOfAuthCopies,
-                        ScoreType};
-                rowSheetMusicsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSheetMusicsRow);
-                return rowSheetMusicsRow;
+                        EnsembleName,
+                        EnsembleLevel};
+                rowEnsemblesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEnsemblesRow);
+                return rowEnsemblesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsRow FindBySheetMusicId(int SheetMusicId) {
-                return ((SheetMusicsRow)(this.Rows.Find(new object[] {
-                            SheetMusicId})));
+            public EnsemblesRow FindByEnsembleId(int EnsembleId) {
+                return ((EnsemblesRow)(this.Rows.Find(new object[] {
+                            EnsembleId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SheetMusicsDataTable cln = ((SheetMusicsDataTable)(base.Clone()));
+                EnsemblesDataTable cln = ((EnsemblesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -441,77 +408,63 @@ namespace attfire1_assignment2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SheetMusicsDataTable();
+                return new EnsemblesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnSheetMusicId = base.Columns["SheetMusicId"];
-                this.columnTitle = base.Columns["Title"];
-                this.columnComposerName = base.Columns["ComposerName"];
-                this.columnDifficultyLevel = base.Columns["DifficultyLevel"];
-                this.columnNumberOfAuthCopies = base.Columns["NumberOfAuthCopies"];
-                this.columnScoreType = base.Columns["ScoreType"];
+                this.columnEnsembleId = base.Columns["EnsembleId"];
+                this.columnEnsembleName = base.Columns["EnsembleName"];
+                this.columnEnsembleLevel = base.Columns["EnsembleLevel"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnSheetMusicId = new global::System.Data.DataColumn("SheetMusicId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSheetMusicId);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnComposerName = new global::System.Data.DataColumn("ComposerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnComposerName);
-                this.columnDifficultyLevel = new global::System.Data.DataColumn("DifficultyLevel", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDifficultyLevel);
-                this.columnNumberOfAuthCopies = new global::System.Data.DataColumn("NumberOfAuthCopies", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumberOfAuthCopies);
-                this.columnScoreType = new global::System.Data.DataColumn("ScoreType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnScoreType);
+                this.columnEnsembleId = new global::System.Data.DataColumn("EnsembleId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnsembleId);
+                this.columnEnsembleName = new global::System.Data.DataColumn("EnsembleName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnsembleName);
+                this.columnEnsembleLevel = new global::System.Data.DataColumn("EnsembleLevel", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnsembleLevel);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnSheetMusicId}, true));
-                this.columnSheetMusicId.AutoIncrement = true;
-                this.columnSheetMusicId.AutoIncrementSeed = -1;
-                this.columnSheetMusicId.AutoIncrementStep = -1;
-                this.columnSheetMusicId.AllowDBNull = false;
-                this.columnSheetMusicId.ReadOnly = true;
-                this.columnSheetMusicId.Unique = true;
-                this.columnTitle.AllowDBNull = false;
-                this.columnTitle.MaxLength = 2147483647;
-                this.columnComposerName.AllowDBNull = false;
-                this.columnComposerName.MaxLength = 2147483647;
-                this.columnDifficultyLevel.AllowDBNull = false;
-                this.columnNumberOfAuthCopies.AllowDBNull = false;
-                this.columnScoreType.AllowDBNull = false;
-                this.columnScoreType.MaxLength = 2147483647;
+                                this.columnEnsembleId}, true));
+                this.columnEnsembleId.AutoIncrement = true;
+                this.columnEnsembleId.AutoIncrementSeed = -1;
+                this.columnEnsembleId.AutoIncrementStep = -1;
+                this.columnEnsembleId.AllowDBNull = false;
+                this.columnEnsembleId.ReadOnly = true;
+                this.columnEnsembleId.Unique = true;
+                this.columnEnsembleName.AllowDBNull = false;
+                this.columnEnsembleName.MaxLength = 50;
+                this.columnEnsembleLevel.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsRow NewSheetMusicsRow() {
-                return ((SheetMusicsRow)(this.NewRow()));
+            public EnsemblesRow NewEnsemblesRow() {
+                return ((EnsemblesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SheetMusicsRow(builder);
+                return new EnsemblesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SheetMusicsRow);
+                return typeof(EnsemblesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SheetMusicsRowChanged != null)) {
-                    this.SheetMusicsRowChanged(this, new SheetMusicsRowChangeEvent(((SheetMusicsRow)(e.Row)), e.Action));
+                if ((this.EnsemblesRowChanged != null)) {
+                    this.EnsemblesRowChanged(this, new EnsemblesRowChangeEvent(((EnsemblesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -519,8 +472,8 @@ namespace attfire1_assignment2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SheetMusicsRowChanging != null)) {
-                    this.SheetMusicsRowChanging(this, new SheetMusicsRowChangeEvent(((SheetMusicsRow)(e.Row)), e.Action));
+                if ((this.EnsemblesRowChanging != null)) {
+                    this.EnsemblesRowChanging(this, new EnsemblesRowChangeEvent(((EnsemblesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -528,8 +481,8 @@ namespace attfire1_assignment2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SheetMusicsRowDeleted != null)) {
-                    this.SheetMusicsRowDeleted(this, new SheetMusicsRowChangeEvent(((SheetMusicsRow)(e.Row)), e.Action));
+                if ((this.EnsemblesRowDeleted != null)) {
+                    this.EnsemblesRowDeleted(this, new EnsemblesRowChangeEvent(((EnsemblesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -537,14 +490,14 @@ namespace attfire1_assignment2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SheetMusicsRowDeleting != null)) {
-                    this.SheetMusicsRowDeleting(this, new SheetMusicsRowChangeEvent(((SheetMusicsRow)(e.Row)), e.Action));
+                if ((this.EnsemblesRowDeleting != null)) {
+                    this.EnsemblesRowDeleting(this, new EnsemblesRowChangeEvent(((EnsemblesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveSheetMusicsRow(SheetMusicsRow row) {
+            public void RemoveEnsemblesRow(EnsemblesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -571,7 +524,7 @@ namespace attfire1_assignment2 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SheetMusicsDataTable";
+                attribute2.FixedValue = "EnsemblesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -615,80 +568,47 @@ namespace attfire1_assignment2 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SheetMusicsRow : global::System.Data.DataRow {
+        public partial class EnsemblesRow : global::System.Data.DataRow {
             
-            private SheetMusicsDataTable tableSheetMusics;
+            private EnsemblesDataTable tableEnsembles;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SheetMusicsRow(global::System.Data.DataRowBuilder rb) : 
+            internal EnsemblesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSheetMusics = ((SheetMusicsDataTable)(this.Table));
+                this.tableEnsembles = ((EnsemblesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SheetMusicId {
+            public int EnsembleId {
                 get {
-                    return ((int)(this[this.tableSheetMusics.SheetMusicIdColumn]));
+                    return ((int)(this[this.tableEnsembles.EnsembleIdColumn]));
                 }
                 set {
-                    this[this.tableSheetMusics.SheetMusicIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Title {
-                get {
-                    return ((string)(this[this.tableSheetMusics.TitleColumn]));
-                }
-                set {
-                    this[this.tableSheetMusics.TitleColumn] = value;
+                    this[this.tableEnsembles.EnsembleIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ComposerName {
+            public string EnsembleName {
                 get {
-                    return ((string)(this[this.tableSheetMusics.ComposerNameColumn]));
+                    return ((string)(this[this.tableEnsembles.EnsembleNameColumn]));
                 }
                 set {
-                    this[this.tableSheetMusics.ComposerNameColumn] = value;
+                    this[this.tableEnsembles.EnsembleNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short DifficultyLevel {
+            public int EnsembleLevel {
                 get {
-                    return ((short)(this[this.tableSheetMusics.DifficultyLevelColumn]));
+                    return ((int)(this[this.tableEnsembles.EnsembleLevelColumn]));
                 }
                 set {
-                    this[this.tableSheetMusics.DifficultyLevelColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short NumberOfAuthCopies {
-                get {
-                    return ((short)(this[this.tableSheetMusics.NumberOfAuthCopiesColumn]));
-                }
-                set {
-                    this[this.tableSheetMusics.NumberOfAuthCopiesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ScoreType {
-                get {
-                    return ((string)(this[this.tableSheetMusics.ScoreTypeColumn]));
-                }
-                set {
-                    this[this.tableSheetMusics.ScoreTypeColumn] = value;
+                    this[this.tableEnsembles.EnsembleLevelColumn] = value;
                 }
             }
         }
@@ -697,22 +617,22 @@ namespace attfire1_assignment2 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class SheetMusicsRowChangeEvent : global::System.EventArgs {
+        public class EnsemblesRowChangeEvent : global::System.EventArgs {
             
-            private SheetMusicsRow eventRow;
+            private EnsemblesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsRowChangeEvent(SheetMusicsRow row, global::System.Data.DataRowAction action) {
+            public EnsemblesRowChangeEvent(EnsemblesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SheetMusicsRow Row {
+            public EnsemblesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -740,7 +660,7 @@ namespace attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet3
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SheetMusicsTableAdapter : global::System.ComponentModel.Component {
+    public partial class EnsemblesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -754,7 +674,7 @@ namespace attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet3
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public SheetMusicsTableAdapter() {
+        public EnsemblesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -851,47 +771,39 @@ namespace attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet3
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SheetMusics";
-            tableMapping.ColumnMappings.Add("SheetMusicId", "SheetMusicId");
-            tableMapping.ColumnMappings.Add("Title", "Title");
-            tableMapping.ColumnMappings.Add("ComposerName", "ComposerName");
-            tableMapping.ColumnMappings.Add("DifficultyLevel", "DifficultyLevel");
-            tableMapping.ColumnMappings.Add("NumberOfAuthCopies", "NumberOfAuthCopies");
-            tableMapping.ColumnMappings.Add("ScoreType", "ScoreType");
+            tableMapping.DataSetTable = "Ensembles";
+            tableMapping.ColumnMappings.Add("EnsembleId", "EnsembleId");
+            tableMapping.ColumnMappings.Add("EnsembleName", "EnsembleName");
+            tableMapping.ColumnMappings.Add("EnsembleLevel", "EnsembleLevel");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SheetMusics] WHERE (([SheetMusicId] = @Original_SheetMusicId) " +
-                "AND ([DifficultyLevel] = @Original_DifficultyLevel) AND ([NumberOfAuthCopies] = " +
-                "@Original_NumberOfAuthCopies))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Ensembles] WHERE (([EnsembleId] = @Original_EnsembleId) AND ([" +
+                "EnsembleName] = @Original_EnsembleName) AND ([EnsembleLevel] = @Original_Ensembl" +
+                "eLevel))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SheetMusicId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SheetMusicId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DifficultyLevel", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DifficultyLevel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberOfAuthCopies", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfAuthCopies", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnsembleId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnsembleName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnsembleLevel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleLevel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SheetMusics] ([Title], [ComposerName], [DifficultyLevel], [NumberOfAuthCopies], [ScoreType]) VALUES (@Title, @ComposerName, @DifficultyLevel, @NumberOfAuthCopies, @ScoreType);
-SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, ScoreType FROM SheetMusics WHERE (SheetMusicId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Ensembles] ([EnsembleName], [EnsembleLevel]) VALUES (@Ensemble" +
+                "Name, @EnsembleLevel);\r\nSELECT EnsembleId, EnsembleName, EnsembleLevel FROM Ense" +
+                "mbles WHERE (EnsembleId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ComposerName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ComposerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DifficultyLevel", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DifficultyLevel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberOfAuthCopies", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfAuthCopies", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScoreType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScoreType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnsembleName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnsembleLevel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleLevel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SheetMusics] SET [Title] = @Title, [ComposerName] = @ComposerName, [DifficultyLevel] = @DifficultyLevel, [NumberOfAuthCopies] = @NumberOfAuthCopies, [ScoreType] = @ScoreType WHERE (([SheetMusicId] = @Original_SheetMusicId) AND ([DifficultyLevel] = @Original_DifficultyLevel) AND ([NumberOfAuthCopies] = @Original_NumberOfAuthCopies));
-SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, ScoreType FROM SheetMusics WHERE (SheetMusicId = @SheetMusicId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Ensembles] SET [EnsembleName] = @EnsembleName, [EnsembleLevel] = @EnsembleLevel WHERE (([EnsembleId] = @Original_EnsembleId) AND ([EnsembleName] = @Original_EnsembleName) AND ([EnsembleLevel] = @Original_EnsembleLevel));
+SELECT EnsembleId, EnsembleName, EnsembleLevel FROM Ensembles WHERE (EnsembleId = @EnsembleId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ComposerName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ComposerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DifficultyLevel", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DifficultyLevel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberOfAuthCopies", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfAuthCopies", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScoreType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScoreType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SheetMusicId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SheetMusicId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DifficultyLevel", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DifficultyLevel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberOfAuthCopies", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfAuthCopies", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SheetMusicId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SheetMusicId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnsembleName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnsembleLevel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleLevel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnsembleId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnsembleName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnsembleLevel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleLevel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnsembleId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EnsembleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -907,8 +819,7 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, Sc" +
-                "oreType FROM dbo.SheetMusics";
+            this._commandCollection[0].CommandText = "SELECT EnsembleId, EnsembleName, EnsembleLevel FROM dbo.Ensembles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -916,7 +827,7 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(_attfire1_assignment2_MusicClassesContextDataSet3.SheetMusicsDataTable dataTable) {
+        public virtual int Fill(_attfire1_assignment2_MusicClassesContextDataSet3.EnsemblesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -929,9 +840,9 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual _attfire1_assignment2_MusicClassesContextDataSet3.SheetMusicsDataTable GetData() {
+        public virtual _attfire1_assignment2_MusicClassesContextDataSet3.EnsemblesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            _attfire1_assignment2_MusicClassesContextDataSet3.SheetMusicsDataTable dataTable = new _attfire1_assignment2_MusicClassesContextDataSet3.SheetMusicsDataTable();
+            _attfire1_assignment2_MusicClassesContextDataSet3.EnsemblesDataTable dataTable = new _attfire1_assignment2_MusicClassesContextDataSet3.EnsemblesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -939,7 +850,7 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(_attfire1_assignment2_MusicClassesContextDataSet3.SheetMusicsDataTable dataTable) {
+        public virtual int Update(_attfire1_assignment2_MusicClassesContextDataSet3.EnsemblesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -947,7 +858,7 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(_attfire1_assignment2_MusicClassesContextDataSet3 dataSet) {
-            return this.Adapter.Update(dataSet, "SheetMusics");
+            return this.Adapter.Update(dataSet, "Ensembles");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -969,10 +880,15 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_SheetMusicId, short Original_DifficultyLevel, short Original_NumberOfAuthCopies) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_SheetMusicId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((short)(Original_DifficultyLevel));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((short)(Original_NumberOfAuthCopies));
+        public virtual int Delete(int Original_EnsembleId, string Original_EnsembleName, int Original_EnsembleLevel) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_EnsembleId));
+            if ((Original_EnsembleName == null)) {
+                throw new global::System.ArgumentNullException("Original_EnsembleName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_EnsembleName));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_EnsembleLevel));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -993,27 +909,14 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, string ComposerName, short DifficultyLevel, short NumberOfAuthCopies, string ScoreType) {
-            if ((Title == null)) {
-                throw new global::System.ArgumentNullException("Title");
+        public virtual int Insert(string EnsembleName, int EnsembleLevel) {
+            if ((EnsembleName == null)) {
+                throw new global::System.ArgumentNullException("EnsembleName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Title));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(EnsembleName));
             }
-            if ((ComposerName == null)) {
-                throw new global::System.ArgumentNullException("ComposerName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ComposerName));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((short)(DifficultyLevel));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((short)(NumberOfAuthCopies));
-            if ((ScoreType == null)) {
-                throw new global::System.ArgumentNullException("ScoreType");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ScoreType));
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(EnsembleLevel));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1034,31 +937,23 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, string ComposerName, short DifficultyLevel, short NumberOfAuthCopies, string ScoreType, int Original_SheetMusicId, short Original_DifficultyLevel, short Original_NumberOfAuthCopies, int SheetMusicId) {
-            if ((Title == null)) {
-                throw new global::System.ArgumentNullException("Title");
+        public virtual int Update(string EnsembleName, int EnsembleLevel, int Original_EnsembleId, string Original_EnsembleName, int Original_EnsembleLevel, int EnsembleId) {
+            if ((EnsembleName == null)) {
+                throw new global::System.ArgumentNullException("EnsembleName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Title));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(EnsembleName));
             }
-            if ((ComposerName == null)) {
-                throw new global::System.ArgumentNullException("ComposerName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ComposerName));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((short)(DifficultyLevel));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((short)(NumberOfAuthCopies));
-            if ((ScoreType == null)) {
-                throw new global::System.ArgumentNullException("ScoreType");
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(EnsembleLevel));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_EnsembleId));
+            if ((Original_EnsembleName == null)) {
+                throw new global::System.ArgumentNullException("Original_EnsembleName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ScoreType));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_EnsembleName));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_SheetMusicId));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((short)(Original_DifficultyLevel));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((short)(Original_NumberOfAuthCopies));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(SheetMusicId));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_EnsembleLevel));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(EnsembleId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1079,8 +974,8 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, string ComposerName, short DifficultyLevel, short NumberOfAuthCopies, string ScoreType, int Original_SheetMusicId, short Original_DifficultyLevel, short Original_NumberOfAuthCopies) {
-            return this.Update(Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, ScoreType, Original_SheetMusicId, Original_DifficultyLevel, Original_NumberOfAuthCopies, Original_SheetMusicId);
+        public virtual int Update(string EnsembleName, int EnsembleLevel, int Original_EnsembleId, string Original_EnsembleName, int Original_EnsembleLevel) {
+            return this.Update(EnsembleName, EnsembleLevel, Original_EnsembleId, Original_EnsembleName, Original_EnsembleLevel, Original_EnsembleId);
         }
     }
     
@@ -1096,7 +991,7 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         
         private UpdateOrderOption _updateOrder;
         
-        private SheetMusicsTableAdapter _sheetMusicsTableAdapter;
+        private EnsemblesTableAdapter _ensemblesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1118,12 +1013,12 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public SheetMusicsTableAdapter SheetMusicsTableAdapter {
+        public EnsemblesTableAdapter EnsemblesTableAdapter {
             get {
-                return this._sheetMusicsTableAdapter;
+                return this._ensemblesTableAdapter;
             }
             set {
-                this._sheetMusicsTableAdapter = value;
+                this._ensemblesTableAdapter = value;
             }
         }
         
@@ -1146,9 +1041,9 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._sheetMusicsTableAdapter != null) 
-                            && (this._sheetMusicsTableAdapter.Connection != null))) {
-                    return this._sheetMusicsTableAdapter.Connection;
+                if (((this._ensemblesTableAdapter != null) 
+                            && (this._ensemblesTableAdapter.Connection != null))) {
+                    return this._ensemblesTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1163,7 +1058,7 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._sheetMusicsTableAdapter != null)) {
+                if ((this._ensemblesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1177,12 +1072,12 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(_attfire1_assignment2_MusicClassesContextDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sheetMusicsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SheetMusics.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._ensemblesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ensembles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._sheetMusicsTableAdapter.Update(updatedRows));
+                    result = (result + this._ensemblesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1196,11 +1091,11 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(_attfire1_assignment2_MusicClassesContextDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sheetMusicsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SheetMusics.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._ensemblesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ensembles.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._sheetMusicsTableAdapter.Update(addedRows));
+                    result = (result + this._ensemblesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1214,11 +1109,11 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(_attfire1_assignment2_MusicClassesContextDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._sheetMusicsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SheetMusics.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._ensemblesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Ensembles.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._sheetMusicsTableAdapter.Update(deletedRows));
+                    result = (result + this._ensemblesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1261,8 +1156,8 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._sheetMusicsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sheetMusicsTableAdapter.Connection) == false))) {
+            if (((this._ensemblesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._ensemblesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1298,13 +1193,13 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._sheetMusicsTableAdapter != null)) {
-                    revertConnections.Add(this._sheetMusicsTableAdapter, this._sheetMusicsTableAdapter.Connection);
-                    this._sheetMusicsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._sheetMusicsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._sheetMusicsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sheetMusicsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sheetMusicsTableAdapter.Adapter);
+                if ((this._ensemblesTableAdapter != null)) {
+                    revertConnections.Add(this._ensemblesTableAdapter, this._ensemblesTableAdapter.Connection);
+                    this._ensemblesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._ensemblesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._ensemblesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._ensemblesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._ensemblesTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1365,9 +1260,9 @@ SELECT SheetMusicId, Title, ComposerName, DifficultyLevel, NumberOfAuthCopies, S
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._sheetMusicsTableAdapter != null)) {
-                    this._sheetMusicsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sheetMusicsTableAdapter]));
-                    this._sheetMusicsTableAdapter.Transaction = null;
+                if ((this._ensemblesTableAdapter != null)) {
+                    this._ensemblesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._ensemblesTableAdapter]));
+                    this._ensemblesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

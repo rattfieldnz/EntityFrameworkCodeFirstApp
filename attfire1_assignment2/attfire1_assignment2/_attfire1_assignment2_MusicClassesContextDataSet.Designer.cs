@@ -287,11 +287,17 @@ namespace attfire1_assignment2 {
             
             private global::System.Data.DataColumn columnSubject;
             
+            private global::System.Data.DataColumn columnInstrument;
+            
             private global::System.Data.DataColumn columnStudentFee;
             
             private global::System.Data.DataColumn columnOpenFee;
             
-            private global::System.Data.DataColumn columnMaxStudents;
+            private global::System.Data.DataColumn columnLessonDate;
+            
+            private global::System.Data.DataColumn columnStartTime;
+            
+            private global::System.Data.DataColumn columnFinishTime;
             
             private global::System.Data.DataColumn columnTutorTutorId;
             
@@ -362,6 +368,14 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InstrumentColumn {
+                get {
+                    return this.columnInstrument;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn StudentFeeColumn {
                 get {
                     return this.columnStudentFee;
@@ -378,9 +392,25 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MaxStudentsColumn {
+            public global::System.Data.DataColumn LessonDateColumn {
                 get {
-                    return this.columnMaxStudents;
+                    return this.columnLessonDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StartTimeColumn {
+                get {
+                    return this.columnStartTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FinishTimeColumn {
+                get {
+                    return this.columnFinishTime;
                 }
             }
             
@@ -429,16 +459,19 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LessonsRow AddLessonsRow(string LessonName, string Location, string Subject, decimal StudentFee, decimal OpenFee, short MaxStudents, int TutorTutorId) {
+            public LessonsRow AddLessonsRow(string LessonName, string Location, string Subject, string Instrument, decimal StudentFee, decimal OpenFee, System.DateTime LessonDate, System.DateTime StartTime, System.DateTime FinishTime, int TutorTutorId) {
                 LessonsRow rowLessonsRow = ((LessonsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         LessonName,
                         Location,
                         Subject,
+                        Instrument,
                         StudentFee,
                         OpenFee,
-                        MaxStudents,
+                        LessonDate,
+                        StartTime,
+                        FinishTime,
                         TutorTutorId};
                 rowLessonsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLessonsRow);
@@ -473,9 +506,12 @@ namespace attfire1_assignment2 {
                 this.columnLessonName = base.Columns["LessonName"];
                 this.columnLocation = base.Columns["Location"];
                 this.columnSubject = base.Columns["Subject"];
+                this.columnInstrument = base.Columns["Instrument"];
                 this.columnStudentFee = base.Columns["StudentFee"];
                 this.columnOpenFee = base.Columns["OpenFee"];
-                this.columnMaxStudents = base.Columns["MaxStudents"];
+                this.columnLessonDate = base.Columns["LessonDate"];
+                this.columnStartTime = base.Columns["StartTime"];
+                this.columnFinishTime = base.Columns["FinishTime"];
                 this.columnTutorTutorId = base.Columns["TutorTutorId"];
             }
             
@@ -490,12 +526,18 @@ namespace attfire1_assignment2 {
                 base.Columns.Add(this.columnLocation);
                 this.columnSubject = new global::System.Data.DataColumn("Subject", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubject);
+                this.columnInstrument = new global::System.Data.DataColumn("Instrument", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstrument);
                 this.columnStudentFee = new global::System.Data.DataColumn("StudentFee", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudentFee);
                 this.columnOpenFee = new global::System.Data.DataColumn("OpenFee", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOpenFee);
-                this.columnMaxStudents = new global::System.Data.DataColumn("MaxStudents", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaxStudents);
+                this.columnLessonDate = new global::System.Data.DataColumn("LessonDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLessonDate);
+                this.columnStartTime = new global::System.Data.DataColumn("StartTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStartTime);
+                this.columnFinishTime = new global::System.Data.DataColumn("FinishTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinishTime);
                 this.columnTutorTutorId = new global::System.Data.DataColumn("TutorTutorId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTutorTutorId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -507,14 +549,18 @@ namespace attfire1_assignment2 {
                 this.columnLessonId.ReadOnly = true;
                 this.columnLessonId.Unique = true;
                 this.columnLessonName.AllowDBNull = false;
-                this.columnLessonName.MaxLength = 2147483647;
+                this.columnLessonName.MaxLength = 50;
                 this.columnLocation.AllowDBNull = false;
-                this.columnLocation.MaxLength = 2147483647;
+                this.columnLocation.MaxLength = 50;
                 this.columnSubject.AllowDBNull = false;
-                this.columnSubject.MaxLength = 2147483647;
+                this.columnSubject.MaxLength = 35;
+                this.columnInstrument.AllowDBNull = false;
+                this.columnInstrument.MaxLength = 2147483647;
                 this.columnStudentFee.AllowDBNull = false;
                 this.columnOpenFee.AllowDBNull = false;
-                this.columnMaxStudents.AllowDBNull = false;
+                this.columnLessonDate.AllowDBNull = false;
+                this.columnStartTime.AllowDBNull = false;
+                this.columnFinishTime.AllowDBNull = false;
                 this.columnTutorTutorId.AllowDBNull = false;
             }
             
@@ -702,6 +748,17 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Instrument {
+                get {
+                    return ((string)(this[this.tableLessons.InstrumentColumn]));
+                }
+                set {
+                    this[this.tableLessons.InstrumentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal StudentFee {
                 get {
                     return ((decimal)(this[this.tableLessons.StudentFeeColumn]));
@@ -724,12 +781,34 @@ namespace attfire1_assignment2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short MaxStudents {
+            public System.DateTime LessonDate {
                 get {
-                    return ((short)(this[this.tableLessons.MaxStudentsColumn]));
+                    return ((global::System.DateTime)(this[this.tableLessons.LessonDateColumn]));
                 }
                 set {
-                    this[this.tableLessons.MaxStudentsColumn] = value;
+                    this[this.tableLessons.LessonDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime StartTime {
+                get {
+                    return ((global::System.DateTime)(this[this.tableLessons.StartTimeColumn]));
+                }
+                set {
+                    this[this.tableLessons.StartTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FinishTime {
+                get {
+                    return ((global::System.DateTime)(this[this.tableLessons.FinishTimeColumn]));
+                }
+                set {
+                    this[this.tableLessons.FinishTimeColumn] = value;
                 }
             }
             
@@ -908,50 +987,67 @@ namespace attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSetT
             tableMapping.ColumnMappings.Add("LessonName", "LessonName");
             tableMapping.ColumnMappings.Add("Location", "Location");
             tableMapping.ColumnMappings.Add("Subject", "Subject");
+            tableMapping.ColumnMappings.Add("Instrument", "Instrument");
             tableMapping.ColumnMappings.Add("StudentFee", "StudentFee");
             tableMapping.ColumnMappings.Add("OpenFee", "OpenFee");
-            tableMapping.ColumnMappings.Add("MaxStudents", "MaxStudents");
+            tableMapping.ColumnMappings.Add("LessonDate", "LessonDate");
+            tableMapping.ColumnMappings.Add("StartTime", "StartTime");
+            tableMapping.ColumnMappings.Add("FinishTime", "FinishTime");
             tableMapping.ColumnMappings.Add("TutorTutorId", "TutorTutorId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Lessons] WHERE (([LessonId] = @Original_LessonId) AND ([Studen" +
-                "tFee] = @Original_StudentFee) AND ([OpenFee] = @Original_OpenFee) AND ([MaxStude" +
-                "nts] = @Original_MaxStudents) AND ([TutorTutorId] = @Original_TutorTutorId))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Lessons] WHERE (([LessonId] = @Original_LessonId) AND ([LessonName] = @Original_LessonName) AND ([Location] = @Original_Location) AND ([Subject] = @Original_Subject) AND ([StudentFee] = @Original_StudentFee) AND ([OpenFee] = @Original_OpenFee) AND ([LessonDate] = @Original_LessonDate) AND ([StartTime] = @Original_StartTime) AND ([FinishTime] = @Original_FinishTime) AND ([TutorTutorId] = @Original_TutorTutorId))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LessonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LessonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Subject", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "StudentFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OpenFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "OpenFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaxStudents", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxStudents", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LessonDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinishTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinishTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TutorTutorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TutorTutorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Lessons] ([LessonName], [Location], [Subject], [StudentFee], [OpenFee], [MaxStudents], [TutorTutorId]) VALUES (@LessonName, @Location, @Subject, @StudentFee, @OpenFee, @MaxStudents, @TutorTutorId);
-SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents, TutorTutorId FROM Lessons WHERE (LessonId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Lessons] ([LessonName], [Location], [Subject], [Instrument], [StudentFee], [OpenFee], [LessonDate], [StartTime], [FinishTime], [TutorTutorId]) VALUES (@LessonName, @Location, @Subject, @Instrument, @StudentFee, @OpenFee, @LessonDate, @StartTime, @FinishTime, @TutorTutorId);
+SELECT LessonId, LessonName, Location, Subject, Instrument, StudentFee, OpenFee, LessonDate, StartTime, FinishTime, TutorTutorId FROM Lessons WHERE (LessonId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LessonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Subject", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Instrument", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Instrument", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "StudentFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OpenFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "OpenFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxStudents", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxStudents", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LessonDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinishTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinishTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TutorTutorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TutorTutorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Lessons] SET [LessonName] = @LessonName, [Location] = @Location, [Subject] = @Subject, [StudentFee] = @StudentFee, [OpenFee] = @OpenFee, [MaxStudents] = @MaxStudents, [TutorTutorId] = @TutorTutorId WHERE (([LessonId] = @Original_LessonId) AND ([StudentFee] = @Original_StudentFee) AND ([OpenFee] = @Original_OpenFee) AND ([MaxStudents] = @Original_MaxStudents) AND ([TutorTutorId] = @Original_TutorTutorId));
-SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents, TutorTutorId FROM Lessons WHERE (LessonId = @LessonId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Lessons] SET [LessonName] = @LessonName, [Location] = @Location, [Subject] = @Subject, [Instrument] = @Instrument, [StudentFee] = @StudentFee, [OpenFee] = @OpenFee, [LessonDate] = @LessonDate, [StartTime] = @StartTime, [FinishTime] = @FinishTime, [TutorTutorId] = @TutorTutorId WHERE (([LessonId] = @Original_LessonId) AND ([LessonName] = @Original_LessonName) AND ([Location] = @Original_Location) AND ([Subject] = @Original_Subject) AND ([StudentFee] = @Original_StudentFee) AND ([OpenFee] = @Original_OpenFee) AND ([LessonDate] = @Original_LessonDate) AND ([StartTime] = @Original_StartTime) AND ([FinishTime] = @Original_FinishTime) AND ([TutorTutorId] = @Original_TutorTutorId));
+SELECT LessonId, LessonName, Location, Subject, Instrument, StudentFee, OpenFee, LessonDate, StartTime, FinishTime, TutorTutorId FROM Lessons WHERE (LessonId = @LessonId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LessonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Subject", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Instrument", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Instrument", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "StudentFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OpenFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "OpenFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxStudents", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxStudents", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LessonDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinishTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinishTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TutorTutorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TutorTutorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LessonId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LessonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Subject", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Subject", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "StudentFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OpenFee", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "OpenFee", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaxStudents", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxStudents", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LessonDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LessonDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinishTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinishTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TutorTutorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TutorTutorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LessonId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LessonId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -969,8 +1065,8 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents," +
-                " TutorTutorId FROM dbo.Lessons";
+            this._commandCollection[0].CommandText = "SELECT LessonId, LessonName, Location, Subject, Instrument, StudentFee, OpenFee, " +
+                "LessonDate, StartTime, FinishTime, TutorTutorId FROM dbo.Lessons";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1031,12 +1127,32 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_LessonId, decimal Original_StudentFee, decimal Original_OpenFee, short Original_MaxStudents, int Original_TutorTutorId) {
+        public virtual int Delete(int Original_LessonId, string Original_LessonName, string Original_Location, string Original_Subject, decimal Original_StudentFee, decimal Original_OpenFee, System.DateTime Original_LessonDate, System.DateTime Original_StartTime, System.DateTime Original_FinishTime, int Original_TutorTutorId) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_LessonId));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_StudentFee));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_OpenFee));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((short)(Original_MaxStudents));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_TutorTutorId));
+            if ((Original_LessonName == null)) {
+                throw new global::System.ArgumentNullException("Original_LessonName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_LessonName));
+            }
+            if ((Original_Location == null)) {
+                throw new global::System.ArgumentNullException("Original_Location");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Location));
+            }
+            if ((Original_Subject == null)) {
+                throw new global::System.ArgumentNullException("Original_Subject");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Subject));
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_StudentFee));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_OpenFee));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_LessonDate));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_StartTime));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_FinishTime));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_TutorTutorId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1057,7 +1173,7 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string LessonName, string Location, string Subject, decimal StudentFee, decimal OpenFee, short MaxStudents, int TutorTutorId) {
+        public virtual int Insert(string LessonName, string Location, string Subject, string Instrument, decimal StudentFee, decimal OpenFee, System.DateTime LessonDate, System.DateTime StartTime, System.DateTime FinishTime, int TutorTutorId) {
             if ((LessonName == null)) {
                 throw new global::System.ArgumentNullException("LessonName");
             }
@@ -1076,10 +1192,18 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Subject));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(StudentFee));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(OpenFee));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((short)(MaxStudents));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(TutorTutorId));
+            if ((Instrument == null)) {
+                throw new global::System.ArgumentNullException("Instrument");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Instrument));
+            }
+            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(StudentFee));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(OpenFee));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(LessonDate));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(StartTime));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(FinishTime));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(TutorTutorId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1100,7 +1224,28 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string LessonName, string Location, string Subject, decimal StudentFee, decimal OpenFee, short MaxStudents, int TutorTutorId, int Original_LessonId, decimal Original_StudentFee, decimal Original_OpenFee, short Original_MaxStudents, int Original_TutorTutorId, int LessonId) {
+        public virtual int Update(
+                    string LessonName, 
+                    string Location, 
+                    string Subject, 
+                    string Instrument, 
+                    decimal StudentFee, 
+                    decimal OpenFee, 
+                    System.DateTime LessonDate, 
+                    System.DateTime StartTime, 
+                    System.DateTime FinishTime, 
+                    int TutorTutorId, 
+                    int Original_LessonId, 
+                    string Original_LessonName, 
+                    string Original_Location, 
+                    string Original_Subject, 
+                    decimal Original_StudentFee, 
+                    decimal Original_OpenFee, 
+                    System.DateTime Original_LessonDate, 
+                    System.DateTime Original_StartTime, 
+                    System.DateTime Original_FinishTime, 
+                    int Original_TutorTutorId, 
+                    int LessonId) {
             if ((LessonName == null)) {
                 throw new global::System.ArgumentNullException("LessonName");
             }
@@ -1119,16 +1264,44 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Subject));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(StudentFee));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(OpenFee));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((short)(MaxStudents));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(TutorTutorId));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_LessonId));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Original_StudentFee));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_OpenFee));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((short)(Original_MaxStudents));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_TutorTutorId));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(LessonId));
+            if ((Instrument == null)) {
+                throw new global::System.ArgumentNullException("Instrument");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Instrument));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(StudentFee));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(OpenFee));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(LessonDate));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(StartTime));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(FinishTime));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(TutorTutorId));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_LessonId));
+            if ((Original_LessonName == null)) {
+                throw new global::System.ArgumentNullException("Original_LessonName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_LessonName));
+            }
+            if ((Original_Location == null)) {
+                throw new global::System.ArgumentNullException("Original_Location");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Location));
+            }
+            if ((Original_Subject == null)) {
+                throw new global::System.ArgumentNullException("Original_Subject");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Subject));
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_StudentFee));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_OpenFee));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_LessonDate));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_StartTime));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_FinishTime));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_TutorTutorId));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(LessonId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1149,8 +1322,28 @@ SELECT LessonId, LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string LessonName, string Location, string Subject, decimal StudentFee, decimal OpenFee, short MaxStudents, int TutorTutorId, int Original_LessonId, decimal Original_StudentFee, decimal Original_OpenFee, short Original_MaxStudents, int Original_TutorTutorId) {
-            return this.Update(LessonName, Location, Subject, StudentFee, OpenFee, MaxStudents, TutorTutorId, Original_LessonId, Original_StudentFee, Original_OpenFee, Original_MaxStudents, Original_TutorTutorId, Original_LessonId);
+        public virtual int Update(
+                    string LessonName, 
+                    string Location, 
+                    string Subject, 
+                    string Instrument, 
+                    decimal StudentFee, 
+                    decimal OpenFee, 
+                    System.DateTime LessonDate, 
+                    System.DateTime StartTime, 
+                    System.DateTime FinishTime, 
+                    int TutorTutorId, 
+                    int Original_LessonId, 
+                    string Original_LessonName, 
+                    string Original_Location, 
+                    string Original_Subject, 
+                    decimal Original_StudentFee, 
+                    decimal Original_OpenFee, 
+                    System.DateTime Original_LessonDate, 
+                    System.DateTime Original_StartTime, 
+                    System.DateTime Original_FinishTime, 
+                    int Original_TutorTutorId) {
+            return this.Update(LessonName, Location, Subject, Instrument, StudentFee, OpenFee, LessonDate, StartTime, FinishTime, TutorTutorId, Original_LessonId, Original_LessonName, Original_Location, Original_Subject, Original_StudentFee, Original_OpenFee, Original_LessonDate, Original_StartTime, Original_FinishTime, Original_TutorTutorId, Original_LessonId);
         }
     }
     

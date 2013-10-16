@@ -121,26 +121,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
     </Compile>
-    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet6.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet7.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,50 +184,6 @@
     </None>
     <None Include="_attfire1_assignment2_MusicClassesContextDataSet3.xss">
       <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xsc">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet4.xss">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet5.xsc">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet5.xss">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet6.xsc">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet6.xss">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet7.xsc">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_attfire1_assignment2_MusicClassesContextDataSet7.xss">
-      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet7.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
