@@ -333,7 +333,6 @@ namespace attfire1_assignment2
             this.mainTabGroup.Size = new System.Drawing.Size(1000, 615);
             this.mainTabGroup.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mainTabGroup.TabIndex = 0;
-            this.mainTabGroup.SelectedIndexChanged += new System.EventHandler(this.mainTabGroup_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -760,7 +759,6 @@ namespace attfire1_assignment2
             this.streetAddressLabel.Size = new System.Drawing.Size(102, 17);
             this.streetAddressLabel.TabIndex = 7;
             this.streetAddressLabel.Text = "Street Address";
-            this.streetAddressLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // ageField
             // 
@@ -812,7 +810,6 @@ namespace attfire1_assignment2
             this.firstNameLabel.Size = new System.Drawing.Size(76, 17);
             this.firstNameLabel.TabIndex = 1;
             this.firstNameLabel.Text = "First Name";
-            this.firstNameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // addOrUpdateStudentLabel
             // 
@@ -1348,7 +1345,6 @@ namespace attfire1_assignment2
             this.addUpdateTutorLabel.Size = new System.Drawing.Size(152, 20);
             this.addUpdateTutorLabel.TabIndex = 0;
             this.addUpdateTutorLabel.Text = "Add/Update Tutor";
-            this.addUpdateTutorLabel.Click += new System.EventHandler(this.label14_Click);
             // 
             // tabPage3
             // 
@@ -1537,7 +1533,6 @@ namespace attfire1_assignment2
             this.sheetMusicDifficultyLabel.Size = new System.Drawing.Size(99, 17);
             this.sheetMusicDifficultyLabel.TabIndex = 8;
             this.sheetMusicDifficultyLabel.Text = "Difficulty Level";
-            this.sheetMusicDifficultyLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // sheetMusicComposerTextbox
             // 
@@ -1572,7 +1567,6 @@ namespace attfire1_assignment2
             this.sheetMusicTitleLabel.Size = new System.Drawing.Size(35, 17);
             this.sheetMusicTitleLabel.TabIndex = 1;
             this.sheetMusicTitleLabel.Text = "Title";
-            this.sheetMusicTitleLabel.Click += new System.EventHandler(this.sheetMusicTitleLabel_Click);
             // 
             // addUpdateSheetMusicLabel
             // 
@@ -1611,7 +1605,6 @@ namespace attfire1_assignment2
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(559, 545);
             this.panel4.TabIndex = 6;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // button4
             // 
@@ -2781,7 +2774,6 @@ namespace attfire1_assignment2
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(405, 545);
             this.panel9.TabIndex = 8;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // lessonTutorLabel
             // 
@@ -2923,7 +2915,6 @@ namespace attfire1_assignment2
             this.lessonLocationTextbox.Name = "lessonLocationTextbox";
             this.lessonLocationTextbox.Size = new System.Drawing.Size(261, 23);
             this.lessonLocationTextbox.TabIndex = 18;
-            this.lessonLocationTextbox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // lessonNameTextbox
             // 
