@@ -77,9 +77,26 @@ namespace attfire1_assignment2
             
         }
 
-        private void AgeField_TextChanged(object sender, EventArgs e)
+        //A method to validate the Age input field - in the Student Records pane,
+        private void ageField_TextChanged(object sender, EventArgs e)
         {
+            //Creating String variable of Age field input
+            string ageFieldInput = ageField.Text;
 
+            //Iterate over each char in the string variable to see if it is a number
+            for (int i = 0; i < ageFieldInput.Length; i++)
+            {
+                //If the char isn't a number, let the user know - and provide them examples 
+                //of expected input.
+                if(!char.IsNumber(ageFieldInput[i]))
+                {
+                    MessageBox.Show("The 'Age' field must be an integer, e.g. 29, 5, 8, 32,...");
+                }
+
+                if (ageFieldInput.Length == 1 && int.Parse(ageFieldInput) < 5)
+                {
+                }
+            }
         }
 
         /**
