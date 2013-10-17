@@ -17,9 +17,10 @@ namespace attfire1_assignment2
         {
             InitializeComponent();
 
-            //Adding tutors in database to lesson tutors in Lesson pane
+            
             using (var db = new MusicClassesContext())
             {
+                //inserting tutor names in tutor dropdown box in Lesson Records tab
                 var tutors = (from p in db.Person
                               join t in db.Tutor
                               on p.PersonId equals t.PersonPersonId
@@ -28,6 +29,59 @@ namespace attfire1_assignment2
                 foreach (string tutor in tutors)
                 {
                     lessonTutorDropdown.Items.Add(tutor);
+                }
+
+                //inserting lessons in lesson dropdown box in Student Records tab
+                var lessons = from l in db.Lesson
+                              select l.LessonName;
+
+                foreach (string l in lessons)
+                {
+                    lessonDropdownBox.Items.Add(l);
+                }
+
+                //inserting instruments in instrument dropdown box in Student Records tab
+                var instruments = from i in db.Instrument
+                                  select i.InstrumentName;
+
+                foreach (string i in instruments)
+                {
+                    instrumentDropdownBox.Items.Add(i);
+                }
+
+                //inserting ensembles in ensembles dropdown box in Student Records tab
+                var ensembles = from e in db.Ensemble
+                                select e.EnsembleName;
+
+                foreach (string e in ensembles)
+                {
+                    ensembleDropdownBox.Items.Add(e);
+                }
+
+                //inserting lessons in lessons listbox in Tutor Records tab
+                var lessonsToTeach = from l in db.Lesson
+                              select l.LessonName;
+
+                foreach (string l in lessonsToTeach)
+                {
+                    lessonsToTeachListbox.Items.Add(l);
+                }
+
+                //inserting sheetmusic items in sheetmusic listbox in Tutor Records tab
+                var sheetMusicItems = from sm in db.SheetMusic
+                                      select sm.Title;
+                foreach (string sm in sheetMusicItems)
+                {
+                    tutorSheetMusicListbox.Items.Add(sm);
+                }
+
+                //inserting ensembles into Tutor's ensembles listbox
+                var tutorEnsembles = from te in db.Ensemble
+                                     select te.EnsembleName;
+
+                foreach (string e in tutorEnsembles)
+                {
+                    tutorEnsemblesListBox.Items.Add(e);
                 }
             }
         }
@@ -44,14 +98,6 @@ namespace attfire1_assignment2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the '_attfire1_assignment2_MusicClassesContextDataSet3.Ensembles' table. You can move, or remove it, as needed.
-            this.ensemblesTableAdapter.Fill(this._attfire1_assignment2_MusicClassesContextDataSet3.Ensembles);
-            // TODO: This line of code loads data into the '_attfire1_assignment2_MusicClassesContextDataSet2.SheetMusics' table. You can move, or remove it, as needed.
-            this.sheetMusicsTableAdapter.Fill(this._attfire1_assignment2_MusicClassesContextDataSet2.SheetMusics);
-            // TODO: This line of code loads data into the '_attfire1_assignment2_MusicClassesContextDataSet1.Instruments' table. You can move, or remove it, as needed.
-            this.instrumentsTableAdapter.Fill(this._attfire1_assignment2_MusicClassesContextDataSet1.Instruments);
-            // TODO: This line of code loads data into the '_attfire1_assignment2_MusicClassesContextDataSet.Lessons' table. You can move, or remove it, as needed.
-            this.lessonsTableAdapter.Fill(this._attfire1_assignment2_MusicClassesContextDataSet.Lessons);
             
         }
 
@@ -102,121 +148,136 @@ namespace attfire1_assignment2
 
         private void submitUpdateBtn_Click(object sender, EventArgs e)
         {
-            using (var db = new MusicClassesContext())
+            try
             {
-                var address = new Address()
+                using (var db = new MusicClassesContext())
                 {
-                    StreetAddress = streetAddressField.Text, 
-                    Suburb = suburbField.Text, 
-                    TownOrCity = studentTownOrCityField.Text, 
-                    PostCode = int.Parse(postCodeField.Text),
-                    LandlinePhone = landlinePhoneField.Text
-                };
+                    var address = new Address()
+                    {
+                        StreetAddress = streetAddressField.Text.ToString(),
+                        Suburb = suburbField.Text.ToString(),
+                        TownOrCity = studentTownOrCityField.Text.ToString(),
+                        PostCode = int.Parse(postCodeField.Text.ToString()),
+                        LandlinePhone = landlinePhoneField.Text.ToString()
+                    };
 
-                db.Address.Add(address);
-                db.SaveChanges();
-                db.Database.Connection.Close();
+                    db.Address.Add(address);
+                    db.SaveChanges();
+                    db.Database.Connection.Close();
 
-                var person = new Person()
-                {
-                    FirstName = firstNameField.Text, 
-                    LastName = lastNameField.Text, 
-                    EmailAddress = emailAddressField.Text, 
-                    MobileNumber = mobilePhoneField.Text, 
+                    var person = new Person()
+                    {
+                        FirstName = firstNameField.Text,
+                        LastName = lastNameField.Text,
+                        EmailAddress = emailAddressField.Text,
+                        MobileNumber = mobilePhoneField.Text,
 
-                    EnsembleEnsembleId = (from ensemble in db.Ensemble 
-                                         where ensemble.EnsembleName == ensembleDropdownBox.Text 
-                                         select ensemble.EnsembleId).First(), 
+                        EnsembleEnsembleId = (from ensemble in db.Ensemble
+                                              where ensemble.EnsembleName == ensembleDropdownBox.Text
+                                              select ensemble.EnsembleId).FirstOrDefault(),
 
-                    AddressAddressId = (from a in db.Address 
-                                        where a.StreetAddress == address.StreetAddress 
-                                        && a.Suburb == address.Suburb 
-                                        && a.TownOrCity == address.TownOrCity 
-                                        && a.PostCode == address.PostCode 
-                                        && a.LandlinePhone == address.LandlinePhone 
-                                        select a.AddressId).First(),
+                        AddressAddressId = (from a in db.Address
+                                            where a.StreetAddress == address.StreetAddress
+                                            && a.Suburb == address.Suburb
+                                            && a.TownOrCity == address.TownOrCity
+                                            && a.PostCode == address.PostCode
+                                            && a.LandlinePhone == address.LandlinePhone
+                                            select a.AddressId).FirstOrDefault(),
 
-                    Ensemble = (from en in db.Ensemble
-                               where en.EnsembleId == (from ensemble in db.Ensemble
-                                                      where ensemble.EnsembleName == ensembleDropdownBox.Text
-                                                      select ensemble.EnsembleId).First()
-                               select en).First(), 
+                        Ensemble = (from en in db.Ensemble
+                                    where en.EnsembleId == (from ensemble in db.Ensemble
+                                                            where ensemble.EnsembleName == ensembleDropdownBox.Text
+                                                            select ensemble.EnsembleId).FirstOrDefault()
+                                    select en).First(),
 
-                    Address = (from ad in db.Address 
-                              where ad.AddressId == (from a in db.Address 
-                                                    where a.StreetAddress == address.StreetAddress 
-                                                    && a.Suburb == address.Suburb 
-                                                    && a.TownOrCity == address.TownOrCity 
-                                                    && a.PostCode == address.PostCode 
-                                                    && a.LandlinePhone == address.LandlinePhone 
-                                                    select a.AddressId).First() 
-                              select ad).First()
-                };
+                        Address = (from ad in db.Address
+                                   where ad.AddressId == (from a in db.Address
+                                                          where a.StreetAddress == address.StreetAddress
+                                                          && a.Suburb == address.Suburb
+                                                          && a.TownOrCity == address.TownOrCity
+                                                          && a.PostCode == address.PostCode
+                                                          && a.LandlinePhone == address.LandlinePhone
+                                                          select a.AddressId).FirstOrDefault()
+                                   select ad).FirstOrDefault()
+                    };
 
-                db.Person.Add(person);
-                db.SaveChanges();
-                db.Database.Connection.Close();
+                    db.Person.Add(person);
+                    db.SaveChanges();
+                    db.Database.Connection.Close();
 
-                var student = new Student()
-                {
-                    Age = short.Parse(ageField.Text),
-                    LessonFeesOwed = Convert.ToDecimal(lessonFeesOwedField.Text),
-                    InstrumentFeesOwed = Convert.ToDecimal(instrumentFeesOwedField.Text),
-                    InstrumentInstrumentId = (from i in db.Instrument
-                                              where i.InstrumentName == instrumentDropdownBox.Text
-                                              select i.InstrumentId).First(),
-                    PersonPersonId = person.PersonId,
-                    Instrument = (from i in db.Instrument
-                                  where i.InstrumentId == (from inst in db.Instrument
-                                                           where inst.InstrumentName == instrumentDropdownBox.Text
-                                                           select inst.InstrumentId).First()
-                                  select i).First(),
-                    Person = (from p in db.Person
-                              where p.PersonId == person.PersonId
-                              select p).First()
-                };
+                    var student = new Student()
+                    {
+                        Age = short.Parse(ageField.Text.ToString()),
+                        LessonFeesOwed = Convert.ToDecimal(lessonFeesOwedField.Text.ToString()),
+                        InstrumentFeesOwed = Convert.ToDecimal(instrumentFeesOwedField.Text.ToString()),
+                        InstrumentInstrumentId = (from i in db.Instrument
+                                                  where i.InstrumentName == instrumentDropdownBox.Text
+                                                  select i.InstrumentId).FirstOrDefault(),
+                        PersonPersonId = person.PersonId,
+                        Instrument = (from i in db.Instrument
+                                      where i.InstrumentId == (from inst in db.Instrument
+                                                               where inst.InstrumentName == instrumentDropdownBox.Text
+                                                               select inst.InstrumentId).FirstOrDefault()
+                                      select i).FirstOrDefault(),
+                        Person = (from p in db.Person
+                                  where p.PersonId == person.PersonId
+                                  select p).FirstOrDefault()
+                    };
 
-                db.Student.Add(student);
-                db.SaveChanges();
-                db.Database.Connection.Close();
+                    db.Student.Add(student);
+                    db.SaveChanges();
+                    db.Database.Connection.Close();
 
-                var studentLesson = new StudentLesson()
-                {
-                    StudentStudentId = student.StudentId,
-                    LessonLessonId = (from l in db.Lesson
-                                      where l.LessonName == lessonDropdownBox.Text
-                                      select l.LessonId).First(), 
-                    Lesson = (from l in db.Lesson 
-                             where l.LessonId == (from le in db.Lesson 
-                                                 where le.LessonName == lessonDropdownBox.Text 
-                                                 select le.LessonId).First() 
-                             select l).First(), 
-                    Student = student
-                };
+                    var studentLesson = new StudentLesson()
+                    {
+                        StudentStudentId = student.StudentId,
+                        LessonLessonId = (from l in db.Lesson
+                                          where l.LessonName == lessonDropdownBox.Text
+                                          select l.LessonId).FirstOrDefault(),
+                        Lesson = (from l in db.Lesson
+                                  where l.LessonId == (from le in db.Lesson
+                                                       where le.LessonName == lessonDropdownBox.Text
+                                                       select le.LessonId).FirstOrDefault()
+                                  select l).FirstOrDefault(),
+                        Student = student
+                    };
 
-                db.StudentLesson.Add(studentLesson);
-                db.SaveChanges();
-                db.Database.Connection.Close();
+                    db.StudentLesson.Add(studentLesson);
+                    db.SaveChanges();
+                    db.Database.Connection.Close();
 
-                var studentSheetMusic = new StudentSheetMusic()
-                {
-                    StudentStudentId = student.StudentId, 
-                    SheetMusicSheetMusicId = (from s in db.SheetMusic 
-                                             where s.Title == sheetMusicListBox.SelectedItem 
-                                             select s.SheetMusicId).First(), 
-                    Student = student, 
-                    SheetMusic = (from sm in db.SheetMusic 
-                                 where sm.SheetMusicId == (from s in db.SheetMusic 
-                                                           where s.Title == sheetMusicListBox.SelectedItem 
-                                                           select s.SheetMusicId).First() 
-                                 select sm).First()
+                    string sheetMusicTitle = sheetMusicListBox.SelectedItem.ToString();
 
-                };
+                    var studentSheetMusic = new StudentSheetMusic()
+                    {
+                        StudentStudentId = student.StudentId,
+                        SheetMusicSheetMusicId = (from s in db.SheetMusic
+                                                  where s.Title == sheetMusicTitle
+                                                  select s.SheetMusicId).FirstOrDefault(),
+                        Student = student,
+                        SheetMusic = (from sm in db.SheetMusic
+                                      where sm.SheetMusicId == (from s in db.SheetMusic
+                                                                where s.Title == sheetMusicTitle
+                                                                select s.SheetMusicId).FirstOrDefault()
+                                      select sm).FirstOrDefault()
 
-                db.StudentSheetMusic.Add(studentSheetMusic);
-                db.SaveChanges();
-                db.Database.Connection.Close();
+                    };
+
+                    db.StudentSheetMusic.Add(studentSheetMusic);
+                    db.SaveChanges();
+                    db.Database.Connection.Close();
+                }
             }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("All fields must be filled in!");
+                Console.Write(ex);
+            }
+        }
+
+        private void tutorEnsemblesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

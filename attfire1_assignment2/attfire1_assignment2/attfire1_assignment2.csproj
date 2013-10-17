@@ -121,6 +121,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSetExternal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +209,61 @@
     </None>
     <None Include="_attfire1_assignment2_MusicClassesContextDataSet3.xss">
       <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternal.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternal.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternal.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSetExternal.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternal.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternal.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalEnsembles.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalInstruments.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalLessons.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.xsc">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.xsd</DependentUpon>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.xss">
+      <DependentUpon>_attfire1_assignment2_MusicClassesContextDataSetExternalSheetMusic.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

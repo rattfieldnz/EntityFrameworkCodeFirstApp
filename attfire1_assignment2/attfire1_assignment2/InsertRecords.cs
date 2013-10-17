@@ -285,13 +285,6 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
-                string lessonName = "Percussion";
-                string location = "Symfony Orchestra Hall";
-                string subject = "Percussion";
-                decimal studentFee = 50.00m;
-                decimal openFee = 280.00m;
-                short maxStudents = 16;
-
                 int tutorID = (from t in db.Tutor
                                where t.PersonPersonId == ((from p in db.Person
                                                            where p.FirstName == "John" && p.LastName == "Doe"
@@ -306,24 +299,309 @@ namespace attfire1_assignment2
                              where t.TutorId == tutorID
                              select t).FirstOrDefault();
 
-                var lesson = new Lesson()
+                var violinLesson = new Lesson()
                 {
-                    LessonName = lessonName,
-                    Location = location,
-                    Subject = subject,
+                    LessonName = "Percussion",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Percussion",
                     Instrument = (from i in db.Instrument 
-                                 where i.InstrumentName == "Violin" 
+                                 where i.InstrumentName == "Percussion" 
                                  select i.InstrumentName).First(),
-                    StudentFee = studentFee,
-                    OpenFee = openFee,
+                    StudentFee = 50.00m,
+                    OpenFee = 280.00m,
                     LessonDate = new DateTime (2013, 10, 19),
-                    StartTime = new DateTime(2013, 10, 19, 08, 30, 00),
-                    FinishTime = new DateTime(2013, 10, 19, 09, 00, 00),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
                     TutorTutorId = tutorID,
                     Tutor = tutor
                 };
 
-                db.Lesson.Add(lesson);
+                var recorderLesson = new Lesson()
+                {
+                    LessonName = "Recorder",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Recorder",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Recorder"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 40.00m,
+                    OpenFee = 0.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var violaLesson = new Lesson()
+                {
+                    LessonName = "Viola",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Viola",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Viola"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 210.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var celloLesson = new Lesson()
+                {
+                    LessonName = "Cello",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Cello",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Cello"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 240.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var doubleBassLesson = new Lesson()
+                {
+                    LessonName = "Double Bass",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Double Bass",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Double Bass"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 240.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var fluteLesson = new Lesson()
+                {
+                    LessonName = "Flute",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Flute",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Flute"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 240.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var clarinetLesson = new Lesson()
+                {
+                    LessonName = "Clarinet",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Clarinet",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Clarinet"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 210.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var oboeLesson = new Lesson()
+                {
+                    LessonName = "Oboe",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Oboe",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Oboe"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 300.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var bassoonLesson = new Lesson()
+                {
+                    LessonName = "Bassoon",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Bassoon",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Bassoon"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 300.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var otherWoodwindLesson = new Lesson()
+                {
+                    LessonName = "Other Woodwind",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Other Woodwind",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Other Woodwind"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 300.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var trumpetLesson = new Lesson()
+                {
+                    LessonName = "Trumpet",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Trumpet",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Trumpet"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 210.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var tromboneLesson = new Lesson()
+                {
+                    LessonName = "Trombone",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Trombone",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Trombone"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 240.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var frenchHornLesson = new Lesson()
+                {
+                    LessonName = "French Horn",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Trombone",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "French Horn"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 240.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var tubaLesson = new Lesson()
+                {
+                    LessonName = "Tuba",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Tuba",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Tuba"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 280.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var otherBrassLesson = new Lesson()
+                {
+                    LessonName = "Other Brass",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Other Brass",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Other Brass"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 50.00m,
+                    OpenFee = 240.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var vocalTechniqueLesson = new Lesson()
+                {
+                    LessonName = "Vocal Technique",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Vocal Technique",
+                    Instrument = (from i in db.Instrument
+                                  where i.InstrumentName == "Vocal Technique"
+                                  select i.InstrumentName).First(),
+                    StudentFee = 80.00m,
+                    OpenFee = 300.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                var musicTheoryLesson = new Lesson()
+                {
+                    LessonName = "Music Theory",
+                    Location = "Symfony Orchestra Hall",
+                    Subject = "Music Theory",
+                    Instrument = null,
+                    StudentFee = 80.00m,
+                    OpenFee = 300.00m,
+                    LessonDate = new DateTime(2013, 10, 19),
+                    StartTime = new DateTime(2013, 10, 19, 08, 30, 0, DateTimeKind.Local),
+                    FinishTime = new DateTime(2013, 10, 19, 09, 0, 0, DateTimeKind.Local),
+                    TutorTutorId = tutorID,
+                    Tutor = tutor
+                };
+
+                db.Lesson.Add(violinLesson);
+                db.Lesson.Add(recorderLesson);
+                db.Lesson.Add(violaLesson);
+                db.Lesson.Add(celloLesson);
+                db.Lesson.Add(doubleBassLesson);
+                db.Lesson.Add(fluteLesson);
+                db.Lesson.Add(oboeLesson);
+                db.Lesson.Add(bassoonLesson);
+                db.Lesson.Add(otherWoodwindLesson);
+                db.Lesson.Add(trumpetLesson);
+                db.Lesson.Add(tromboneLesson);
+                db.Lesson.Add(frenchHornLesson);
+                db.Lesson.Add(tubaLesson);
+                db.Lesson.Add(otherBrassLesson);
+                db.Lesson.Add(vocalTechniqueLesson);
+                db.Lesson.Add(musicTheoryLesson);
                 db.SaveChanges();
                 db.Database.Connection.Close();
             }
@@ -350,18 +628,170 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
-                string instrumentName = "Violin";
-                decimal hireFee = 50.00m;
-
-                var instrument = new Instrument()
+                var violin = new Instrument()
                 {
-                    InstrumentName = instrumentName,
-                    HireFee = hireFee,
+                    InstrumentName = "Violin",
+                    HireFee = 40.00m,
                     ConditionStatus = "Ok to use", 
                     RepairStatus = "No need for repair"
                 };
+                db.Instrument.Add(violin);
 
-                db.Instrument.Add(instrument);
+                var recorder = new Instrument()
+                {
+                    InstrumentName = "Recorder", 
+                    HireFee = 0.00m, 
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(recorder);
+
+                var viola = new Instrument()
+                {
+                    InstrumentName = "Viola",
+                    HireFee = 40.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(viola);
+
+                var cello = new Instrument()
+                {
+                    InstrumentName = "Cello",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(cello);
+
+                var doubleBass = new Instrument()
+                {
+                    InstrumentName = "Double Bass",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(doubleBass);
+
+                var flute = new Instrument()
+                {
+                    InstrumentName = "Flute",
+                    HireFee = 40.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(flute);
+
+                var clarinet = new Instrument()
+                {
+                    InstrumentName = "Clarinet",
+                    HireFee = 40.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(clarinet);
+
+                var oboe = new Instrument()
+                {
+                    InstrumentName = "Oboe",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(oboe);
+
+                var bassoon = new Instrument()
+                {
+                    InstrumentName = "Bassoon",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(bassoon);
+
+                var otherWoodwind = new Instrument()
+                {
+                    InstrumentName = "Other Woodwind",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(otherWoodwind);
+
+                var trumpet = new Instrument()
+                {
+                    InstrumentName = "Trumpet",
+                    HireFee = 40.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(trumpet);
+
+                var trombone = new Instrument()
+                {
+                    InstrumentName = "Trombone",
+                    HireFee = 40.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(trombone);
+
+                var frenchHorn = new Instrument()
+                {
+                    InstrumentName = "French Horn",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(frenchHorn);
+
+                var tuba = new Instrument()
+                {
+                    InstrumentName = "Tuba",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(tuba);
+
+                var otherBrass = new Instrument()
+                {
+                    InstrumentName = "Other Brass",
+                    HireFee = 80.00m,
+                    ConditionStatus = "Ok for use",
+                    RepairStatus = "No need for repair"
+                };
+                db.Instrument.Add(otherBrass);
+
+                var percussion = new Instrument()
+                {
+                    InstrumentName = "Percussion",
+                    HireFee = 0.00m,
+                    ConditionStatus = "N/A",
+                    RepairStatus = "N/A"
+                };
+                db.Instrument.Add(percussion);
+
+                var vocalTechnique = new Instrument()
+                {
+                    InstrumentName = "Vocal Technique",
+                    HireFee = 0.00m,
+                    ConditionStatus = "N/A",
+                    RepairStatus = "N/A"
+                };
+                db.Instrument.Add(vocalTechnique);
+
+                var musicTheory = new Instrument()
+                {
+                    InstrumentName = "Music Theory",
+                    HireFee = 0.00m,
+                    ConditionStatus = "N/A",
+                    RepairStatus = "N/A"
+                };
+                db.Instrument.Add(vocalTechnique);
+
+
+
                 db.SaveChanges();
                 db.Database.Connection.Close();
             }

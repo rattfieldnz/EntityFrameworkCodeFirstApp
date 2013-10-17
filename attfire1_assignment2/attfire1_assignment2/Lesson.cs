@@ -22,7 +22,6 @@ namespace attfire1_assignment2
         [Required]
         [MaxLength(35)]
         public string Subject { get; set; }
-        [Required]
         public string Instrument { get; set; }
         [Required]
         public decimal StudentFee { get; set; }

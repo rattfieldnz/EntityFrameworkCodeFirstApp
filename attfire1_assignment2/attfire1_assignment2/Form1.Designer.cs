@@ -36,7 +36,6 @@ namespace attfire1_assignment2
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainTabGroup = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -290,18 +289,6 @@ namespace attfire1_assignment2
             this.lessonNameLabel = new System.Windows.Forms.Label();
             this.addUpdateLessonRecordsLabel = new System.Windows.Forms.Label();
             this.mainBannerLogo = new System.Windows.Forms.PictureBox();
-            this._attfire1_assignment2_MusicClassesContextDataSet = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet();
-            this.lessonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lessonsTableAdapter = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSetTableAdapters.LessonsTableAdapter();
-            this._attfire1_assignment2_MusicClassesContextDataSet1 = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet1();
-            this.instrumentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.instrumentsTableAdapter = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet1TableAdapters.InstrumentsTableAdapter();
-            this._attfire1_assignment2_MusicClassesContextDataSet2 = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet2();
-            this.sheetMusicsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sheetMusicsTableAdapter = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet2TableAdapters.SheetMusicsTableAdapter();
-            this._attfire1_assignment2_MusicClassesContextDataSet3 = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet3();
-            this.ensemblesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ensemblesTableAdapter = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet3TableAdapters.EnsemblesTableAdapter();
             this.mainTabGroup.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.displayStudentRecords.SuspendLayout();
@@ -327,14 +314,6 @@ namespace attfire1_assignment2
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBannerLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lessonsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.instrumentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sheetMusicsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ensemblesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabGroup
@@ -522,8 +501,6 @@ namespace attfire1_assignment2
             // 
             // sheetMusicListBox
             // 
-            this.sheetMusicListBox.DataSource = this.sheetMusicsBindingSource;
-            this.sheetMusicListBox.DisplayMember = "Title";
             this.sheetMusicListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sheetMusicListBox.FormattingEnabled = true;
             this.sheetMusicListBox.Location = new System.Drawing.Point(132, 366);
@@ -596,8 +573,6 @@ namespace attfire1_assignment2
             // 
             // ensembleDropdownBox
             // 
-            this.ensembleDropdownBox.DataSource = this.ensemblesBindingSource;
-            this.ensembleDropdownBox.DisplayMember = "EnsembleName";
             this.ensembleDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ensembleDropdownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ensembleDropdownBox.FormattingEnabled = true;
@@ -605,7 +580,6 @@ namespace attfire1_assignment2
             this.ensembleDropdownBox.Name = "ensembleDropdownBox";
             this.ensembleDropdownBox.Size = new System.Drawing.Size(206, 24);
             this.ensembleDropdownBox.TabIndex = 28;
-            this.ensembleDropdownBox.ValueMember = "EnsembleName";
             // 
             // ensembleLabel
             // 
@@ -629,8 +603,6 @@ namespace attfire1_assignment2
             // 
             // instrumentDropdownBox
             // 
-            this.instrumentDropdownBox.DataSource = this.instrumentsBindingSource;
-            this.instrumentDropdownBox.DisplayMember = "InstrumentName";
             this.instrumentDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.instrumentDropdownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instrumentDropdownBox.FormattingEnabled = true;
@@ -638,7 +610,6 @@ namespace attfire1_assignment2
             this.instrumentDropdownBox.Name = "instrumentDropdownBox";
             this.instrumentDropdownBox.Size = new System.Drawing.Size(206, 24);
             this.instrumentDropdownBox.TabIndex = 22;
-            this.instrumentDropdownBox.ValueMember = "InstrumentName";
             // 
             // instrumentLabel
             // 
@@ -652,8 +623,6 @@ namespace attfire1_assignment2
             // 
             // lessonDropdownBox
             // 
-            this.lessonDropdownBox.DataSource = this.lessonsBindingSource;
-            this.lessonDropdownBox.DisplayMember = "LessonName";
             this.lessonDropdownBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lessonDropdownBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lessonDropdownBox.FormattingEnabled = true;
@@ -661,7 +630,6 @@ namespace attfire1_assignment2
             this.lessonDropdownBox.Name = "lessonDropdownBox";
             this.lessonDropdownBox.Size = new System.Drawing.Size(206, 24);
             this.lessonDropdownBox.TabIndex = 20;
-            this.lessonDropdownBox.ValueMember = "LessonName";
             // 
             // lessonLabel
             // 
@@ -1023,8 +991,6 @@ namespace attfire1_assignment2
             // 
             // tutorEnsemblesListBox
             // 
-            this.tutorEnsemblesListBox.DataSource = this.ensemblesBindingSource;
-            this.tutorEnsemblesListBox.DisplayMember = "EnsembleName";
             this.tutorEnsemblesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorEnsemblesListBox.FormattingEnabled = true;
             this.tutorEnsemblesListBox.Location = new System.Drawing.Point(86, 481);
@@ -1032,18 +998,16 @@ namespace attfire1_assignment2
             this.tutorEnsemblesListBox.Size = new System.Drawing.Size(178, 69);
             this.tutorEnsemblesListBox.TabIndex = 43;
             this.tutorEnsemblesListBox.ValueMember = "EnsembleName";
+            this.tutorEnsemblesListBox.SelectedIndexChanged += new System.EventHandler(this.tutorEnsemblesListBox_SelectedIndexChanged);
             // 
             // tutorSheetMusicListbox
             // 
-            this.tutorSheetMusicListbox.DataSource = this.sheetMusicsBindingSource;
-            this.tutorSheetMusicListbox.DisplayMember = "Title";
             this.tutorSheetMusicListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorSheetMusicListbox.FormattingEnabled = true;
             this.tutorSheetMusicListbox.Location = new System.Drawing.Point(131, 386);
             this.tutorSheetMusicListbox.Name = "tutorSheetMusicListbox";
             this.tutorSheetMusicListbox.Size = new System.Drawing.Size(231, 56);
             this.tutorSheetMusicListbox.TabIndex = 38;
-            this.tutorSheetMusicListbox.ValueMember = "Title";
             // 
             // tutorEnsemblesLabel
             // 
@@ -1174,8 +1138,6 @@ namespace attfire1_assignment2
             // 
             // lessonsToTeachListbox
             // 
-            this.lessonsToTeachListbox.DataSource = this.lessonsBindingSource;
-            this.lessonsToTeachListbox.DisplayMember = "LessonName";
             this.lessonsToTeachListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lessonsToTeachListbox.FormattingEnabled = true;
             this.lessonsToTeachListbox.Location = new System.Drawing.Point(131, 339);
@@ -1183,7 +1145,6 @@ namespace attfire1_assignment2
             this.lessonsToTeachListbox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lessonsToTeachListbox.Size = new System.Drawing.Size(231, 43);
             this.lessonsToTeachListbox.TabIndex = 23;
-            this.lessonsToTeachListbox.ValueMember = "LessonName";
             // 
             // lessonsToTeachLabel
             // 
@@ -1766,7 +1727,8 @@ namespace attfire1_assignment2
             this.instrumentConditionDropdown.Items.AddRange(new object[] {
             "Ok for use",
             "Needs repaired",
-            "Has been repaired"});
+            "Has been repaired",
+            "N/A"});
             this.instrumentConditionDropdown.Location = new System.Drawing.Point(172, 194);
             this.instrumentConditionDropdown.Name = "instrumentConditionDropdown";
             this.instrumentConditionDropdown.Size = new System.Drawing.Size(223, 24);
@@ -1781,7 +1743,8 @@ namespace attfire1_assignment2
             "Ok for use",
             "Mild wear and tear",
             "Significant wear and tear",
-            "Is unusable"});
+            "Is unusable",
+            "N/A"});
             this.instrumentStatusDropdown.Location = new System.Drawing.Point(172, 159);
             this.instrumentStatusDropdown.Name = "instrumentStatusDropdown";
             this.instrumentStatusDropdown.Size = new System.Drawing.Size(223, 24);
@@ -2849,8 +2812,6 @@ namespace attfire1_assignment2
             // 
             // comboBox9
             // 
-            this.comboBox9.DataSource = this.instrumentsBindingSource;
-            this.comboBox9.DisplayMember = "InstrumentName";
             this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox9.FormattingEnabled = true;
             this.comboBox9.Location = new System.Drawing.Point(133, 145);
@@ -3047,62 +3008,6 @@ namespace attfire1_assignment2
             this.mainBannerLogo.TabIndex = 1;
             this.mainBannerLogo.TabStop = false;
             // 
-            // _attfire1_assignment2_MusicClassesContextDataSet
-            // 
-            this._attfire1_assignment2_MusicClassesContextDataSet.DataSetName = "_attfire1_assignment2_MusicClassesContextDataSet";
-            this._attfire1_assignment2_MusicClassesContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lessonsBindingSource
-            // 
-            this.lessonsBindingSource.DataMember = "Lessons";
-            this.lessonsBindingSource.DataSource = this._attfire1_assignment2_MusicClassesContextDataSet;
-            // 
-            // lessonsTableAdapter
-            // 
-            this.lessonsTableAdapter.ClearBeforeFill = true;
-            // 
-            // _attfire1_assignment2_MusicClassesContextDataSet1
-            // 
-            this._attfire1_assignment2_MusicClassesContextDataSet1.DataSetName = "_attfire1_assignment2_MusicClassesContextDataSet1";
-            this._attfire1_assignment2_MusicClassesContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // instrumentsBindingSource
-            // 
-            this.instrumentsBindingSource.DataMember = "Instruments";
-            this.instrumentsBindingSource.DataSource = this._attfire1_assignment2_MusicClassesContextDataSet1;
-            // 
-            // instrumentsTableAdapter
-            // 
-            this.instrumentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // _attfire1_assignment2_MusicClassesContextDataSet2
-            // 
-            this._attfire1_assignment2_MusicClassesContextDataSet2.DataSetName = "_attfire1_assignment2_MusicClassesContextDataSet2";
-            this._attfire1_assignment2_MusicClassesContextDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sheetMusicsBindingSource
-            // 
-            this.sheetMusicsBindingSource.DataMember = "SheetMusics";
-            this.sheetMusicsBindingSource.DataSource = this._attfire1_assignment2_MusicClassesContextDataSet2;
-            // 
-            // sheetMusicsTableAdapter
-            // 
-            this.sheetMusicsTableAdapter.ClearBeforeFill = true;
-            // 
-            // _attfire1_assignment2_MusicClassesContextDataSet3
-            // 
-            this._attfire1_assignment2_MusicClassesContextDataSet3.DataSetName = "_attfire1_assignment2_MusicClassesContextDataSet3";
-            this._attfire1_assignment2_MusicClassesContextDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ensemblesBindingSource
-            // 
-            this.ensemblesBindingSource.DataMember = "Ensembles";
-            this.ensemblesBindingSource.DataSource = this._attfire1_assignment2_MusicClassesContextDataSet3;
-            // 
-            // ensemblesTableAdapter
-            // 
-            this.ensemblesTableAdapter.ClearBeforeFill = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3158,14 +3063,6 @@ namespace attfire1_assignment2
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBannerLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lessonsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.instrumentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sheetMusicsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ensemblesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3424,18 +3321,6 @@ namespace attfire1_assignment2
         private System.Windows.Forms.ComboBox lessonTutorDropdown;
         private System.Windows.Forms.TextBox emailAddressField;
         private System.Windows.Forms.Label emailAddressLabel;
-        private _attfire1_assignment2_MusicClassesContextDataSet _attfire1_assignment2_MusicClassesContextDataSet;
-        private System.Windows.Forms.BindingSource lessonsBindingSource;
-        private _attfire1_assignment2_MusicClassesContextDataSetTableAdapters.LessonsTableAdapter lessonsTableAdapter;
-        private _attfire1_assignment2_MusicClassesContextDataSet1 _attfire1_assignment2_MusicClassesContextDataSet1;
-        private System.Windows.Forms.BindingSource instrumentsBindingSource;
-        private _attfire1_assignment2_MusicClassesContextDataSet1TableAdapters.InstrumentsTableAdapter instrumentsTableAdapter;
-        private _attfire1_assignment2_MusicClassesContextDataSet2 _attfire1_assignment2_MusicClassesContextDataSet2;
-        private System.Windows.Forms.BindingSource sheetMusicsBindingSource;
-        private _attfire1_assignment2_MusicClassesContextDataSet2TableAdapters.SheetMusicsTableAdapter sheetMusicsTableAdapter;
-        private _attfire1_assignment2_MusicClassesContextDataSet3 _attfire1_assignment2_MusicClassesContextDataSet3;
-        private System.Windows.Forms.BindingSource ensemblesBindingSource;
-        private _attfire1_assignment2_MusicClassesContextDataSet3TableAdapters.EnsemblesTableAdapter ensemblesTableAdapter;
     }
 }
 
