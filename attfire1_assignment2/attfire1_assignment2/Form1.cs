@@ -31,13 +31,14 @@ namespace attfire1_assignment2
                     lessonTutorDropdown.Items.Add(tutor);
                 }
 
-                //inserting lessons in lesson dropdown box in Student Records tab
+                //inserting lessons in lesson dropdown box in Student and Tutor Records tab
                 var lessons = from l in db.Lesson
                               select l.LessonName;
 
                 foreach (string l in lessons)
                 {
                     lessonDropdownBox.Items.Add(l);
+                    lessonsToTeachListbox.Items.Add(l);
                 }
 
                 //inserting instruments in instrument dropdown box in Student Records tab
@@ -47,41 +48,26 @@ namespace attfire1_assignment2
                 foreach (string i in instruments)
                 {
                     instrumentDropdownBox.Items.Add(i);
+                    lessonInstrumentDropdown.Items.Add(i);
                 }
 
-                //inserting ensembles in ensembles dropdown box in Student Records tab
+                //inserting ensembles in ensembles dropdown box in Student and Tutor Records tab
                 var ensembles = from e in db.Ensemble
                                 select e.EnsembleName;
 
                 foreach (string e in ensembles)
                 {
                     ensembleDropdownBox.Items.Add(e);
+                    tutorEnsemblesListBox.Items.Add(e);
                 }
 
-                //inserting lessons in lessons listbox in Tutor Records tab
-                var lessonsToTeach = from l in db.Lesson
-                              select l.LessonName;
-
-                foreach (string l in lessonsToTeach)
-                {
-                    lessonsToTeachListbox.Items.Add(l);
-                }
-
-                //inserting sheetmusic items in sheetmusic listbox in Tutor Records tab
+                //inserting sheetmusic items in sheetmusic listbox in Tutor and Student Records tab
                 var sheetMusicItems = from sm in db.SheetMusic
                                       select sm.Title;
                 foreach (string sm in sheetMusicItems)
                 {
                     tutorSheetMusicListbox.Items.Add(sm);
-                }
-
-                //inserting ensembles into Tutor's ensembles listbox
-                var tutorEnsembles = from te in db.Ensemble
-                                     select te.EnsembleName;
-
-                foreach (string e in tutorEnsembles)
-                {
-                    tutorEnsemblesListBox.Items.Add(e);
+                    sheetMusicListBox.Items.Add(sm);
                 }
             }
         }

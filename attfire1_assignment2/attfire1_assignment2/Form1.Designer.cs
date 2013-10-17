@@ -269,7 +269,7 @@ namespace attfire1_assignment2
             this.lessonTutorLabel = new System.Windows.Forms.Label();
             this.lessonInstrumentLabel = new System.Windows.Forms.Label();
             this.lessonTutorDropdown = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.lessonInstrumentDropdown = new System.Windows.Forms.ComboBox();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -501,6 +501,7 @@ namespace attfire1_assignment2
             // 
             // sheetMusicListBox
             // 
+            this.sheetMusicListBox.DisplayMember = "Title";
             this.sheetMusicListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sheetMusicListBox.FormattingEnabled = true;
             this.sheetMusicListBox.Location = new System.Drawing.Point(132, 366);
@@ -991,6 +992,7 @@ namespace attfire1_assignment2
             // 
             // tutorEnsemblesListBox
             // 
+            this.tutorEnsemblesListBox.DisplayMember = "EnsembleName";
             this.tutorEnsemblesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorEnsemblesListBox.FormattingEnabled = true;
             this.tutorEnsemblesListBox.Location = new System.Drawing.Point(86, 481);
@@ -2756,7 +2758,7 @@ namespace attfire1_assignment2
             this.panel9.Controls.Add(this.lessonTutorLabel);
             this.panel9.Controls.Add(this.lessonInstrumentLabel);
             this.panel9.Controls.Add(this.lessonTutorDropdown);
-            this.panel9.Controls.Add(this.comboBox9);
+            this.panel9.Controls.Add(this.lessonInstrumentDropdown);
             this.panel9.Controls.Add(this.comboBox8);
             this.panel9.Controls.Add(this.comboBox7);
             this.panel9.Controls.Add(this.label16);
@@ -2810,15 +2812,16 @@ namespace attfire1_assignment2
             this.lessonTutorDropdown.Size = new System.Drawing.Size(261, 24);
             this.lessonTutorDropdown.TabIndex = 23;
             // 
-            // comboBox9
+            // lessonInstrumentDropdown
             // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(133, 145);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(261, 24);
-            this.comboBox9.TabIndex = 23;
-            this.comboBox9.ValueMember = "InstrumentName";
+            this.lessonInstrumentDropdown.DisplayMember = "InstrumentName";
+            this.lessonInstrumentDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lessonInstrumentDropdown.FormattingEnabled = true;
+            this.lessonInstrumentDropdown.Location = new System.Drawing.Point(133, 145);
+            this.lessonInstrumentDropdown.Name = "lessonInstrumentDropdown";
+            this.lessonInstrumentDropdown.Size = new System.Drawing.Size(261, 24);
+            this.lessonInstrumentDropdown.TabIndex = 23;
+            this.lessonInstrumentDropdown.ValueMember = "InstrumentName";
             // 
             // comboBox8
             // 
@@ -3316,7 +3319,7 @@ namespace attfire1_assignment2
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lessonInstrumentLabel;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox lessonInstrumentDropdown;
         private System.Windows.Forms.Label lessonTutorLabel;
         private System.Windows.Forms.ComboBox lessonTutorDropdown;
         private System.Windows.Forms.TextBox emailAddressField;
