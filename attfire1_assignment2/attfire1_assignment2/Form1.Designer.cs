@@ -766,6 +766,7 @@ namespace attfire1_assignment2
             this.ageField.Name = "ageField";
             this.ageField.Size = new System.Drawing.Size(57, 23);
             this.ageField.TabIndex = 6;
+            this.ageField.TextChanged += new System.EventHandler(this.ageField_TextChanged);
             // 
             // ageLabel
             // 

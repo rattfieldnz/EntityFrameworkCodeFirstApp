@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -77,26 +78,27 @@ namespace attfire1_assignment2
             
         }
 
-        //A method to validate the Age input field - in the Student Records pane,
+        //A method to validate the Age input field - in the Student Records pane.
+        //Thanks to the following link for helping me - http://www.dotnetperls.com/textchanged
         private void ageField_TextChanged(object sender, EventArgs e)
         {
             //Creating String variable of Age field input
             string ageFieldInput = ageField.Text;
 
-            //Iterate over each char in the string variable to see if it is a number
-            for (int i = 0; i < ageFieldInput.Length; i++)
+            if (Regex.IsMatch(ageFieldInput, @"^\d+$") == false)
             {
-                //If the char isn't a number, let the user know - and provide them examples 
-                //of expected input.
-                if(!char.IsNumber(ageFieldInput[i]))
-                {
-                    MessageBox.Show("The 'Age' field must be an integer, e.g. 29, 5, 8, 32,...");
-                }
+                MessageBox.Show("The age field must be an integer, e.g. 23, 5, 11, 32");
 
-                if (ageFieldInput.Length == 1 && int.Parse(ageFieldInput) < 5)
+                if (ageFieldInput.Length == 0)
                 {
+                    MessageBox.Show("");
                 }
             }
+            else if (int.Parse(ageFieldInput) < 5)
+            {
+                MessageBox.Show("The student must be 5 years old, or older, to enrol in lessons.");
+            }
+
         }
 
         /**
