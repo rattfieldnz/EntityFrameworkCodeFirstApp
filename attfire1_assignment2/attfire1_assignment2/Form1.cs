@@ -88,11 +88,6 @@ namespace attfire1_assignment2
             if (Regex.IsMatch(ageFieldInput, @"^\d+$") == false)
             {
                 MessageBox.Show("The age field must be an integer, e.g. 23, 5, 11, 32");
-
-                if (ageFieldInput.Length == 0)
-                {
-                    MessageBox.Show("");
-                }
             }
             else if (int.Parse(ageFieldInput) < 5)
             {
