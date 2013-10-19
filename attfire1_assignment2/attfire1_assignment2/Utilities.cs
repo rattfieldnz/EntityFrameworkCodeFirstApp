@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,98 +16,138 @@ namespace attfire1_assignment2
 {
     class Utilities
     {
-        public void checkFieldNullLengths(System.Windows.Forms.TextBox field, StringBuilder errors)
+        public void checkFieldNullLengths(System.Windows.Forms.TextBox field, StringBuilder errors, string fieldName)
         {
             if (field.Text.Length == 0)
             {
-                errors.Append("The form field '" + field + "' can't be empty\n");
+                errors.Append("The form field '" + fieldName + "' can't be empty\n");
             }
         }
+
+        //public void checkFieldNullLengths(System.Windows.Forms.TextBox field, StringBuilder errors)
+        //{
+        //    if (field.Text.Length == 0)
+        //    {
+        //        errors.Append("The form field '" + fieldName + "' can't be empty\n");
+        //    }
+        //}
 
         //A method to check if a phone number is correct format
-        public void phoneNumberValidation(System.Windows.Forms.TextBox field, StringBuilder errors)
+        public void landlineNumberValidation(System.Windows.Forms.TextBox field, StringBuilder errors)
         {
-            if (MemberInfoGetting.GetMemberName(() => field) != "landlinePhoneField")
+            if (field.Text.ToString().Length == 0)
             {
-                if (field.Text.ToString().Length == 0)
-                {
-                    checkFieldNullLengths(field, errors);
-                }
-                else
-                {
-                    if (field.Text.ToString().Length != 8)
-                    {
-                        errors.Append("Your landline number must be 9 digits long (with area code), e.g. 034567890.\n");
-                    }
-                }
+                checkFieldNullLengths(field, errors, "Landline Phone");
             }
-            else if (MemberInfoGetting.GetMemberName(() => field) != "mobilePhoneField")
+            else
             {
-                if (field.Text.ToString().Length == 0)
+                if (field.Text.ToString().Length != 9)
                 {
-                    checkFieldNullLengths(field, errors);
-                }
-                else
-                {
-                    if (field.Text.ToString().Length != 9 || field.Text.ToString().Length != 10)
-                    {
-                        errors.Append("Your mobile number must be 10 or 11 digits long, e.g. 0271234567 or 02298765432.\n");
-                    }
+                    errors.Append("Your landline number must be 9 digits long (with area code), e.g. 034567890.\n");
                 }
             }
         }
 
-        //A method to check numeric fields
-        public void numericFieldsCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
+        public void mobileNumberValidation(System.Windows.Forms.TextBox field, StringBuilder errors)
         {
-            if (MemberInfoGetting.GetMemberName(() => field) == "postCodeField")
+            if (field.Text.ToString().Length == 0)
             {
-                if (field.Text.Length > 4 || field.Text.Length < 4)
+                checkFieldNullLengths(field, errors, "Mobile Phone");
+            }
+            else //0276898765
+            {
+                if (field.Text.Length > 11|| field.Text.Length < 10)
                 {
-                    errors.Append("The Postcode field must be a number with 4 integers, e.g. 9012, 9510, 9077, 9092\n");
-                }
-                else
-                {
-                    int integer;
-                    if (!int.TryParse(field.Text.ToString(), out integer))
-                    {
-                        errors.Append("The Postcode field must be an integer, e.g. 9012, 9510, 9077, 9092\n");
-                    }
+                    errors.Append("Your mobile number must be 10 or 11 digits long, e.g. 0271234567 or 02298765432.\n");
                 }
             }
-            else if (MemberInfoGetting.GetMemberName(() => field) == "ageField")
+        }
+
+        //A method to check the postcode field for valid input
+        public void postCodeFieldCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            if (field.Text.Length > 4 || field.Text.Length < 4)
+            {
+                errors.Append("The Postcode field must be a number with 4 integers, e.g. 9012, 9510, 9077, 9092\n");
+            }
+            else
             {
                 int integer;
-
-                if (field.Text.ToString().Length == 0)
+                if (!int.TryParse(field.Text.ToString(), out integer))
                 {
-                    checkFieldNullLengths(field, errors);
-                }
-                else if (!int.TryParse(field.Text.ToString(), out integer))
-                {
-                    errors.Append("The age field must be an integer, e.g. 15, 32, 6, 19.\n");
-                }
-                else if (int.Parse(field.Text.ToString()) < 5 || int.Parse(field.Text.ToString()) > 130)
-                {
-                    errors.Append("You must be over 5 years old to enrol, and be a realistic age (below 130).\n");
+                    errors.Append("The Postcode field must be an integer, e.g. 9012, 9510, 9077, 9092\n");
                 }
             }
-            else if (MemberInfoGetting.GetMemberName(() => field) == "lessonFeesOwedField" ||
-                     MemberInfoGetting.GetMemberName(() => field) == "instrumentFeesOwedField" ||
-                     MemberInfoGetting.GetMemberName(() => field) == "totalFeesOwedField")
+        }
+        //A method to check the age field for valid input
+        public void ageFieldCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            int integer;
+
+            if (field.Text.ToString().Length == 0)
             {
-                if (field.Text.ToString().Length == 0)
+                checkFieldNullLengths(field, errors, "Age");
+            }
+            else if (!int.TryParse(field.Text.ToString(), out integer))
+            {
+                errors.Append("The age field must be an integer, e.g. 15, 32, 6, 19.\n");
+            }
+            else if (int.Parse(field.Text.ToString()) < 5 || int.Parse(field.Text.ToString()) > 130)
+            {
+                errors.Append("You must be over 5 years old to enrol, and be a realistic age (below 130).\n");
+            }
+         }
+
+        //A method to check the postcode field for valid input
+        public void lessonFeesFieldCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            if (field.Text.ToString().Length == 0)
+            {
+                errors.Append("An amount for lesson fees owed must be entered.\n");
+            }
+            else
+            {
+                decimal fee;
+                int fee1;
+                if (decimal.TryParse(field.Text.ToString(), out fee) == false || int.TryParse(field.Text.ToString(), out fee1) == false)
                 {
-                    errors.Append("An amount for lesson fees, instrument fees, and total fees owed must be entered.\n");
+                    errors.Append("The lesson fees owed must be entered as a decimal or integer, e.g. 40.00 or 50.\n");
                 }
-                else
+            }
+        }
+
+        //A method to check the Instrument Fees Owed field for valid input
+        public void instrumentFeesFieldCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            if (field.Text.ToString().Length == 0)
+            {
+                errors.Append("An amount for instrument fees owed must be entered.\n");
+            }
+            else
+            {
+                decimal fee;
+                int fee1;
+                if (decimal.TryParse(field.Text.ToString(), out fee) == false || int.TryParse(field.Text.ToString(), out fee1) == false)
                 {
-                    decimal fee;
-                    int fee1;
-                    if (decimal.TryParse(field.Text.ToString(), out fee) == false || int.TryParse(field.Text.ToString(), out fee1) == false)
-                    {
-                        errors.Append("The lesson, instrument, and total fees owed must be entered as a decimal or integer, e.g. 40.00 or 50.");
-                    }
+                    errors.Append("The instrument fees owed must be entered as a decimal or integer, e.g. 40.00 or 50.\n");
+                }
+            }
+        }
+
+        //A method to check the Total Fees Owed field for valid input
+        public void totalFeesFieldCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            if (field.Text.ToString().Length == 0)
+            {
+                errors.Append("An amount for total fees owed must be entered.\n");
+            }
+            else
+            {
+                decimal fee;
+                int fee1;
+                if (decimal.TryParse(field.Text.ToString(), out fee) == false || int.TryParse(field.Text.ToString(), out fee1) == false)
+                {
+                    errors.Append("The total fees owed must be entered as a decimal or integer, e.g. 40.00 or 50.\n");
                 }
             }
         }
@@ -132,35 +173,41 @@ namespace attfire1_assignment2
         {
             if (field.Text.ToString().Length == 0)
             {
-                checkFieldNullLengths(field, errors);
+                checkFieldNullLengths(field, errors, "Email Address");
             }
             else
             {
                 if (IsValidEmail(field.Text.ToString()) == false)
                 {
-                    errors.Append("The email address entered in the '" + field + "' isn't valid. Example is someone@somewhere.com.\n");
+                    errors.Append("The email address entered isn't valid. Example is someone@somewhere.com.\n");
                 }
             }
         }
 
         //This method is used to check if a value has been selected
         //from a dropdown (combobox) box.
-        public void checkDropdownBox(System.Windows.Forms.ComboBox dropdown, StringBuilder errors)
+        public void checkDropdownBox(System.Windows.Forms.ComboBox dropdown, StringBuilder errors, string dropDown)
         {
-            if (string.IsNullOrEmpty(dropdown.Text))
+            if (dropdown.Text.ToString().Length == 0)
             {
-                errors.Append("You must select a value from the '" + dropdown + "' dropdown box.");
+                errors.Append("You must select a value from the '" + dropDown + "' dropdown box.\n");
             }
         }
 
         //This method checks to see if a selection has been made from a listBox, and 
         //informs the user if not.
-        public void checkListBox(System.Windows.Forms.ListBox listBox, StringBuilder errors)
+        public void checkListBox(System.Windows.Forms.ListBox listbox, StringBuilder errors, string listBox)
         {
-            if (listBox.Items.Count < 1)
+            if (listbox.SelectedIndex == -1)
             {
-                errors.Append("You must select at least one record from the '" + listBox + "' list box.");
+                errors.Append("You must select at least one record from the '" + listBox + "' list box.\n");
             }
+        }
+
+        static string GetName<T>(T item) where T : class
+        {
+            var properties = typeof(T).GetProperties();
+            return properties[0].Name;
         }
     }
 }

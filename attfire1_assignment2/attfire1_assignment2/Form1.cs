@@ -119,27 +119,28 @@ namespace attfire1_assignment2
             */
         private void submitUpdateBtn_Click(object sender, EventArgs e)
         {
-            formUtilities.checkFieldNullLengths(firstNameField, formErrors);
-            formUtilities.checkFieldNullLengths(lastNameField, formErrors);
-            formUtilities.numericFieldsCheck(ageField, formErrors);
-            formUtilities.checkFieldNullLengths(streetAddressField, formErrors);
-            formUtilities.checkFieldNullLengths(suburbField, formErrors);
-            formUtilities.numericFieldsCheck(postCodeField, formErrors);
-            formUtilities.checkFieldNullLengths(studentTownOrCityField, formErrors);
-            formUtilities.phoneNumberValidation(landlinePhoneField, formErrors);
-            formUtilities.phoneNumberValidation(mobilePhoneField, formErrors);
+            formUtilities.checkFieldNullLengths(firstNameField, formErrors, "First Name");
+            formUtilities.checkFieldNullLengths(lastNameField, formErrors, "Last Name");
+            formUtilities.ageFieldCheck(ageField, formErrors);
+            formUtilities.checkFieldNullLengths(streetAddressField, formErrors, "Street Address");
+            formUtilities.checkFieldNullLengths(suburbField, formErrors, "Suburb");
+            formUtilities.postCodeFieldCheck(postCodeField, formErrors);
+            formUtilities.checkFieldNullLengths(studentTownOrCityField, formErrors, "Town or City");
+            formUtilities.landlineNumberValidation(landlinePhoneField, formErrors);
+            formUtilities.mobileNumberValidation(mobilePhoneField, formErrors);
             formUtilities.validateEmailField(emailAddressField, formErrors);
-            formUtilities.numericFieldsCheck(lessonFeesOwedField, formErrors);
-            formUtilities.numericFieldsCheck(instrumentFeesOwedField, formErrors);
-            formUtilities.numericFieldsCheck(totalFeesOwedField, formErrors);
-            formUtilities.checkDropdownBox(lessonDropdownBox, formErrors);
-            formUtilities.checkDropdownBox(instrumentDropdownBox, formErrors);
-            formUtilities.checkDropdownBox(ensembleDropdownBox, formErrors);
-            formUtilities.checkListBox(sheetMusicListBox, formErrors);
+            formUtilities.checkDropdownBox(lessonDropdownBox, formErrors, "Lesson");
+            formUtilities.checkDropdownBox(instrumentDropdownBox, formErrors, "Instrument");
+            formUtilities.checkListBox(sheetMusicListBox, formErrors, "Sheet Music");
+            formUtilities.checkDropdownBox(ensembleDropdownBox, formErrors, "Ensemble");
+            formUtilities.lessonFeesFieldCheck(lessonFeesOwedField, formErrors);
+            formUtilities.instrumentFeesFieldCheck(instrumentFeesOwedField, formErrors);
+            formUtilities.totalFeesFieldCheck(totalFeesOwedField, formErrors);
 
             if (formErrors.ToString().Length != 0)
             {
                 MessageBox.Show(formErrors.ToString());
+                formErrors = new StringBuilder();
             }
             else
             {
@@ -301,40 +302,48 @@ namespace attfire1_assignment2
                     //Obtaining the SheetMusicTitle - selected by the user from the 
                     //SheetMusic listbox on the Student Records pane. To be used for
                     //creating the many-many StudentSheetMusic object.
-                    string sheetMusicTitle = sheetMusicListBox.SelectedItem.ToString();
+                    //string sheetMusicTitle = sheetMusicListBox.SelectedItem.ToString();
+
+                    string[] sheetMusicRecords = new string[sheetMusicListBox.SelectedItems.Count];
+                    sheetMusicListBox.SelectedItems.CopyTo(sheetMusicRecords, 0);
 
 
                     //Creating the many-many object that links Students 
                     //with SheetMusic records.
-                    var studentSheetMusic = new StudentSheetMusic()
+
+
+                    foreach (string smc in sheetMusicRecords)
                     {
-                        //Obtaining the StudentId from the Student object created earlier.
-                        StudentStudentId = student.StudentId,
+                        var studentSheetMusic = new StudentSheetMusic()
+                        {
+                            //Obtaining the StudentId from the Student object created earlier.
+                            StudentStudentId = student.StudentId,
 
-                        //Obtaining the SheetMusicId from the SheetMusic item object 
-                        //selected by the user.
-                        SheetMusicSheetMusicId = (from s in db.SheetMusic
-                                                  where s.Title == sheetMusicTitle
-                                                  select s.SheetMusicId).FirstOrDefault(),
+                            //Obtaining the SheetMusicId from the SheetMusic item object 
+                            //selected by the user.
+                            SheetMusicSheetMusicId = (from s in db.SheetMusic
+                                                      where s.Title == smc
+                                                      select s.SheetMusicId).FirstOrDefault(),
 
-                        //Obtaining the Student object required for reverse navigation.
-                        Student = student,
+                            //Obtaining the Student object required for reverse navigation.
+                            Student = student,
 
-                        //Obtaining the SheetMusic object required for reverse navigation, 
-                        //obtained from the SheetMusic item selected by the user,
-                        SheetMusic = (from sm in db.SheetMusic
-                                      where sm.SheetMusicId == (from s in db.SheetMusic
-                                                                where s.Title == sheetMusicTitle
-                                                                select s.SheetMusicId).FirstOrDefault()
-                                      select sm).FirstOrDefault()
+                            //Obtaining the SheetMusic object required for reverse navigation, 
+                            //obtained from the SheetMusic item selected by the user,
+                            SheetMusic = (from sm in db.SheetMusic
+                                          where sm.SheetMusicId == (from s in db.SheetMusic
+                                                                    where s.Title == smc
+                                                                    select s.SheetMusicId).FirstOrDefault()
+                                          select sm).FirstOrDefault()
 
-                    };
+                        };
 
-                    //Add the StudentSheetMusic record to the database.
-                    db.StudentSheetMusic.Add(studentSheetMusic);
+                        //Add the StudentSheetMusic record to the database.
+                        db.StudentSheetMusic.Add(studentSheetMusic);
 
-                    //Save the changes made to the database.
-                    db.SaveChanges();
+                        //Save the changes made to the database.
+                        db.SaveChanges();
+                    }
 
                     //Close the connection
                     db.Database.Connection.Close();
