@@ -27,7 +27,6 @@ C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignmen
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\attfire1_assignment2.pdb
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\EntityFramework.dll
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\bin\Release\EntityFramework.xml
-C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.csprojResolveAssemblyReference.cache
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Form1.resources
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Migrations.Lesson_v1.resources
 C:\Users\attfi_000\Databases3Assignment2\attfire1_assignment2\attfire1_assignment2\obj\Release\attfire1_assignment2.Properties.Resources.resources

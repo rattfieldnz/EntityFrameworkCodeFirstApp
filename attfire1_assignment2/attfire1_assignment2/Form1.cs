@@ -132,6 +132,9 @@ namespace attfire1_assignment2
             formUtilities.numericFieldsCheck(lessonFeesOwedField, formErrors);
             formUtilities.numericFieldsCheck(instrumentFeesOwedField, formErrors);
             formUtilities.numericFieldsCheck(totalFeesOwedField, formErrors);
+            formUtilities.checkDropdownBox(lessonDropdownBox, formErrors);
+            formUtilities.checkDropdownBox(instrumentDropdownBox, formErrors);
+            formUtilities.checkDropdownBox(ensembleDropdownBox, formErrors);
 
             using (var db = new MusicClassesContext())
                 {
