@@ -135,6 +135,8 @@ namespace attfire1_assignment2
             formUtilities.checkDropdownBox(lessonDropdownBox, formErrors);
             formUtilities.checkDropdownBox(instrumentDropdownBox, formErrors);
             formUtilities.checkDropdownBox(ensembleDropdownBox, formErrors);
+            formUtilities.checkListBox(sheetMusicListBox, formErrors);
+
 
             using (var db = new MusicClassesContext())
                 {
