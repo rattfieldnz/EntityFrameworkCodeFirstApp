@@ -23,6 +23,39 @@ namespace attfire1_assignment2
             }
         }
 
+        //A method to check if a phone number is correct format
+        public void phoneNumberValidation(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            if (MemberInfoGetting.GetMemberName(() => field) != "landlinePhoneField")
+            {
+                if (field.Text.ToString().Length == 0)
+                {
+                    checkFieldNullLengths(field, errors);
+                }
+                else
+                {
+                    if (field.Text.ToString().Length != 9)
+                    {
+                        errors.Append("Your landline number must be 9 digits long (with area code), e.g. 034567890.\n");
+                    }
+                }
+            }
+            else if (MemberInfoGetting.GetMemberName(() => field) != "mobilePhoneField")
+            {
+                if (field.Text.ToString().Length == 0)
+                {
+                    checkFieldNullLengths(field, errors);
+                }
+                else
+                {
+                    if (field.Text.ToString().Length != 10 || field.Text.ToString().Length != 11)
+                    {
+                        errors.Append("Your mobile number must be 10 or 11 digits long, e.g. 0271234567 or 02298765432.\n");
+                    }
+                }
+            }
+        }
+
         //A method to check numeric fields
         public void numericFieldsCheck(System.Windows.Forms.TextBox field, StringBuilder errors)
         {
@@ -43,9 +76,15 @@ namespace attfire1_assignment2
             }
             else if (MemberInfoGetting.GetMemberName(() => field) == "ageField")
             {
+                int integer;
+
                 if (field.Text.ToString().Length == 0)
                 {
-                    errors.Append("You must enter your age\n");
+                    checkFieldNullLengths(field, errors);
+                }
+                else if (!int.TryParse(field.Text.ToString(), out integer))
+                {
+                    errors.Append("The age field must be an integer, e.g. 15, 32, 6, 19.\n");
                 }
                 else if (int.Parse(field.Text.ToString()) < 5 || int.Parse(field.Text.ToString()) > 130)
                 {
@@ -70,18 +109,6 @@ namespace attfire1_assignment2
                     }
                 }
             }
-        }
-    }
-
-    //Method to get name of a variable, thanks to the following URL:
-    //http://stackoverflow.com/questions/9801624/get-name-of-a-variable-or-parameter
-    //
-    private static class MemberInfoGetting
-    {
-        public static string GetMemberName<T>(Expression<Func<T>> memberExpression)
-        {
-            MemberExpression expressionBody = (MemberExpression)memberExpression.Body;
-            return expressionBody.Member.Name;
         }
     }
 }

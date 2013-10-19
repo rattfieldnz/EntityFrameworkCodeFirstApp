@@ -78,6 +78,7 @@
     <Compile Include="Instrument.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="MemberInfoGetting.cs" />
     <Compile Include="Migrations\201310050637357_Lesson_v1.cs" />
     <Compile Include="Migrations\201310050637357_Lesson_v1.Designer.cs">
       <DependentUpon>201310050637357_Lesson_v1.cs</DependentUpon>
