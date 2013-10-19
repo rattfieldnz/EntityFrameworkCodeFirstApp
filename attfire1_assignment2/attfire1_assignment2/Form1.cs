@@ -137,8 +137,13 @@ namespace attfire1_assignment2
             formUtilities.checkDropdownBox(ensembleDropdownBox, formErrors);
             formUtilities.checkListBox(sheetMusicListBox, formErrors);
 
-
-            using (var db = new MusicClassesContext())
+            if (formErrors.ToString().Length != 0)
+            {
+                MessageBox.Show(formErrors.ToString());
+            }
+            else
+            {
+                using (var db = new MusicClassesContext())
                 {
                     //Creating new Address object - using the appropriate form inputs
                     //from the Student Records pane.
@@ -172,8 +177,8 @@ namespace attfire1_assignment2
                         //A LINQ query, which obtains the Id for the Ensemble chosen by the user - 
                         //determined by the Ensemble name selected form the Student records pane.
                         EnsembleEnsembleId = (from ensemble in db.Ensemble
-                                                where ensemble.EnsembleName == ensembleDropdownBox.Text
-                                                select ensemble.EnsembleId).FirstOrDefault(),
+                                              where ensemble.EnsembleName == ensembleDropdownBox.Text
+                                              select ensemble.EnsembleId).FirstOrDefault(),
 
                         //A LINQ query to obtain the Id of the Address record (of the current Student
                         //being added) that was just added.
@@ -196,14 +201,14 @@ namespace attfire1_assignment2
                         //A LINQ query to create the Address object required for reverse navigation 
                         //- using the Address record created by the user earlier.
                         Address = (from ad in db.Address
-                                    where ad.AddressId == (from a in db.Address
-                                                            where a.StreetAddress == address.StreetAddress
-                                                            && a.Suburb == address.Suburb
-                                                            && a.TownOrCity == address.TownOrCity
-                                                            && a.PostCode == address.PostCode
-                                                            && a.LandlinePhone == address.LandlinePhone
-                                                            select a.AddressId).FirstOrDefault()
-                                    select ad).FirstOrDefault()
+                                   where ad.AddressId == (from a in db.Address
+                                                          where a.StreetAddress == address.StreetAddress
+                                                          && a.Suburb == address.Suburb
+                                                          && a.TownOrCity == address.TownOrCity
+                                                          && a.PostCode == address.PostCode
+                                                          && a.LandlinePhone == address.LandlinePhone
+                                                          select a.AddressId).FirstOrDefault()
+                                   select ad).FirstOrDefault()
                     };
 
                     //Add the new Person object to the database
@@ -230,23 +235,23 @@ namespace attfire1_assignment2
                         //A LINQ query to obtain the associated InstrumentId with the Instrument
                         //selected by the user from the interface.
                         InstrumentInstrumentId = (from i in db.Instrument
-                                                    where i.InstrumentName == instrumentDropdownBox.Text
-                                                    select i.InstrumentId).FirstOrDefault(),
+                                                  where i.InstrumentName == instrumentDropdownBox.Text
+                                                  select i.InstrumentId).FirstOrDefault(),
 
                         //Associating the Person record, created for the new Student, with the current Student object 
                         //being constructed.
                         PersonPersonId = person.PersonId,
                         Instrument = (from i in db.Instrument
-                                        where i.InstrumentId == (from inst in db.Instrument
-                                                                where inst.InstrumentName == instrumentDropdownBox.Text
-                                                                select inst.InstrumentId).FirstOrDefault()
-                                        select i).FirstOrDefault(),
+                                      where i.InstrumentId == (from inst in db.Instrument
+                                                               where inst.InstrumentName == instrumentDropdownBox.Text
+                                                               select inst.InstrumentId).FirstOrDefault()
+                                      select i).FirstOrDefault(),
 
                         //A LINQ query to obtain the Person object required for reverse navigation 
                         //- using the Person object created for the Student earlier.
                         Person = (from p in db.Person
-                                    where p.PersonId == person.PersonId
-                                    select p).FirstOrDefault()
+                                  where p.PersonId == person.PersonId
+                                  select p).FirstOrDefault()
                     };
 
                     //Add the student to the database
@@ -268,15 +273,15 @@ namespace attfire1_assignment2
                         //Obtaining the LessonId from the Lesson the user selected form the
                         //interface.
                         LessonLessonId = (from l in db.Lesson
-                                            where l.LessonName == lessonDropdownBox.Text
-                                            select l.LessonId).FirstOrDefault(),
+                                          where l.LessonName == lessonDropdownBox.Text
+                                          select l.LessonId).FirstOrDefault(),
 
                         //Obtaining the Lesson object required for reverse navigation.
                         Lesson = (from l in db.Lesson
-                                    where l.LessonId == (from le in db.Lesson
-                                                        where le.LessonName == lessonDropdownBox.Text
-                                                        select le.LessonId).FirstOrDefault()
-                                    select l).FirstOrDefault(),
+                                  where l.LessonId == (from le in db.Lesson
+                                                       where le.LessonName == lessonDropdownBox.Text
+                                                       select le.LessonId).FirstOrDefault()
+                                  select l).FirstOrDefault(),
 
                         //Obtaining the Student object required for reverse navigation.
                         Student = student
@@ -309,8 +314,8 @@ namespace attfire1_assignment2
                         //Obtaining the SheetMusicId from the SheetMusic item object 
                         //selected by the user.
                         SheetMusicSheetMusicId = (from s in db.SheetMusic
-                                                    where s.Title == sheetMusicTitle
-                                                    select s.SheetMusicId).FirstOrDefault(),
+                                                  where s.Title == sheetMusicTitle
+                                                  select s.SheetMusicId).FirstOrDefault(),
 
                         //Obtaining the Student object required for reverse navigation.
                         Student = student,
@@ -318,10 +323,10 @@ namespace attfire1_assignment2
                         //Obtaining the SheetMusic object required for reverse navigation, 
                         //obtained from the SheetMusic item selected by the user,
                         SheetMusic = (from sm in db.SheetMusic
-                                        where sm.SheetMusicId == (from s in db.SheetMusic
+                                      where sm.SheetMusicId == (from s in db.SheetMusic
                                                                 where s.Title == sheetMusicTitle
                                                                 select s.SheetMusicId).FirstOrDefault()
-                                        select sm).FirstOrDefault()
+                                      select sm).FirstOrDefault()
 
                     };
 
@@ -334,6 +339,7 @@ namespace attfire1_assignment2
                     //Close the connection
                     db.Database.Connection.Close();
                 }
+            }
         }
 
         private void tutorEnsemblesListBox_SelectedIndexChanged(object sender, EventArgs e)
