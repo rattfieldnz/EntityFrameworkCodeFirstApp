@@ -101,6 +101,7 @@
     <Compile Include="StudentLesson.cs" />
     <Compile Include="Tutor.cs" />
     <Compile Include="TutorPositionsHeld.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="_attfire1_assignment2_MusicClassesContextDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

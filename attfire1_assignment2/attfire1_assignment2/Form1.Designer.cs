@@ -698,7 +698,6 @@ namespace attfire1_assignment2
             this.studentTownOrCityField.Name = "studentTownOrCityField";
             this.studentTownOrCityField.Size = new System.Drawing.Size(178, 23);
             this.studentTownOrCityField.TabIndex = 14;
-            this.studentTownOrCityField.Click += new System.EventHandler(this.studentTownOrCityField_Click);
             // 
             // townOrCityLabel
             // 
@@ -716,7 +715,7 @@ namespace attfire1_assignment2
             this.postCodeField.Name = "postCodeField";
             this.postCodeField.Size = new System.Drawing.Size(74, 23);
             this.postCodeField.TabIndex = 12;
-            this.postCodeField.TextChanged += new System.EventHandler(this.postCodeField_TextChanged);
+            //this.postCodeField.TextChanged += new System.EventHandler(this.postCodeField_TextChanged);
             // 
             // postCodeLabel
             // 
@@ -768,7 +767,7 @@ namespace attfire1_assignment2
             this.ageField.Name = "ageField";
             this.ageField.Size = new System.Drawing.Size(57, 23);
             this.ageField.TabIndex = 6;
-            this.ageField.TextChanged += new System.EventHandler(this.ageField_TextChanged);
+            //this.ageField.TextChanged += new System.EventHandler(this.ageField_TextChanged);
             // 
             // ageLabel
             // 
