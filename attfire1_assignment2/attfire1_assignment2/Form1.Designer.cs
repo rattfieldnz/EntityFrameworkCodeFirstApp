@@ -371,6 +371,7 @@ namespace attfire1_assignment2
             this.showStudentsBtn.TabIndex = 8;
             this.showStudentsBtn.Text = "Show Students";
             this.showStudentsBtn.UseVisualStyleBackColor = true;
+            this.showStudentsBtn.Click += new System.EventHandler(this.showStudentsBtn_Click);
             // 
             // showStudentsByDropdown
             // 
@@ -381,7 +382,6 @@ namespace attfire1_assignment2
             "First Name",
             "Last Name",
             "Age",
-            "Level",
             "Suburb",
             "Town/City",
             "Lesson Fees Owed",
@@ -715,7 +715,6 @@ namespace attfire1_assignment2
             this.postCodeField.Name = "postCodeField";
             this.postCodeField.Size = new System.Drawing.Size(74, 23);
             this.postCodeField.TabIndex = 12;
-            //this.postCodeField.TextChanged += new System.EventHandler(this.postCodeField_TextChanged);
             // 
             // postCodeLabel
             // 
@@ -767,7 +766,6 @@ namespace attfire1_assignment2
             this.ageField.Name = "ageField";
             this.ageField.Size = new System.Drawing.Size(57, 23);
             this.ageField.TabIndex = 6;
-            //this.ageField.TextChanged += new System.EventHandler(this.ageField_TextChanged);
             // 
             // ageLabel
             // 

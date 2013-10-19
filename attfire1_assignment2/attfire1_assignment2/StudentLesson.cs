@@ -10,8 +10,10 @@ namespace attfire1_assignment2
 {
     public class StudentLesson
     {
+        [Required]
         [Key, Column(Order = 1)]
         public int StudentStudentId { get; set; }
+        [Required]
         [Key, Column(Order = 2)]
         public int LessonLessonId { get; set; } 
 

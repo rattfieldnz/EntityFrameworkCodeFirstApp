@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -140,6 +141,10 @@ namespace attfire1_assignment2
             if (formErrors.ToString().Length != 0)
             {
                 MessageBox.Show(formErrors.ToString());
+
+                //Setting the error message string back to zero length, 
+                //so continuous submit attempts don't keep appending 
+                //subsequent error messages.
                 formErrors = new StringBuilder();
             }
             else
@@ -222,6 +227,7 @@ namespace attfire1_assignment2
 
                     //Creating a new Student record - with the necessary Person record
                     //created earlier.
+                    string instrumentName = instrumentDropdownBox.Text.ToString();
                     var student = new Student()
                     {
                         //Converting the input for Age into a short
@@ -236,7 +242,7 @@ namespace attfire1_assignment2
                         //A LINQ query to obtain the associated InstrumentId with the Instrument
                         //selected by the user from the interface.
                         InstrumentInstrumentId = (from i in db.Instrument
-                                                  where i.InstrumentName == instrumentDropdownBox.Text
+                                                  where i.InstrumentName == instrumentName
                                                   select i.InstrumentId).FirstOrDefault(),
 
                         //Associating the Person record, created for the new Student, with the current Student object 
@@ -299,11 +305,6 @@ namespace attfire1_assignment2
                     db.Database.Connection.Close();
 
 
-                    //Obtaining the SheetMusicTitle - selected by the user from the 
-                    //SheetMusic listbox on the Student Records pane. To be used for
-                    //creating the many-many StudentSheetMusic object.
-                    //string sheetMusicTitle = sheetMusicListBox.SelectedItem.ToString();
-
                     string[] sheetMusicRecords = new string[sheetMusicListBox.SelectedItems.Count];
                     sheetMusicListBox.SelectedItems.CopyTo(sheetMusicRecords, 0);
 
@@ -354,6 +355,17 @@ namespace attfire1_assignment2
         private void tutorEnsemblesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void showStudentsBtn_Click(object sender, EventArgs e)
+        {
+            using (var db = new MusicClassesContext())
+            {
+                DataTable studentRecordsTable = new DataTable("studentRecords");
+
+
+
+            }
         }
     }
 }
