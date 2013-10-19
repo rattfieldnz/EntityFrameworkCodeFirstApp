@@ -152,5 +152,15 @@ namespace attfire1_assignment2
                 errors.Append("You must select a value from the '" + dropdown + "' dropdown box.");
             }
         }
+
+        //This method checks to see if a selection has been made from a listBox, and 
+        //informs the user if not.
+        public void checkListBox(System.Windows.Forms.ListBox listBox, StringBuilder errors)
+        {
+            if (listBox.Items.Count < 1)
+            {
+                errors.Append("You must select at least one record from the '" + listBox + "' list box.");
+            }
+        }
     }
 }
