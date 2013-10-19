@@ -34,7 +34,7 @@ namespace attfire1_assignment2
                 }
                 else
                 {
-                    if (field.Text.ToString().Length != 9)
+                    if (field.Text.ToString().Length != 8)
                     {
                         errors.Append("Your landline number must be 9 digits long (with area code), e.g. 034567890.\n");
                     }
@@ -48,7 +48,7 @@ namespace attfire1_assignment2
                 }
                 else
                 {
-                    if (field.Text.ToString().Length != 10 || field.Text.ToString().Length != 11)
+                    if (field.Text.ToString().Length != 9 || field.Text.ToString().Length != 10)
                     {
                         errors.Append("Your mobile number must be 10 or 11 digits long, e.g. 0271234567 or 02298765432.\n");
                     }
@@ -112,7 +112,7 @@ namespace attfire1_assignment2
         }
 
         //This method uses an inbuilt system component to check
-        //if an email address is of a valid format. The methos was 
+        //if an email address is of a valid format. The method was 
         //sourced from http://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp
         public bool IsValidEmail(string email)
         {

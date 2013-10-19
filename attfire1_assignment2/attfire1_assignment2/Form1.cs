@@ -8,7 +8,7 @@ namespace attfire1_assignment2
     public partial class Form1 : Form
     {
 
-        StringBuilder formErrors;
+        StringBuilder formErrors = new StringBuilder();
         Utilities formUtilities = new Utilities();
 
         public Form1()
