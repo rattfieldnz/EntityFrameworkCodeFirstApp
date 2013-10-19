@@ -119,7 +119,20 @@ namespace attfire1_assignment2
             */
         private void submitUpdateBtn_Click(object sender, EventArgs e)
         {
-            formUtilities.
+            formUtilities.checkFieldNullLengths(firstNameField, formErrors);
+            formUtilities.checkFieldNullLengths(lastNameField, formErrors);
+            formUtilities.numericFieldsCheck(ageField, formErrors);
+            formUtilities.checkFieldNullLengths(streetAddressField, formErrors);
+            formUtilities.checkFieldNullLengths(suburbField, formErrors);
+            formUtilities.numericFieldsCheck(postCodeField, formErrors);
+            formUtilities.checkFieldNullLengths(studentTownOrCityField, formErrors);
+            formUtilities.phoneNumberValidation(landlinePhoneField, formErrors);
+            formUtilities.phoneNumberValidation(mobilePhoneField, formErrors);
+            formUtilities.validateEmailField(emailAddressField, formErrors);
+            formUtilities.numericFieldsCheck(lessonFeesOwedField, formErrors);
+            formUtilities.numericFieldsCheck(instrumentFeesOwedField, formErrors);
+            formUtilities.numericFieldsCheck(totalFeesOwedField, formErrors);
+
             using (var db = new MusicClassesContext())
                 {
                     //Creating new Address object - using the appropriate form inputs

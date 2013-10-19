@@ -97,7 +97,7 @@ namespace attfire1_assignment2
             {
                 if (field.Text.ToString().Length == 0)
                 {
-                    errors.Append("A amount for lesson fees, instrument fees, and total fees owed.\n");
+                    errors.Append("An amount for lesson fees, instrument fees, and total fees owed must be entered.\n");
                 }
                 else
                 {
