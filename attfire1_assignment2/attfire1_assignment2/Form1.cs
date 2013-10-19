@@ -17,7 +17,7 @@ namespace attfire1_assignment2
         public Form1()
         {
             InitializeComponent();
-
+            StringBuilder formErrors;
             
             using (var db = new MusicClassesContext())
             {
@@ -80,39 +80,39 @@ namespace attfire1_assignment2
 
         //A method to validate the Age input field - in the Student Records pane.
         //Thanks to the following link for helping me - http://www.dotnetperls.com/textchanged
-        private void ageField_TextChanged(object sender, EventArgs e)
-        {
-            //Creating String variable of Age field input
-            string ageFieldInput = ageField.Text;
+        //private void ageField_TextChanged(object sender, EventArgs e)
+        //{
+        //    //Creating String variable of Age field input
+        //    string ageFieldInput = ageField.Text;
 
-            //Checking if input for age is a number...
-            if (Regex.IsMatch(ageFieldInput, @"^\d+$") == false)
-            {
-                //... if not, show user appripriate message in dialogue box
-                MessageBox.Show("The age field must be an integer, e.g. 23, 5, 11, 32");
-            }
-            //Check if parsed integer input is less than 5, and display appropriate
-            //message in dialogue box
-            else if (int.Parse(ageFieldInput) < 5)
-            {
-                MessageBox.Show("The student must be 5 years old, or older, to enrol in lessons.");
-            }
+        //    //Checking if input for age is a number...
+        //    if (Regex.IsMatch(ageFieldInput, @"^\d+$") == false)
+        //    {
+        //        //... if not, show user appripriate message in dialogue box
+        //        MessageBox.Show("The age field must be an integer, e.g. 23, 5, 11, 32");
+        //    }
+        //    //Check if parsed integer input is less than 5, and display appropriate
+        //    //message in dialogue box
+        //    else if (int.Parse(ageFieldInput) < 5)
+        //    {
+        //        MessageBox.Show("The student must be 5 years old, or older, to enrol in lessons.");
+        //    }
 
-        }
+        //}
 
         //A method to validate the Postcode input field - in the Student Records pane.
-        private void postCodeField_TextChanged(object sender, EventArgs e)
-        {
-            //Creating String variable of Postcode field input
-            string postCodeFieldInput = postCodeField.Text;
+        //private void postCodeField_TextChanged(object sender, EventArgs e)
+        //{
+        //    //Creating String variable of Postcode field input
+        //    string postCodeFieldInput = postCodeField.Text;
 
-            //Checking if input for Postcode is a number...
-            if (Regex.IsMatch(postCodeFieldInput, @"^\d+$") == false)
-            {
-                //... if not, show user appripriate message in dialogue box
-                MessageBox.Show("The Postcode field must be an integer, e.g. 9012, 9510, 9077, 9092");
-            }
-        }
+        //    //Checking if input for Postcode is a number...
+        //    if (Regex.IsMatch(postCodeFieldInput, @"^\d+$") == false)
+        //    {
+        //        //... if not, show user appripriate message in dialogue box
+        //        MessageBox.Show("The Postcode field must be an integer, e.g. 9012, 9510, 9077, 9092");
+        //    }
+        //}
 
         /**
          * <summary>
