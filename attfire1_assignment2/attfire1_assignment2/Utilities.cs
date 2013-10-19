@@ -110,5 +110,37 @@ namespace attfire1_assignment2
                 }
             }
         }
+
+        //This method uses an inbuilt system component to check
+        //if an email address is of a valid format. The methos was 
+        //sourced from http://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp
+        public bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mail = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        //This method checks if the email address is in a valid format.
+        public void validateEmailField(System.Windows.Forms.TextBox field, StringBuilder errors)
+        {
+            if (field.Text.ToString().Length == 0)
+            {
+                checkFieldNullLengths(field, errors);
+            }
+            else
+            {
+                if (IsValidEmail(field.Text.ToString()) == false)
+                {
+                    errors.Append("The email address entered in the '" + field + "' isn't valid. Example is someone@somewhere.com.\n");
+                }
+            }
+        }
     }
 }
