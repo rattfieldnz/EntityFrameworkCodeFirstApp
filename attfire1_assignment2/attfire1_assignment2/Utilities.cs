@@ -142,5 +142,15 @@ namespace attfire1_assignment2
                 }
             }
         }
+
+        //This method is used to check if a value has been selected
+        //from a dropdown (combobox) box.
+        public void checkDropdownBox(System.Windows.Forms.ComboBox dropdown, StringBuilder errors)
+        {
+            if (string.IsNullOrEmpty(dropdown.Text))
+            {
+                errors.Append("You must select a value from the '" + dropdown + "' dropdown box.");
+            }
+        }
     }
 }
