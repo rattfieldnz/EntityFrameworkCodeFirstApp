@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,13 @@ namespace attfire1_assignment2
         public Form1()
         {
             InitializeComponent();
-            
             using (var db = new MusicClassesContext())
             {
                 //inserting tutor names in tutor dropdown box in Lesson Records tab
                 var tutors = (from p in db.Person
-                                join t in db.Tutor
-                                on p.PersonId equals t.PersonPersonId
-                                select (p.FirstName + " " + p.LastName));
+                              join t in db.Tutor
+                              on p.PersonId equals t.PersonPersonId
+                              select (p.FirstName + " " + p.LastName));
 
                 foreach (string tutor in tutors)
                 {
@@ -31,17 +31,17 @@ namespace attfire1_assignment2
 
                 //inserting lessons in lesson dropdown box in Student and Tutor Records tab
                 var lessons = from l in db.Lesson
-                                select l.LessonName;
+                              select l.LessonName;
 
                 foreach (string l in lessons)
                 {
-                    lessonDropdownBox.Items.Add(l);
+                    lessonDropdownBox.Items.Add(l.ToString());
                     lessonsToTeachListbox.Items.Add(l);
                 }
 
                 //inserting instruments in instrument dropdown box in Student Records tab
                 var instruments = from i in db.Instrument
-                                    select i.InstrumentName;
+                                  select i.InstrumentName;
 
                 foreach (string i in instruments)
                 {
@@ -61,7 +61,7 @@ namespace attfire1_assignment2
 
                 //inserting sheetmusic items in sheetmusic listbox in Tutor and Student Records tab
                 var sheetMusicItems = from sm in db.SheetMusic
-                                        select sm.Title;
+                                      select sm.Title;
                 foreach (string sm in sheetMusicItems)
                 {
                     tutorSheetMusicListbox.Items.Add(sm);
@@ -72,44 +72,10 @@ namespace attfire1_assignment2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // TODO: This line of code loads data into the '_attfire1_assignment2_MusicClassesContextDataSet4.Lessons' table. You can move, or remove it, as needed.
+            this.lessonsTableAdapter.Fill(this._attfire1_assignment2_MusicClassesContextDataSet4.Lessons);
+
         }
-
-        //A method to validate the Age input field - in the Student Records pane.
-        //Thanks to the following link for helping me - http://www.dotnetperls.com/textchanged
-        //private void ageField_TextChanged(object sender, EventArgs e)
-        //{
-        //    //Creating String variable of Age field input
-        //    string ageFieldInput = ageField.Text;
-
-        //    //Checking if input for age is a number...
-        //    if (Regex.IsMatch(ageFieldInput, @"^\d+$") == false)
-        //    {
-        //        //... if not, show user appripriate message in dialogue box
-        //        MessageBox.Show("The age field must be an integer, e.g. 23, 5, 11, 32");
-        //    }
-        //    //Check if parsed integer input is less than 5, and display appropriate
-        //    //message in dialogue box
-        //    else if (int.Parse(ageFieldInput) < 5)
-        //    {
-        //        MessageBox.Show("The student must be 5 years old, or older, to enrol in lessons.");
-        //    }
-
-        //}
-
-        //A method to validate the Postcode input field - in the Student Records pane.
-        //private void postCodeField_TextChanged(object sender, EventArgs e)
-        //{
-        //    //Creating String variable of Postcode field input
-        //    string postCodeFieldInput = postCodeField.Text;
-
-        //    //Checking if input for Postcode is a number...
-        //    if (Regex.IsMatch(postCodeFieldInput, @"^\d+$") == false)
-        //    {
-        //        //... if not, show user appripriate message in dialogue box
-        //        MessageBox.Show("The Postcode field must be an integer, e.g. 9012, 9510, 9077, 9092");
-        //    }
-        //}
 
 
         /**
@@ -361,11 +327,64 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
-                DataTable studentRecordsTable = new DataTable("studentRecords");
+                ////////////////////////////////////////////////////////////////////
+                // The query which retrieves appropriate student records, namely: //
+                //                                                                //
+                // - Student's first name                                         //
+                // - Student's last name                                          //
+                // - The student's age                                            //
+                // - The student's suburb and town/city details                   //
+                // - The name of the lesson the student is taking                 //
+                // - The name of the instrument the student is learning           //
+                // - The amount of lesson fees the student owes                   //
+                // - The amount of instrument fees the student owes               //
+                // - The total amount of fees the student owes                    //
+                ////////////////////////////////////////////////////////////////////
+                var studentRecordsQuery = from p in db.Person
+                                              join s in db.Student on p.PersonId equals s.PersonPersonId
+                                              join sl in db.StudentLesson on s.StudentId equals sl.StudentStudentId
+                                              join l in db.Lesson on sl.LessonLessonId equals l.LessonId
+                                              join a in db.Address on p.AddressAddressId equals a.AddressId
+                                              join i in db.Instrument on s.InstrumentInstrumentId equals i.InstrumentId
+                                              select new
+                                              {
+                                                  s.StudentId,
+                                                  p.FirstName,
+                                                  p.LastName,
+                                                  s.Age,
+                                                  a.Suburb,
+                                                  a.TownOrCity,
+                                                  l.LessonName,
+                                                  i.InstrumentName,
+                                                  s.LessonFeesOwed,
+                                                  s.InstrumentFeesOwed,
+                                                  TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
+                                              };
 
-
-
+                DataGridViewRow rw = new DataGridViewRow();
+                studentRecordsView.Rows.Clear();
+                rw.CreateCells(studentRecordsView);
+                foreach (var s in studentRecordsQuery)
+                {
+                    rw.Cells[0].Value = s.StudentId;
+                    rw.Cells[1].Value = s.FirstName;
+                    rw.Cells[2].Value = s.LastName;
+                    rw.Cells[3].Value = s.Age;
+                    rw.Cells[4].Value = s.Suburb;
+                    rw.Cells[5].Value = s.TownOrCity;
+                    rw.Cells[6].Value = s.LessonName;
+                    rw.Cells[7].Value = s.InstrumentName;
+                    rw.Cells[8].Value = s.LessonFeesOwed;
+                    rw.Cells[9].Value = s.InstrumentFeesOwed;
+                    rw.Cells[10].Value = s.TotalFeesOwed;
+                }
+                studentRecordsView.Rows.Add(rw);
             }
+        }
+
+        private void studentRecordsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
