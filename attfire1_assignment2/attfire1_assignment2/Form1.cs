@@ -15,14 +15,14 @@ namespace attfire1_assignment2
         public Form1()
         {
             InitializeComponent();
-            
+
             using (var db = new MusicClassesContext())
             {
                 //inserting tutor names in tutor dropdown box in Lesson Records tab
                 var tutors = (from p in db.Person
-                                join t in db.Tutor
-                                on p.PersonId equals t.PersonPersonId
-                                select (p.FirstName + " " + p.LastName));
+                              join t in db.Tutor
+                              on p.PersonId equals t.PersonPersonId
+                              select (p.FirstName + " " + p.LastName));
 
                 foreach (string tutor in tutors)
                 {
@@ -31,7 +31,7 @@ namespace attfire1_assignment2
 
                 //inserting lessons in lesson dropdown box in Student and Tutor Records tab
                 var lessons = from l in db.Lesson
-                                select l.LessonName;
+                              select l.LessonName;
 
                 foreach (string l in lessons)
                 {
@@ -41,7 +41,7 @@ namespace attfire1_assignment2
 
                 //inserting instruments in instrument dropdown box in Student Records tab
                 var instruments = from i in db.Instrument
-                                    select i.InstrumentName;
+                                  select i.InstrumentName;
 
                 foreach (string i in instruments)
                 {
@@ -61,7 +61,7 @@ namespace attfire1_assignment2
 
                 //inserting sheetmusic items in sheetmusic listbox in Tutor and Student Records tab
                 var sheetMusicItems = from sm in db.SheetMusic
-                                        select sm.Title;
+                                      select sm.Title;
                 foreach (string sm in sheetMusicItems)
                 {
                     tutorSheetMusicListbox.Items.Add(sm);
@@ -72,7 +72,7 @@ namespace attfire1_assignment2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         //A method to validate the Age input field - in the Student Records pane.
@@ -361,10 +361,77 @@ namespace attfire1_assignment2
         {
             using (var db = new MusicClassesContext())
             {
-                DataTable studentRecordsTable = new DataTable("studentRecords");
+                ////////////////////////////////////////////////////////////////////
+                // The query which retrieves appropriate student records, namely: //
+                //                                                                //
+                // - Student's first name                                         //
+                // - Student's last name                                          //
+                // - The student's age                                            //
+                // - The student's suburb and town/city details                   //
+                // - The name of the lesson the student is taking                 //
+                // - The name of the instrument the student is learning           //
+                // - The amount of lesson fees the student owes                   //
+                // - The amount of instrument fees the student owes               //
+                // - The total amount of fees the student owes                    //
+                ////////////////////////////////////////////////////////////////////
+                if (showStudentsByDropdown.SelectedItem != null)
+                {
+                    var studentRecordsQuery = from p in db.Person
+                                              join s in db.Student on p.PersonId equals s.PersonPersonId
+                                              join sl in db.StudentLesson on s.StudentId equals sl.StudentStudentId
+                                              join l in db.Lesson on sl.LessonLessonId equals l.LessonId
+                                              join a in db.Address on p.AddressAddressId equals a.AddressId
+                                              join i in db.Instrument on s.InstrumentInstrumentId equals i.InstrumentId
+                                              orderby showStudentsByDropdown.SelectedItem
+                                              select new
+                                              {
+                                                  s.StudentId,
+                                                  p.FirstName,
+                                                  p.LastName,
+                                                  s.Age,
+                                                  a.Suburb,
+                                                  a.TownOrCity,
+                                                  l.LessonName,
+                                                  i.InstrumentName,
+                                                  s.LessonFeesOwed,
+                                                  s.InstrumentFeesOwed,
+                                                  TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
+                                              };
 
+                    foreach (var student in studentRecordsQuery)
+                    {
+                        studentRecordsListbox.Items.Add(student);
+                    }
 
+                }
+                else
+                {
+                    var studentRecordsQuery = from p in db.Person
+                                              join s in db.Student on p.PersonId equals s.PersonPersonId
+                                              join sl in db.StudentLesson on s.StudentId equals sl.StudentStudentId
+                                              join l in db.Lesson on sl.LessonLessonId equals l.LessonId
+                                              join a in db.Address on p.AddressAddressId equals a.AddressId
+                                              join i in db.Instrument on s.InstrumentInstrumentId equals i.InstrumentId
+                                              select new
+                                              {
+                                                  s.StudentId,
+                                                  p.FirstName,
+                                                  p.LastName,
+                                                  s.Age,
+                                                  a.Suburb,
+                                                  a.TownOrCity,
+                                                  l.LessonName,
+                                                  i.InstrumentName,
+                                                  s.LessonFeesOwed,
+                                                  s.InstrumentFeesOwed,
+                                                  TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
+                                              };
 
+                    foreach (var student in studentRecordsQuery)
+                    {
+                        studentRecordsListbox.Items.Add(student);
+                    }
+                }
             }
         }
     }
