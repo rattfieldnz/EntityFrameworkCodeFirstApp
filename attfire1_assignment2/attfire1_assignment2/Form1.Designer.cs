@@ -36,16 +36,30 @@ namespace attfire1_assignment2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainTabGroup = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.displayStudentRecords = new System.Windows.Forms.Panel();
+            this.studentRecordsView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Suburb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TownCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LessonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstrumentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LessonFeesOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstrumentFeesOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalFeesOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showStudentsBtn = new System.Windows.Forms.Button();
             this.editStudentBtn = new System.Windows.Forms.Button();
             this.editStudentLabel = new System.Windows.Forms.Label();
             this.editStudentDropdown = new System.Windows.Forms.ComboBox();
             this.showStudentRecordsLabel = new System.Windows.Forms.Label();
             this.addUpdateStudent = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.sheetMusicListBox = new System.Windows.Forms.ListBox();
             this.submitUpdateBtn = new System.Windows.Forms.Button();
             this.totalFeesOwedField = new System.Windows.Forms.TextBox();
@@ -286,21 +300,13 @@ namespace attfire1_assignment2
             this.lessonNameLabel = new System.Windows.Forms.Label();
             this.addUpdateLessonRecordsLabel = new System.Windows.Forms.Label();
             this.mainBannerLogo = new System.Windows.Forms.PictureBox();
-            this.studentRecordsView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suburb = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TownCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LessonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InstrumentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LessonFeesOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InstrumentFeesOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalFeesOwed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._attfire1_assignment2_MusicClassesContextDataSet4 = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet4();
+            this.lessonsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lessonsTableAdapter = new attfire1_assignment2._attfire1_assignment2_MusicClassesContextDataSet4TableAdapters.LessonsTableAdapter();
             this.mainTabGroup.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.displayStudentRecords.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentRecordsView)).BeginInit();
             this.addUpdateStudent.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -323,7 +329,8 @@ namespace attfire1_assignment2
             this.panel7.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBannerLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentRecordsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lessonsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabGroup
@@ -369,6 +376,97 @@ namespace attfire1_assignment2
             this.displayStudentRecords.Name = "displayStudentRecords";
             this.displayStudentRecords.Size = new System.Drawing.Size(588, 553);
             this.displayStudentRecords.TabIndex = 1;
+            // 
+            // studentRecordsView
+            // 
+            this.studentRecordsView.AllowUserToAddRows = false;
+            this.studentRecordsView.AllowUserToDeleteRows = false;
+            this.studentRecordsView.AllowUserToOrderColumns = true;
+            this.studentRecordsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentRecordsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.FirstName,
+            this.LastName,
+            this.Age,
+            this.Suburb,
+            this.TownCity,
+            this.LessonName,
+            this.InstrumentName,
+            this.LessonFeesOwed,
+            this.InstrumentFeesOwed,
+            this.TotalFeesOwed});
+            this.studentRecordsView.Location = new System.Drawing.Point(3, 40);
+            this.studentRecordsView.Name = "studentRecordsView";
+            this.studentRecordsView.ReadOnly = true;
+            this.studentRecordsView.Size = new System.Drawing.Size(580, 476);
+            this.studentRecordsView.TabIndex = 9;
+            this.studentRecordsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentRecordsView_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // Age
+            // 
+            this.Age.HeaderText = "Age";
+            this.Age.Name = "Age";
+            this.Age.ReadOnly = true;
+            // 
+            // Suburb
+            // 
+            this.Suburb.HeaderText = "Suburb";
+            this.Suburb.Name = "Suburb";
+            this.Suburb.ReadOnly = true;
+            // 
+            // TownCity
+            // 
+            this.TownCity.HeaderText = "Town or City";
+            this.TownCity.Name = "TownCity";
+            this.TownCity.ReadOnly = true;
+            // 
+            // LessonName
+            // 
+            this.LessonName.HeaderText = "Lesson Name";
+            this.LessonName.Name = "LessonName";
+            this.LessonName.ReadOnly = true;
+            // 
+            // InstrumentName
+            // 
+            this.InstrumentName.HeaderText = "Instrument Name";
+            this.InstrumentName.Name = "InstrumentName";
+            this.InstrumentName.ReadOnly = true;
+            // 
+            // LessonFeesOwed
+            // 
+            this.LessonFeesOwed.HeaderText = "Lesson Fees Owed";
+            this.LessonFeesOwed.Name = "LessonFeesOwed";
+            this.LessonFeesOwed.ReadOnly = true;
+            // 
+            // InstrumentFeesOwed
+            // 
+            this.InstrumentFeesOwed.HeaderText = "Instrument Fees Owed";
+            this.InstrumentFeesOwed.Name = "InstrumentFeesOwed";
+            this.InstrumentFeesOwed.ReadOnly = true;
+            // 
+            // TotalFeesOwed
+            // 
+            this.TotalFeesOwed.HeaderText = "Total Fees Owed";
+            this.TotalFeesOwed.Name = "TotalFeesOwed";
+            this.TotalFeesOwed.ReadOnly = true;
             // 
             // showStudentsBtn
             // 
@@ -426,6 +524,7 @@ namespace attfire1_assignment2
             // addUpdateStudent
             // 
             this.addUpdateStudent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addUpdateStudent.Controls.Add(this.button9);
             this.addUpdateStudent.Controls.Add(this.sheetMusicListBox);
             this.addUpdateStudent.Controls.Add(this.submitUpdateBtn);
             this.addUpdateStudent.Controls.Add(this.totalFeesOwedField);
@@ -466,6 +565,15 @@ namespace attfire1_assignment2
             this.addUpdateStudent.Name = "addUpdateStudent";
             this.addUpdateStudent.Size = new System.Drawing.Size(368, 553);
             this.addUpdateStudent.TabIndex = 0;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(218, 8);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 37;
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // sheetMusicListBox
             // 
@@ -2971,95 +3079,19 @@ namespace attfire1_assignment2
             this.mainBannerLogo.TabIndex = 1;
             this.mainBannerLogo.TabStop = false;
             // 
-            // studentRecordsView
+            // _attfire1_assignment2_MusicClassesContextDataSet4
             // 
-            this.studentRecordsView.AllowUserToAddRows = false;
-            this.studentRecordsView.AllowUserToDeleteRows = false;
-            this.studentRecordsView.AllowUserToOrderColumns = true;
-            this.studentRecordsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.studentRecordsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.FirstName,
-            this.LastName,
-            this.Age,
-            this.Suburb,
-            this.TownCity,
-            this.LessonName,
-            this.InstrumentName,
-            this.LessonFeesOwed,
-            this.InstrumentFeesOwed,
-            this.TotalFeesOwed});
-            this.studentRecordsView.Location = new System.Drawing.Point(3, 40);
-            this.studentRecordsView.Name = "studentRecordsView";
-            this.studentRecordsView.ReadOnly = true;
-            this.studentRecordsView.Size = new System.Drawing.Size(580, 476);
-            this.studentRecordsView.TabIndex = 9;
+            this._attfire1_assignment2_MusicClassesContextDataSet4.DataSetName = "_attfire1_assignment2_MusicClassesContextDataSet4";
+            this._attfire1_assignment2_MusicClassesContextDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ID
+            // lessonsBindingSource
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
+            this.lessonsBindingSource.DataMember = "Lessons";
+            this.lessonsBindingSource.DataSource = this._attfire1_assignment2_MusicClassesContextDataSet4;
             // 
-            // FirstName
+            // lessonsTableAdapter
             // 
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // Age
-            // 
-            this.Age.HeaderText = "Age";
-            this.Age.Name = "Age";
-            this.Age.ReadOnly = true;
-            // 
-            // Suburb
-            // 
-            this.Suburb.HeaderText = "Suburb";
-            this.Suburb.Name = "Suburb";
-            this.Suburb.ReadOnly = true;
-            // 
-            // TownCity
-            // 
-            this.TownCity.HeaderText = "Town or City";
-            this.TownCity.Name = "TownCity";
-            this.TownCity.ReadOnly = true;
-            // 
-            // LessonName
-            // 
-            this.LessonName.HeaderText = "Lesson Name";
-            this.LessonName.Name = "LessonName";
-            this.LessonName.ReadOnly = true;
-            // 
-            // InstrumentName
-            // 
-            this.InstrumentName.HeaderText = "Instrument Name";
-            this.InstrumentName.Name = "InstrumentName";
-            this.InstrumentName.ReadOnly = true;
-            // 
-            // LessonFeesOwed
-            // 
-            this.LessonFeesOwed.HeaderText = "Lesson Fees Owed";
-            this.LessonFeesOwed.Name = "LessonFeesOwed";
-            this.LessonFeesOwed.ReadOnly = true;
-            // 
-            // InstrumentFeesOwed
-            // 
-            this.InstrumentFeesOwed.HeaderText = "Instrument Fees Owed";
-            this.InstrumentFeesOwed.Name = "InstrumentFeesOwed";
-            this.InstrumentFeesOwed.ReadOnly = true;
-            // 
-            // TotalFeesOwed
-            // 
-            this.TotalFeesOwed.HeaderText = "Total Fees Owed";
-            this.TotalFeesOwed.Name = "TotalFeesOwed";
-            this.TotalFeesOwed.ReadOnly = true;
+            this.lessonsTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -3079,6 +3111,7 @@ namespace attfire1_assignment2
             this.tabPage1.ResumeLayout(false);
             this.displayStudentRecords.ResumeLayout(false);
             this.displayStudentRecords.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentRecordsView)).EndInit();
             this.addUpdateStudent.ResumeLayout(false);
             this.addUpdateStudent.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -3116,7 +3149,8 @@ namespace attfire1_assignment2
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBannerLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentRecordsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._attfire1_assignment2_MusicClassesContextDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lessonsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3384,6 +3418,10 @@ namespace attfire1_assignment2
         private System.Windows.Forms.DataGridViewTextBoxColumn LessonFeesOwed;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstrumentFeesOwed;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFeesOwed;
+        private _attfire1_assignment2_MusicClassesContextDataSet4 _attfire1_assignment2_MusicClassesContextDataSet4;
+        private System.Windows.Forms.BindingSource lessonsBindingSource;
+        private _attfire1_assignment2_MusicClassesContextDataSet4TableAdapters.LessonsTableAdapter lessonsTableAdapter;
+        private System.Windows.Forms.Button button9;
     }
 }
 

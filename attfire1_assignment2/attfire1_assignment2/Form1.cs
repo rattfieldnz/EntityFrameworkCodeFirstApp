@@ -35,7 +35,7 @@ namespace attfire1_assignment2
 
                 foreach (string l in lessons)
                 {
-                    lessonDropdownBox.Items.Add(l);
+                    lessonDropdownBox.Items.Add(l.ToString());
                     lessonsToTeachListbox.Items.Add(l);
                 }
 
@@ -72,44 +72,10 @@ namespace attfire1_assignment2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_attfire1_assignment2_MusicClassesContextDataSet4.Lessons' table. You can move, or remove it, as needed.
+            this.lessonsTableAdapter.Fill(this._attfire1_assignment2_MusicClassesContextDataSet4.Lessons);
 
         }
-
-        //A method to validate the Age input field - in the Student Records pane.
-        //Thanks to the following link for helping me - http://www.dotnetperls.com/textchanged
-        //private void ageField_TextChanged(object sender, EventArgs e)
-        //{
-        //    //Creating String variable of Age field input
-        //    string ageFieldInput = ageField.Text;
-
-        //    //Checking if input for age is a number...
-        //    if (Regex.IsMatch(ageFieldInput, @"^\d+$") == false)
-        //    {
-        //        //... if not, show user appripriate message in dialogue box
-        //        MessageBox.Show("The age field must be an integer, e.g. 23, 5, 11, 32");
-        //    }
-        //    //Check if parsed integer input is less than 5, and display appropriate
-        //    //message in dialogue box
-        //    else if (int.Parse(ageFieldInput) < 5)
-        //    {
-        //        MessageBox.Show("The student must be 5 years old, or older, to enrol in lessons.");
-        //    }
-
-        //}
-
-        //A method to validate the Postcode input field - in the Student Records pane.
-        //private void postCodeField_TextChanged(object sender, EventArgs e)
-        //{
-        //    //Creating String variable of Postcode field input
-        //    string postCodeFieldInput = postCodeField.Text;
-
-        //    //Checking if input for Postcode is a number...
-        //    if (Regex.IsMatch(postCodeFieldInput, @"^\d+$") == false)
-        //    {
-        //        //... if not, show user appripriate message in dialogue box
-        //        MessageBox.Show("The Postcode field must be an integer, e.g. 9012, 9510, 9077, 9092");
-        //    }
-        //}
 
 
         /**
@@ -395,7 +361,6 @@ namespace attfire1_assignment2
                                                   TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
                                               };
 
-                List<StudentRecordsItem> students = new List<StudentRecordsItem>();
                 DataGridViewRow rw = new DataGridViewRow();
                 studentRecordsView.Rows.Clear();
                 rw.CreateCells(studentRecordsView);
@@ -414,24 +379,12 @@ namespace attfire1_assignment2
                     rw.Cells[10].Value = s.TotalFeesOwed;
                 }
                 studentRecordsView.Rows.Add(rw);
-
-                //for (int i = 0; i < students.Count(); i++)
-                //{
-                //    //DataGridViewRow rw = new DataGridViewRow();
-                //    rw.CreateCells(studentRecordsView);
-                //    rw.Cells[i].Value = students[i].StudentId;
-                //    rw.Cells[i].Value = students[i].FirstName;
-                //    rw.Cells[i].Value = students[i].LastName;
-                //    rw.Cells[i].Value = students[i].Age;
-                //    rw.Cells[i].Value = students[i].Suburb;
-                //    rw.Cells[i].Value = students[i].TownOrCity;
-                //    rw.Cells[i].Value = students[i].LessonName;
-                //    rw.Cells[i].Value = students[i].InstrumentName;
-                //    rw.Cells[i].Value = students[i].LessonFeesOwed;
-                //    rw.Cells[i].Value = students[i].InstrumentFeesOwed;
-                //    studentRecordsView.Rows.Add(rw);
-                //}
             }
+        }
+
+        private void studentRecordsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
