@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -359,6 +360,7 @@ namespace attfire1_assignment2
 
         private void showStudentsBtn_Click(object sender, EventArgs e)
         {
+            studentRecordsListbox.Items.Clear();
             using (var db = new MusicClassesContext())
             {
                 ////////////////////////////////////////////////////////////////////
@@ -374,7 +376,7 @@ namespace attfire1_assignment2
                 // - The amount of instrument fees the student owes               //
                 // - The total amount of fees the student owes                    //
                 ////////////////////////////////////////////////////////////////////
-                if (showStudentsByDropdown.SelectedItem != null)
+                if (showStudentsByDropdown.SelectedText.Length != 0)
                 {
                     var studentRecordsQuery = from p in db.Person
                                               join s in db.Student on p.PersonId equals s.PersonPersonId
@@ -398,9 +400,27 @@ namespace attfire1_assignment2
                                                   TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
                                               };
 
-                    foreach (var student in studentRecordsQuery)
+                    List<StudentRecordsItem> students = new List<StudentRecordsItem>();
+
+                    foreach (var s in studentRecordsQuery)
                     {
-                        studentRecordsListbox.Items.Add(student);
+                        StudentRecordsItem student = new StudentRecordsItem(s.StudentId,
+                                                            s.FirstName,
+                                                            s.LastName,
+                                                            s.Age,
+                                                            s.Suburb,
+                                                            s.TownOrCity,
+                                                            s.LessonName,
+                                                            s.InstrumentName,
+                                                            s.LessonFeesOwed,
+                                                            s.InstrumentFeesOwed,
+                                                            s.TotalFeesOwed);
+                        students.Add(student);
+                    }
+
+                    foreach (var s in students)
+                    {
+                        studentRecordsListbox.Items.Add(s);
                     }
 
                 }
@@ -427,9 +447,27 @@ namespace attfire1_assignment2
                                                   TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
                                               };
 
-                    foreach (var student in studentRecordsQuery)
+                    List<StudentRecordsItem> students = new List<StudentRecordsItem>();
+
+                    foreach (var s in studentRecordsQuery)
                     {
-                        studentRecordsListbox.Items.Add(student);
+                        StudentRecordsItem student = new StudentRecordsItem(s.StudentId,
+                                                            s.FirstName,
+                                                            s.LastName,
+                                                            s.Age,
+                                                            s.Suburb,
+                                                            s.TownOrCity,
+                                                            s.LessonName,
+                                                            s.InstrumentName,
+                                                            s.LessonFeesOwed,
+                                                            s.InstrumentFeesOwed, 
+                                                            s.TotalFeesOwed);
+                        students.Add(student);
+                    }
+
+                    foreach (var s in students)
+                    {
+                        studentRecordsListbox.Items.Add(s);
                     }
                 }
             }

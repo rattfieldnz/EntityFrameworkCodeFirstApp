@@ -88,6 +88,7 @@
     <Compile Include="Performance.cs" />
     <Compile Include="PerformanceSheetMusic.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="StudentRecordsItem.cs" />
     <Compile Include="StudentSheetMusic.cs" />
     <Compile Include="PositionsHeld.cs" />
     <Compile Include="Program.cs" />
