@@ -16,7 +16,6 @@ namespace attfire1_assignment2
         public Form1()
         {
             InitializeComponent();
-
             using (var db = new MusicClassesContext())
             {
                 //inserting tutor names in tutor dropdown box in Lesson Records tab
@@ -360,7 +359,6 @@ namespace attfire1_assignment2
 
         private void showStudentsBtn_Click(object sender, EventArgs e)
         {
-            studentRecordsListbox.Items.Clear();
             using (var db = new MusicClassesContext())
             {
                 ////////////////////////////////////////////////////////////////////
@@ -376,57 +374,7 @@ namespace attfire1_assignment2
                 // - The amount of instrument fees the student owes               //
                 // - The total amount of fees the student owes                    //
                 ////////////////////////////////////////////////////////////////////
-                if (showStudentsByDropdown.SelectedText.Length != 0)
-                {
-                    var studentRecordsQuery = from p in db.Person
-                                              join s in db.Student on p.PersonId equals s.PersonPersonId
-                                              join sl in db.StudentLesson on s.StudentId equals sl.StudentStudentId
-                                              join l in db.Lesson on sl.LessonLessonId equals l.LessonId
-                                              join a in db.Address on p.AddressAddressId equals a.AddressId
-                                              join i in db.Instrument on s.InstrumentInstrumentId equals i.InstrumentId
-                                              orderby showStudentsByDropdown.SelectedItem
-                                              select new
-                                              {
-                                                  s.StudentId,
-                                                  p.FirstName,
-                                                  p.LastName,
-                                                  s.Age,
-                                                  a.Suburb,
-                                                  a.TownOrCity,
-                                                  l.LessonName,
-                                                  i.InstrumentName,
-                                                  s.LessonFeesOwed,
-                                                  s.InstrumentFeesOwed,
-                                                  TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
-                                              };
-
-                    List<StudentRecordsItem> students = new List<StudentRecordsItem>();
-
-                    foreach (var s in studentRecordsQuery)
-                    {
-                        StudentRecordsItem student = new StudentRecordsItem(s.StudentId,
-                                                            s.FirstName,
-                                                            s.LastName,
-                                                            s.Age,
-                                                            s.Suburb,
-                                                            s.TownOrCity,
-                                                            s.LessonName,
-                                                            s.InstrumentName,
-                                                            s.LessonFeesOwed,
-                                                            s.InstrumentFeesOwed,
-                                                            s.TotalFeesOwed);
-                        students.Add(student);
-                    }
-
-                    foreach (var s in students)
-                    {
-                        studentRecordsListbox.Items.Add(s);
-                    }
-
-                }
-                else
-                {
-                    var studentRecordsQuery = from p in db.Person
+                var studentRecordsQuery = from p in db.Person
                                               join s in db.Student on p.PersonId equals s.PersonPersonId
                                               join sl in db.StudentLesson on s.StudentId equals sl.StudentStudentId
                                               join l in db.Lesson on sl.LessonLessonId equals l.LessonId
@@ -447,29 +395,42 @@ namespace attfire1_assignment2
                                                   TotalFeesOwed = s.LessonFeesOwed + s.InstrumentFeesOwed
                                               };
 
-                    List<StudentRecordsItem> students = new List<StudentRecordsItem>();
-
-                    foreach (var s in studentRecordsQuery)
-                    {
-                        StudentRecordsItem student = new StudentRecordsItem(s.StudentId,
-                                                            s.FirstName,
-                                                            s.LastName,
-                                                            s.Age,
-                                                            s.Suburb,
-                                                            s.TownOrCity,
-                                                            s.LessonName,
-                                                            s.InstrumentName,
-                                                            s.LessonFeesOwed,
-                                                            s.InstrumentFeesOwed, 
-                                                            s.TotalFeesOwed);
-                        students.Add(student);
-                    }
-
-                    foreach (var s in students)
-                    {
-                        studentRecordsListbox.Items.Add(s);
-                    }
+                List<StudentRecordsItem> students = new List<StudentRecordsItem>();
+                DataGridViewRow rw = new DataGridViewRow();
+                studentRecordsView.Rows.Clear();
+                rw.CreateCells(studentRecordsView);
+                foreach (var s in studentRecordsQuery)
+                {
+                    rw.Cells[0].Value = s.StudentId;
+                    rw.Cells[1].Value = s.FirstName;
+                    rw.Cells[2].Value = s.LastName;
+                    rw.Cells[3].Value = s.Age;
+                    rw.Cells[4].Value = s.Suburb;
+                    rw.Cells[5].Value = s.TownOrCity;
+                    rw.Cells[6].Value = s.LessonName;
+                    rw.Cells[7].Value = s.InstrumentName;
+                    rw.Cells[8].Value = s.LessonFeesOwed;
+                    rw.Cells[9].Value = s.InstrumentFeesOwed;
+                    rw.Cells[10].Value = s.TotalFeesOwed;
                 }
+                studentRecordsView.Rows.Add(rw);
+
+                //for (int i = 0; i < students.Count(); i++)
+                //{
+                //    //DataGridViewRow rw = new DataGridViewRow();
+                //    rw.CreateCells(studentRecordsView);
+                //    rw.Cells[i].Value = students[i].StudentId;
+                //    rw.Cells[i].Value = students[i].FirstName;
+                //    rw.Cells[i].Value = students[i].LastName;
+                //    rw.Cells[i].Value = students[i].Age;
+                //    rw.Cells[i].Value = students[i].Suburb;
+                //    rw.Cells[i].Value = students[i].TownOrCity;
+                //    rw.Cells[i].Value = students[i].LessonName;
+                //    rw.Cells[i].Value = students[i].InstrumentName;
+                //    rw.Cells[i].Value = students[i].LessonFeesOwed;
+                //    rw.Cells[i].Value = students[i].InstrumentFeesOwed;
+                //    studentRecordsView.Rows.Add(rw);
+                //}
             }
         }
     }
